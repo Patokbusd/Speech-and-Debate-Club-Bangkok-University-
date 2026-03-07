@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
    ใช้โครงสร้างเดียวกับ news.js 100%
    ========================================================= */
 
-import { fetchJSON, formatDate } from "./utils.js"; // ใช้ util เดียวกัน
+import { fetchJSON, formatDate } from "../../../utils.js"; // ใช้ util เดียวกัน
 
 const NEWS_LIMIT = 3; // หน้า Home แสดงแค่ 3 ข่าว
 
@@ -126,7 +126,7 @@ async function init() {
     try {
 
         /* โหลดข่าวจากไฟล์ json */
-        const data = await fetchJSON("./data/news.json");
+        const data = await fetchJSON("../../../data/news.json");
 
         const newsArray = Array.isArray(data) ? data : data.news;
 
