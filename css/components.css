@@ -1,0 +1,120 @@
+/* --------------------------------❗️ components css ❗️--------------------------------- */
+
+
+
+/* =========================================================
+   ❗️วิดีโอ YouTube แนะนำชมรม❗️
+   ========================================================= */
+
+/* Video Embed Section วิดีโอฝังจาก YouTube */
+.video-container {
+  width: 80%; /* ความกว้าง 80% */
+  max-width: 640px; /* ไม่เกิน 640px */
+  margin: 100px auto; /* เว้นระยะบนล่าง และจัดกลาง */
+  aspect-ratio: 16 / 9; /* อัตราส่วนวิดีโอ */
+  position: relative; /* สำหรับซ้อน iframe */
+}
+
+/* ปรับ iframe ให้ครอบคลุม */
+.video-container iframe {
+  position: absolute; /* ซ้อนแบบเต็มพื้นที่ */
+  width: 100%;
+  height: 100%;
+  border: none; /* ไม่มีกรอบ */
+}
+
+
+
+/* =========================================================
+   ❗️Overlay มืดทั่วหน้าเมื่อเปิดเมนู❗️
+   ========================================================= */
+
+#overlay {
+  position: fixed; /* กำหนดตำแหน่งให้คงที่ทั่วหน้า */
+  top: 0; /* ติดขอบบนของหน้าจอ */
+  left: 0; /* ติดขอบซ้ายของหน้าจอ */
+  width: 100%; /* ความกว้างเต็มหน้าจอ */
+  height: 100%; /* ความสูงเต็มหน้าจอ */
+  background: rgba(0, 0, 0, 0.6); /* พื้นหลังดำโปร่ง 60% */
+  z-index: 50; /* อยู่ต่ำกว่าเมนู (เมนู z-index = 100) แต่เหนือเนื้อหาทั่วไป */
+  display: none; /* ซ่อนไว้โดยค่าเริ่มต้น */
+  backdrop-filter: blur(2px); /* เบลอพื้นหลังเบาๆ (เฉพาะเบราว์เซอร์ที่รองรับ) */
+}
+
+/* แสดง overlay เมื่อ active class ถูกเพิ่ม */
+#overlay.active {
+  display: block; /* แสดง overlay */
+}
+
+
+
+/* =========================================================
+   ❗️เบลอพื้นหลังวิดีโอเมื่อเมนูเปิด❗️
+   ========================================================= */
+
+body.menu-open #bgVideo {
+  filter: blur(5px); /* เบลอวิดีโอพื้นหลัง 5px */
+  transition: filter 0.3s ease; /* ใส่ transition เพื่อให้เบลอลื่นไหล */
+}
+
+/* ปุ่ม Hamburger */
+.hamburger {
+  display: none; /* ซ่อนปุ่มโดยค่าเริ่มต้น (จะเปิดผ่าน media query) */
+  flex-direction: column; /* จัดแถบในแนวตั้ง */
+  justify-content: space-between; /* เว้นช่องว่างระหว่างแถบ */
+  width: 28px; /* ความกว้างของปุ่ม */
+  height: 22px; /* ความสูงของปุ่ม */
+  cursor: pointer; /* เปลี่ยนเมาส์เป็น pointer เมื่อนำไปชี้ */
+  z-index: 101; /* ให้อยู่เหนือเมนู (.menu มี z-index 100) */
+}
+
+/* แถบแต่ละเส้นใน Hamburger */
+.hamburger span {
+  display: block; /* แสดงเป็นบล็อก */
+  height: 3px; /* ความหนาแต่ละแถบ */
+  background: white; /* สีของแถบ */
+  border-radius: 2px; /* มุมโค้งเล็กน้อย */
+  transition: all 0.3s ease; /* ใส่เอฟเฟกต์เวลามีการแปลง */
+}
+
+/* เพิ่มเอฟเฟกต์เรืองแสงเล็กน้อยตอน hover */
+.hamburger:hover span { /* ตอน hover */
+  background: #ffcc00; /* สีเหลือง */
+  box-shadow: 0 0 6px rgba(255, 204, 0, 0.6); /* เรืองแสงสีเหลืองบาง ๆ */
+}
+
+/* แปลงเป็นเครื่องหมาย X เมื่อคลิก (active) */
+
+/* หมุนเส้นแรกเป็นทแยง */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px); /* หมุน 45 องศา และขยับตำแหน่ง */
+}
+
+/* ซ่อนเส้นกลาง */
+.hamburger.active span:nth-child(2) {
+  opacity: 0; /* ทำให้โปร่งใส (หายไป) */
+}
+
+/* หมุนเส้นล่างเป็นทแยงกลับด้าน */
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(8.5px, -8.5px); /* หมุน -45 องศา และขยับตำแหน่ง */
+}
+
+/* Animation slide-in + fade-in */
+@keyframes slideInFade {
+  0% {
+    transform: translateX(100%); /* เริ่มต้นอยู่ด้านขวานอกจอ (100% จากตำแหน่งเดิม) */
+    opacity: 0; /* เริ่มต้นโปร่งใส (มองไม่เห็น) */
+  }
+  100% {
+    transform: translateX(0%); /* เลื่อนกลับเข้ามาที่ตำแหน่งเดิม */
+    opacity: 1; /* มองเห็นชัดเจน */
+  }
+}
+
+/* เมื่อ .menu มี class active ให้เล่น animation */
+.menu.active {
+  animation: slideInFade 0.3s ease forwards; 
+  /* ใช้ animation slideInFade ที่ประกาศไว้ด้านบน */
+  /* ระยะเวลา 0.3 วินาที, easing แบบ ease, และคงสถานะสุดท้ายไว้ (forwards) */
+}

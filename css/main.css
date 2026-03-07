@@ -1,0 +1,247 @@
+/* ------------------------------------❗️ main css ❗️------------------------------------ */
+
+
+
+/* =========================================================
+   ❗️รีเซ็ตค่าพื้นฐานของทุก element❗️
+   ========================================================= */
+
+* {
+  margin: 0; /* รีเซ็ต margin ของทุก element */
+  padding: 0; /* รีเซ็ต padding ของทุก element */
+  box-sizing: border-box; /* ทำให้ padding & border ไม่ขยายขนาดของกล่อง */
+}
+
+
+
+/* =========================================================
+   ❗️ตั้งค่าทั่วไปของ body และ html❗️
+   ========================================================= */
+
+html, body {
+  height: 100%; /* ให้ความสูงเต็มหน้าจอ */
+  font-family: "Montserrat", "Noto Sans Thai", sans-serif; /* กำหนดฟอนต์หลัก */
+  color: white; /* สีตัวอักษร */
+  margin: 0; /* ไม่มีระยะขอบ */
+  padding: 0px 0; /* เผื่อพื้นที่ด้านบนล่างสำหรับ navbar */
+
+  /* 🔥 เพิ่มพื้นหลังรูป */
+  background: url("../asset/img/bg/bg-main.png") no-repeat center center fixed;
+  background-size: cover;
+}
+
+
+
+/* =========================================================
+   ❗️เเถบเมนูนำทาง Navbar❗️
+   ========================================================= */
+
+.navbar {
+  display: flex;             /* ใช้ flexbox */
+  justify-content: space-between; /* กระจายซ้าย-ขวา */
+  align-items: center;       /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+  padding: 5px 20px;         /* ระยะห่างด้านใน */
+  position: fixed;           /* ติดอยู่ด้านบนตลอด */
+  top: 0;                    /* ชิดด้านบน */
+  left: 0;                   /* ชิดด้านซ้าย */
+  width: 100%;               /* กว้างเต็มหน้าจอ */
+  z-index: 1000;             /* อยู่เหนือวิดีโอ */
+  background: none;          /* เริ่มต้นโปร่งใส */
+  transition: background 0.3s ease; /* เปลี่ยนพื้นหลังแบบนุ่ม */
+}
+
+.navbar.scrolled {
+  background: linear-gradient(
+    90deg,                   /* ไล่สีแนวนอน */
+    rgba(0, 0, 0, 0.9) 0%,    /* สีดำเข้มด้านซ้าย */
+    rgba(0, 5, 77, 0.9) 45%,  /* น้ำเงินเข้มตรงกลาง */
+    rgb(255, 85, 0) 100%     /* สีส้มด้านขวา */
+  );
+}
+
+.logo img {
+  height: 50px;              /* กำหนดความสูงโลโก้ */
+}
+
+.nav-right {
+  display: flex;             /* ใช้ flex */
+  align-items: center;       /* จัดกึ่งกลางแนวตั้ง */
+  gap: 20px;                 /* ระยะห่างระหว่าง item */
+}
+
+.menu a {
+  margin-left: 20px;         /* เว้นระยะห่างด้านซ้าย */
+  color: white;              /* สีตัวอักษร */
+  text-decoration: none;     /* ไม่มีเส้นใต้ */
+  font-weight: bold;         /* ตัวหนา */
+  letter-spacing: 1px;       /* ระยะห่างตัวอักษร */
+  font-size: 14px;           /* ขนาดตัวอักษร */
+
+  display: inline-block; /* สำคัญมาก เพราะ transform ใช้กับ inline ไม่ค่อยดี */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.menu a:hover {
+  transform: scale(1.20); /* ขยายขนาด  */
+}
+
+
+
+/* =========================================================
+   ❗️ส่วนท้ายเว็บไซต์ (Footer)❗️
+   ========================================================= */
+
+/* Footer: ส่วนท้ายเว็บไซต์ */
+.footer {
+  background: rgba(0, 0, 0, 0.95); /* พื้นหลังดำเกือบทึบ */
+  color: white; /* สีตัวอักษร */
+  padding: 50px 20px; /* เว้นขอบด้านใน */
+  margin-top: 80px; /* ระยะห่างจากส่วนบน */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* เส้นขอบด้านบนแบบโปร่ง */
+}
+
+/* คอนเทนเนอร์ภายใน Footer */
+.footer-container {
+  max-width: 1300px; /* จำกัดความกว้าง */
+  margin: auto; /* จัดกลาง */
+  display: flex; /* ใช้ flex layout */
+  flex-wrap: wrap; /* พับบรรทัดได้ */
+  justify-content: space-between; /* กระจายคอลัมน์ */
+  gap: 40px; /* ระยะห่างระหว่างคอลัมน์ */
+}
+
+/* คอลัมน์ภายใน Footer */
+.footer-column.footer-left {
+  flex: 0 0 400px; /* คอลัมน์ซ้าย กว้าง 400px */
+}
+
+.footer-column.footer-center {
+  flex: 0 0 200px; /* คอลัมน์กลาง กว้าง 200px */
+}
+
+.footer-column.footer-right {
+  flex: 0 0 200px; /* คอลัมน์ขวา กว้าง 200px */
+}
+
+/* หัวข้อใน Footer */
+.footer-column h2,
+.footer-column h3,
+.footer-column h4 {
+  margin-bottom: 10px; /* ระยะห่างด้านล่างหัวข้อ */
+  font-size: 20px;
+  color: #fff; /* สีหัวข้อ */
+}
+
+/* ย่อหน้าใน Footer */
+.footer p {
+  margin: 5px 0; /* ระยะห่างระหว่างย่อหน้า */
+  font-size: 14px; /* ขนาดตัวอักษร */
+}
+
+/* ไอคอนต่าง ๆ */
+.footer i {
+  margin-right: 10px; /* ระยะห่างไอคอนกับข้อความ */
+}
+
+/* ลิงก์ใน Footer */
+.footer-links {
+  list-style: none; /* ไม่มี bullet point */
+  padding: 0; /* ไม่มี padding */
+}
+
+.footer-links li {
+  margin-bottom: 8px; /* ระยะห่างแต่ละรายการ */
+}
+
+.footer-links a {
+  color: #ccc; /* สีลิงก์เทาอ่อน */
+  text-decoration: none; /* ไม่มีขีดเส้นใต้ */
+  font-size: 14px;
+
+  display: inline-block; /* สำคัญมาก เพราะ transform ใช้กับ inline ไม่ค่อยดี */
+  transition: transform 0.3s ease, color 0.3s ease;/* เพิ่ม effect */
+}
+
+/* Hover ลิงก์ใน Footer */
+.footer-links a:hover {
+  transform: scale(1.20); /* ขยายขนาด  */
+  color: #ff5500; /* สีส้มธีม */
+}
+
+/* Social Icons: ไอคอนโซเชียล */
+.social-icons a {
+  color: white; /* สีไอคอน */
+  margin-right: 15px; /* ระยะห่างแต่ละไอคอน */
+  font-size: 30px; /* ขนาดไอคอน */
+
+  display: inline-block; /* สำคัญมาก เพราะ transform ใช้กับ inline ไม่ค่อยดี */
+  transition: transform 0.3s ease, color 0.3s ease;/* เพิ่ม effect */
+}
+
+.social-icons a:hover {
+  transform: scale(1.20); /* ขยายขนาด  */
+  color: #ff5500; /* สีส้มธีม */
+}
+
+/* Contact Links: รายการข้อมูลติดต่อ */
+.contact-links {
+  list-style: none; /* ไม่มี bullet */
+  padding: 0;
+  margin: 10px 0 20px; /* ระยะห่างบน 10px ล่าง 20px */
+}
+
+.contact-links li {
+  margin-bottom: 10px; /* ระยะห่างระหว่างบรรทัด */
+}
+
+.contact-links a {
+  color: #ccc; /* สีเทา */
+  text-decoration: none; /* ไม่มีเส้นใต้ */
+  font-size: 14px;
+
+  display: inline-block; /* สำคัญมาก เพราะ transform ใช้กับ inline ไม่ค่อยดี */
+  transition: transform 0.3s ease, color 0.3s ease;/* เพิ่ม effect */
+}
+
+.contact-links a:hover {
+  transform: scale(1.20); /* ขยายขนาด  */
+  color: #ff5500; /* สีส้มธีม */
+}
+
+.contact-links i {
+  margin-right: 10px; /* ระยะห่างไอคอนจากข้อความ */
+}
+
+
+
+/* =========================================================
+   ❗️Overlay มืดทั่วหน้าเมื่อเปิดเมนู❗️
+   ========================================================= */
+
+#overlay {
+  position: fixed; /* กำหนดตำแหน่งให้คงที่ทั่วหน้า */
+  top: 0; /* ติดขอบบนของหน้าจอ */
+  left: 0; /* ติดขอบซ้ายของหน้าจอ */
+  width: 100%; /* ความกว้างเต็มหน้าจอ */
+  height: 100%; /* ความสูงเต็มหน้าจอ */
+  background: rgba(0, 0, 0, 0.6); /* พื้นหลังดำโปร่ง 60% */
+  z-index: 50; /* อยู่ต่ำกว่าเมนู (เมนู z-index = 100) แต่เหนือเนื้อหาทั่วไป */
+  display: none; /* ซ่อนไว้โดยค่าเริ่มต้น */
+  backdrop-filter: blur(2px); /* เบลอพื้นหลังเบาๆ (เฉพาะเบราว์เซอร์ที่รองรับ) */
+}
+
+/* แสดง overlay เมื่อ active class ถูกเพิ่ม */
+#overlay.active {
+  display: block; /* แสดง overlay */
+}
+
+
+
+/* =========================================================
+   ❗️เบลอพื้นหลังวิดีโอเมื่อเมนูเปิด❗️
+   ========================================================= */
+
+body.menu-open #bgVideo {
+  filter: blur(5px); /* เบลอวิดีโอพื้นหลัง 5px */
+  transition: filter 0.3s ease; /* ใส่ transition เพื่อให้เบลอลื่นไหล */
+}

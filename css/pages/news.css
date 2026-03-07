@@ -1,0 +1,258 @@
+/* ===============================
+   NEWS GRID LAYOUT
+================================= */
+
+.news-section { /* กล่องครอบส่วนข่าวทั้งหมด */
+    max-width: 1360px; /* จำกัดความกว้างสูงสุด */
+    margin: 80px auto; /* เว้นระยะบนล่าง และจัดกึ่งกลางแนวนอน */
+    padding: 0 20px; /* เว้นระยะซ้ายขวา */
+}
+
+.news-head h1 { /* หัวข้อข่าวสารชมรม */
+    text-align: center; /* จัดข้อความกึ่งกลาง */
+    margin-top: 100px;
+}
+
+.news-grid { /* grid ที่ใช้จัดเรียงการ์ดข่าว */
+    display: grid; /* ใช้ CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* ปรับจำนวนคอลัมน์อัตโนมัติ */
+    gap: 25px; /* ระยะห่างระหว่างการ์ด */
+    margin-top: 30px; /* เว้นระยะด้านบน */
+}
+
+
+/* ===============================
+   NEWS CARD
+================================= */
+
+.news-card { /* กล่องการ์ดข่าวแต่ละใบ */
+    background: rgba(100, 100, 100, 0.2); /* พื้นหลังโปร่งใส ขุ่นเล็กน้อย */
+    backdrop-filter: blur(12px); /* เบลอพื้นหลังด้านหลัง */
+    -webkit-backdrop-filter: blur(12px); /* รองรับ Safari */
+
+    border-radius: 15px; /* ทำมุมการ์ดให้โค้งมน */
+    overflow: hidden; /* ซ่อนส่วนที่เกินกรอบ */
+
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.08); /* เงานุ่ม ๆ */
+    cursor: pointer; /* เปลี่ยนเมาส์เป็นรูปมือ */
+
+    opacity: 0; /* เริ่มต้นให้โปร่งใส (ใช้กับ animation) */
+    transform: translateY(20px); /* เลื่อนลงเล็กน้อยก่อนแสดง */
+    transition:  
+        transform 0.3s ease, /* animation การเลื่อน */
+        box-shadow 0.3s ease, /* animation เงา */
+        opacity 0.4s ease; /* animation ความจาง */
+
+    display: flex; /* ✅ เปลี่ยนเป็น flex เพื่อจัด layout แนวตั้ง */
+    flex-direction: column; /* ✅ เรียงเนื้อหาในแนวตั้ง */
+
+    text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
+    color: inherit; /* ไม่ให้ตัวหนังสือเป็นสีน้ำเงิน */
+}
+
+.news-card.show { /* เมื่อเพิ่ม class show */
+    opacity: 1; /* แสดงเต็ม */
+    transform: translateY(0); /* เลื่อนกลับตำแหน่งปกติ */
+}
+
+.news-card:hover { /* เมื่อเอาเมาส์วางบนการ์ด */
+    transform: translateY(-10px); /* ยกการ์ดขึ้นเล็กน้อย */
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15); /* เพิ่มเงาให้ชัดขึ้น */
+}
+
+/* รูปภาพ */
+.news-card img { /* รูปภาพด้านบนการ์ด */
+    width: 100%; /* เต็มความกว้างของการ์ด */
+    height: 200px; /* กำหนดความสูงคงที่ */
+    object-fit: cover; /* ครอปรูปให้พอดีโดยไม่เสียสัดส่วน */
+}
+
+/* หัวข้อ */
+.news-card h3 { /* หัวข้อข่าว */
+    padding: 8px 8px 2px 8px; /* เว้นระยะด้านใน */
+    font-size: 1.0rem; /* ขนาดตัวอักษร */
+    margin: 0; /* ลบ margin เริ่มต้น */
+}
+
+/* วันที่ */
+.news-date { /* วันที่ข่าว */
+    padding: 0px 8px; /* เว้นระยะซ้ายขวา */
+    margin: 0; /* ลบ margin เริ่มต้นของ p */
+    font-size: 0.8rem; /* ลดขนาดตัวอักษร */
+    color: #ffffff; /* สีข้อความ */
+}
+
+.news-card p {
+    margin: 0;
+}
+
+/* summary */
+.news-summary { /* เนื้อหาย่อข่าว */
+    padding: 0px 8px; /* เว้นระยะด้านซ้าย-ขวา */
+    font-size: 0.8rem; /* ขนาดตัวอักษร */
+    color: #ffffff; /* สีข้อความ */
+    margin: 0; /* ลบ margin เริ่มต้น */
+
+    white-space: nowrap;        /* บังคับ 1 บรรทัด */
+    overflow: hidden;           /* ซ่อนส่วนเกิน */
+    text-overflow: ellipsis;    /* ... */
+}
+
+
+
+/* ===============================
+   READ MORE (เพิ่มใหม่)
+================================= */
+
+.read-more { /* ข้อความดูเพิ่มเติม */
+    margin-top: auto; /* ✅ ดันไปล่างสุดของการ์ดเสมอ */
+    padding: 8px 10px 12px; /* เว้นระยะด้านใน */
+    font-weight: 600; /* ตัวหนา */
+    color: #ff5500; /* สีส้มธีม */
+    font-size: 0.9rem; /* ขนาดตัวอักษร */
+    transition: 0.3s ease; /* ทำให้ hover นุ่มนวล */
+}
+
+.news-card:hover .read-more { /* ตอน hover การ์ด */
+    letter-spacing: 2px; /* ขยายช่องไฟเล็กน้อย */
+}
+
+
+
+
+/* ===============================
+   FILTER BUTTONS
+================================= */
+
+.news-filter { /* กล่องปุ่ม filter */
+    margin: 0px 0px 10px; /* เว้นระยะ */
+    display: flex; /* เรียงแนวนอน */
+    justify-content: center; /* จัดทุกอย่างให้อยู่กึ่งกลางแนวนอน */
+    align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+    gap: 10px; /* ระยะห่างระหว่าง label กับปุ่ม */
+    flex-wrap: wrap; /* ถ้าจอเล็กให้ปุ่มขึ้นบรรทัดใหม่ */
+}
+
+.news-filter button { /* ปุ่ม filter */
+    margin: 5px 10px; /* ระยะห่างระหว่างปุ่ม */
+    padding: 10px 48px; /* ขนาดปุ่ม */
+    border: none; /* ไม่มีเส้นขอบ */
+    border-radius: 10px; /* ทำปุ่มมน */
+    cursor: pointer; /* เมาส์เป็น pointer */
+    background: linear-gradient(135deg, #6a0dad, #ff5500); /* ม่วง+ส้ม */
+    color: white; /* ตัวอักษรสีขาว */
+    transition: 0.3s ease; /* animation */
+    font-size: 0.9rem; /* ขนาดตัวอักษร */
+}
+
+.news-filter button:hover { /* เมื่อ hover */
+    transform: scale(1.10); /* ขยายขนาด  */
+}
+
+.filter-label { /* คำว่า หมวดหมู่ */
+    font-weight: 600; /* ตัวหนา */
+    font-size: 1.5rem; /* ขนาดตัวอักษร */
+}
+
+
+
+
+/* ===============================
+   FEATURED NEWS
+================================= */
+
+.featured-news { /* ส่วนข่าวเด่น */
+    max-width: 1200px; /* จำกัดความกว้าง */
+    margin: 60px auto 0; /* เว้นด้านบน */
+    padding: 0 20px; /* เว้นซ้ายขวา */
+}
+
+
+
+/* ===============================
+   SKELETON LOADING
+================================= */
+
+.skeleton-card { /* การ์ดโหลดข้อมูล */
+    height: 250px; /* ความสูง */
+    background: #ddd; /* สีเทา */
+    border-radius: 16px; /* มุมมน */
+    animation: pulse 1.5s infinite; /* ทำ animation กระพริบ */
+}
+
+@keyframes pulse { /* keyframe สำหรับ skeleton */
+    0% { opacity: 0.6; } /* เริ่มโปร่ง */
+    50% { opacity: 1; } /* ชัดขึ้น */
+    100% { opacity: 0.6; } /* โปร่งอีกครั้ง */
+}
+
+.news-detail { /* กล่องหน้า detail */
+    max-width: 1000px; /* จำกัดความกว้าง */
+    margin: 120px auto; /* เว้นบนล่าง + จัดกลาง */
+    padding: 0px; /* เว้นด้านใน */
+}
+
+.news-detail h1 { /* หัวข้อหน้า detail */
+    margin-bottom: 10px; /* เว้นด้านล่าง */
+}
+
+.news-date { /* วันที่ข่าว */
+    color: gray; /* สีเทา */
+    margin-bottom: 20px; /* เว้นด้านล่าง */
+}
+
+.news-cover { /* รูปปกหน้า detail */
+    width: 100%; /* เต็มความกว้าง */
+    border-radius: 12px; /* มุมมน */
+    margin-bottom: 20px; /* เว้นด้านล่าง */
+}
+
+.news-content { /* เนื้อหาข่าว */
+    line-height: 1.8; /* ระยะห่างบรรทัด */
+    padding: 100px 200px 200px 200px; /* เว้นด้านใน */
+}
+
+.news-content p {
+  text-indent: 2em;  /* เว้นย่อหน้าเข้าไป 2 ตัวอักษร */
+}
+
+.news-content img {/* ขนาดรูปหน้าเนื้อหาข่าว */
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+
+/* ===============================
+   ดูเพิ่ม BUTTONS
+================================= */
+
+.load-more-wrapper { /* กล่องครอบปุ่ม */
+    display: flex; /* ใช้ flexbox */
+    justify-content: center; /* จัดกลางแนวนอน */
+    align-items: center; /* จัดกลางแนวตั้ง */
+    margin: 50px 0; /* เว้นระยะบนล่าง */
+}
+
+.load-more-btn { /* ปุ่มดูเพิ่มเติม */
+    background: linear-gradient(135deg, #6a0dad, #ff5500); /* ม่วง+ส้ม */
+
+    color: #fff; /* ตัวอักษรสีขาว */
+    padding: 16px 50px; /* ขนาดปุ่ม */
+    font-size: 17px; /* ขนาดตัวอักษร */
+    font-weight: 600; /* ตัวหนา */
+    border: none; /* ไม่มีเส้นขอบ */
+    border-radius: 15px; /* ความมนของปุ่ม */
+    cursor: pointer; /* pointer */
+    transition: all 0.3s ease; /* animation */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* เงา */
+    text-decoration: none; /* เอาขีดเส้นใต้ออก */
+}
+
+.load-more-btn:hover { /* เมื่อ hover */
+    transform: scale(1.15); /* ขยายขนาด  */
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25); /* เพิ่มเงา */
+}
+

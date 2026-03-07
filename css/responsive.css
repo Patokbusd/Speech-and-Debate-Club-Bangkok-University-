@@ -1,0 +1,244 @@
+/* ---------------------------------❗️ responsive css ❗️--------------------------------- */
+
+
+  
+/* สำหรับหน้าจอขนาดเล็ก */
+@media (max-width: 768px) { /* ใช้ media query เพื่อปรับ layout เมื่อหน้าจอกว้างไม่เกิน 768px */
+  .hamburger {
+    display: flex; /* แสดง hamburger menu เมื่อหน้าจอเล็กกว่า 768px */
+    margin-left: auto; /* ดันให้ไปชิดขวา */
+  }
+
+
+
+  .menu {
+    position: fixed; /* ตำแหน่งคงที่ ไม่เลื่อนตามหน้า */
+    top: 0px; /* ห่างจากด้านบนของหน้าจอ  */
+    right: -100%; /* ซ่อนเมนูไว้ด้านขวานอกจอ */
+    width: 200px; /* ความกว้างของเมนู */
+    background: rgba(0, 0, 0, 0.95); /* พื้นหลังสีดำโปร่งใสนิดหน่อย */
+    display: flex; /* ใช้ flexbox เพื่อจัดเรียงภายใน */
+    flex-direction: column; /* เรียงเมนูในแนวตั้ง */
+    align-items: flex-start; /* จัดแนว item ไปทางซ้าย */
+    padding: 20px; /* ระยะห่างด้านใน 20px */
+    transition: right 0.3s ease; /* เพิ่มเอฟเฟกต์เลื่อนตอนแสดงเมนู */
+    z-index: 100; /* ซ้อนอยู่เหนือ element อื่น ๆ */
+    border-left: 2px solid #a337e1; /* เส้นขอบด้านซ้ายสีส้ม */
+    border-radius: 0 0 0 20px; /* มุมโค้งด้านซ้ายบนและล่าง */
+    padding: 70px 20px 20px 20px; /* เพิ่ม padding-top เป็น 35px บน ขวา ล่าง ซ้าย */
+    overflow: hidden; /* ให้เส้นโค้งทำงาน */
+  }
+  
+  .menu.active {
+    right: 0; /* แสดงเมนู โดยเลื่อนเข้ามาในจอ */
+  }
+
+  .menu a {
+    margin: 10px 0; /* ระยะห่างระหว่างลิงก์แนวตั้ง */
+    font-size: 16px; /* ขนาดตัวอักษรของลิงก์ */
+    width: 100%; /* ให้ลิงก์กว้างเต็ม container */
+    padding: 8px 0; /* ช่องว่างด้านบน-ล่างของลิงก์ */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* เส้นคั่นลิงก์แบบจาง ๆ */
+  }
+}
+
+
+
+/* ==============================
+   Tablet
+================================= */
+@media (max-width: 1024px) {
+
+  .video-slider {
+    aspect-ratio: 16 / 10;
+  }
+
+}
+
+/* ==============================
+   Mobile
+================================= */
+@media (max-width: 768px) {
+
+  .video-slider {
+    aspect-ratio: 4 / 3;
+  }
+
+}
+
+
+
+@media (max-width: 480px) {
+
+  .content-main {
+    padding: 30px 10px;
+  }
+
+  .content-main .header h1 {
+    font-size: 12px;
+  }
+
+  .content-main .header p {
+    font-size: 8px;
+  }
+}
+
+
+
+/* =========================================================
+   🔹 Responsive News (Home)
+   ========================================================= */
+
+@media (max-width: 992px) {
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr); /* เหลือ 2 ใบ */
+  }
+}
+
+@media (max-width: 600px) {
+  .news-grid {
+    grid-template-columns: 1fr; /* เหลือ 1 ใบ */
+  }
+}
+
+
+
+
+/* ==============================
+   📱 Mobile การ์ดเลื่อน
+================================= */
+@media (max-width: 768px) {
+
+  .swiper {
+    width: 100%;
+    padding: 20px 0;
+    mask-image: none; /* เอา fade ขอบออก */
+  }
+
+  .swiper-slide {
+    width: 100% !important;  /* เต็มจอ */
+    height: auto;            /* ให้ยืดตามสัดส่วน */
+    aspect-ratio: 16 / 9;    /* คงสัดส่วนวิดีโอ */
+    transform: scale(1) !important; /* ไม่ย่อ */
+    opacity: 1 !important;   /* ไม่จาง */
+  }
+
+  .swiper-slide:not(.swiper-slide-active) {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+}
+
+
+/* ---------------------------------❗️ NEWS responsive css ❗️--------------------------------- */
+
+/* ===============================
+   TABLET
+================================= */
+@media (max-width: 992px) {
+
+    .news-filter {
+        gap: 10px; /* ลดช่องว่าง */
+    }
+
+    .news-filter button {
+        padding: 8px 20px; /* ลดขนาดปุ่ม */
+    }
+    
+/* ===============================
+   MOBILE
+================================= */
+@media (max-width: 576px) {
+
+    .news-filter {
+        flex-direction: column; /* เรียงแนวตั้ง */
+        align-items: stretch; /* ให้เต็มความกว้าง */
+        gap: 12px;
+    }
+
+    .filter-label {
+        text-align: center; /* จัด label กลาง */
+    }
+
+    .news-filter button {
+        width: 50%; /* ปุ่มเต็มความกว้าง */
+        padding: 12px; /* เพิ่มพื้นที่กด */
+        font-size: 0.95rem; /* ขยายตัวหนังสือเล็กน้อย */
+    }
+  }
+}
+
+
+
+/* ---------------------------------❗️ ABOUT responsive css ❗️--------------------------------- */
+
+/* ========================================================= */
+/* ====================== MOBILE FIX ======================= */
+/* ========================================================= */
+
+@media (max-width: 768px){
+
+  .about-row{
+    display: flex;
+    flex-direction: column !important;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .about-row.reverse{
+    flex-direction: column !important;
+  }
+
+  .about-text,
+  .about-image{
+    width: 100%;
+    flex: unset;
+  }
+
+  .about-image img{
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+}
+
+
+/* ---------------------------------❗️ ACTIVITIES responsive css ❗️--------------------------------- */
+
+@media (max-width: 768px){
+
+  .activity{
+    display: flex;
+    flex-direction: column !important;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+
+  .activity.reverse{
+    flex-direction: column !important;
+  }
+
+  .section-desc{
+    max-width: 80%;
+    margin-bottom: 60px;
+    padding: 0 10px;
+    font-size: 15px;
+  }
+
+
+  .activity-text,
+  .activity-img{
+    width: 90%;
+    flex: unset;
+  }
+
+  .activity-img img{
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+}
