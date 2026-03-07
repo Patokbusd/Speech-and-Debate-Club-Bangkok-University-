@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
     try {
-        const data = await fetchJSON("/Speech-and-Debate-Club-Bangkok-University/data/news.json");
+        const data = await fetchJSON("/Speech-and-Debate-Club-Bangkok-University-/data/news.json");
         const newsArray = Array.isArray(data) ? data : data.news;
 
         if (!Array.isArray(newsArray)) {
