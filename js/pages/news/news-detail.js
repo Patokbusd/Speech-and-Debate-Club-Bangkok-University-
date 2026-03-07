@@ -9,7 +9,7 @@ const contentEl = document.getElementById("news-content");
 
 async function loadNewsDetail() {
   try {
-    const res = await fetch("../../../data/news.json");
+    const res = await fetch("../../data/news.json");
     const data = await res.json();
 
     // รองรับทั้งกรณีเป็น array ตรง ๆ หรือมี key ครอบ
