@@ -49,7 +49,8 @@ html, body {
   width: 100%;               /* กว้างเต็มหน้าจอ */
   z-index: 1000;             /* อยู่เหนือวิดีโอ */
   background: transparent;          /* โปร่งใส */
-  transition: background 0.3s ease, backdrop-filter 0.3s ease; /* เปลี่ยนพื้นหลังแบบนุ่ม */
+  transition: all 0.3s ease; /* เปลี่ยนพื้นหลังแบบนุ่ม */
+  transform: translateZ(0);
 }
 
 .navbar.scrolled {
@@ -60,6 +61,7 @@ html, body {
     rgb(255, 85, 0) 100%     /* สีส้มด้านขวา */
   );
   backdrop-filter: blur(6px);
+  transform: translateZ(0);
 }
 
 .logo img {
