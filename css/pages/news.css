@@ -15,7 +15,7 @@
 
 .news-grid { /* grid ที่ใช้จัดเรียงการ์ดข่าว */
     display: grid; /* ใช้ CSS Grid */
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* ปรับจำนวนคอลัมน์อัตโนมัติ */
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); /* ปรับจำนวนคอลัมน์อัตโนมัติ */
     gap: 25px; /* ระยะห่างระหว่างการ์ด */
     margin-top: 30px; /* เว้นระยะด้านบน */
 }
@@ -71,7 +71,7 @@
 /* รูปภาพ */
 .news-card img { /* รูปภาพด้านบนการ์ด */
     width: 100%; /* เต็มความกว้างของการ์ด */
-    height: 220px; /* กำหนดความสูงคงที่ */
+    height: 200px; /* กำหนดความสูงคงที่ */
     object-fit: cover; /* ครอปรูปให้พอดีโดยไม่เสียสัดส่วน */
 }
 
