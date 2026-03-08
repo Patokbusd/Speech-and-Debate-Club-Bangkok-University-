@@ -126,7 +126,7 @@ async function init() {
     try {
 
         /* โหลดข่าวจากไฟล์ json */
-        const data = await fetchJSON("../../../data/news.json");
+        const data = await fetchJSON("../../data/news.json");
 
         const newsArray = Array.isArray(data) ? data : data.news;
 
