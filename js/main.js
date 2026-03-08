@@ -7,15 +7,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const navbar = document.querySelector(".navbar");
 
+  if (!navbar) return;
+
   function handleScroll() {
-    if (window.scrollY > 50) {
+
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+    if (scrollTop > 50) {
       navbar.classList.add("scrolled");
     } else {
       navbar.classList.remove("scrolled");
     }
+
   }
 
+  handleScroll();
+
   window.addEventListener("scroll", handleScroll);
+  document.addEventListener("scroll", handleScroll);
 
 });
 
