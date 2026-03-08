@@ -126,7 +126,24 @@
   }
 }
 
+@media (max-width:768px) {
+  .news-card{
+    border-radius: 16px;
+    overflow: hidden;
+  }
 
+  .news-card-content{
+    padding: 14px;
+  }
+
+  .news-card h3{
+    font-size: 18px;
+    line-height:1.3;
+  }
+  .news-card p{
+    font-size: 14px;
+  }
+}
 
 
 /* ==============================
@@ -170,7 +187,8 @@
     .news-filter button {
         padding: 8px 20px; /* ลดขนาดปุ่ม */
     }
-    
+
+
 /* ===============================
    MOBILE
 ================================= */
