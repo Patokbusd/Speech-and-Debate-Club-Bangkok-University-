@@ -74,6 +74,9 @@
   text-align: center; /* ข้อความชิดกลาง */
   width: 100%; /* ความกว้างเต็มจอ */
   padding: clamp(60px, 8vw, 120px) 20px; /* ปรับ padding ตามขนาดหน้าจอ */
+
+  box-sizing: border-box;
+
   background: linear-gradient( /* ทำพื้นหลังไล่สี */
     90deg, /* ไล่สีแนวนอน */
     rgba(0, 0, 0, 0.9) 0%, /* สีดำเข้มด้านซ้าย */

@@ -28,6 +28,8 @@ html, body {
   /* 🔥 เพิ่มพื้นหลังรูป */
   background: url("../asset/img/bg/bg-main.png") no-repeat center center fixed;
   background-size: cover;
+
+  overflow-x: hidden; /*กันเว็บเลื่อนขวา*/
 }
 
 

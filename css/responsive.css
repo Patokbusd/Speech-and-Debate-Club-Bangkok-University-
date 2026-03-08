@@ -61,8 +61,19 @@
 @media (max-width: 768px) {
 
   .video-slider {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 10;
   }
+
+  .content-main{
+    padding: 40px 16px;
+  }
+
+  .swiper{
+    margin-top: 20px;
+    margin-bottom: 100px;
+  }
+
+  
 
 }
 
