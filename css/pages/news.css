@@ -15,7 +15,7 @@
 
 .news-grid { /* grid ที่ใช้จัดเรียงการ์ดข่าว */
     display: grid; /* ใช้ CSS Grid */
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* ปรับจำนวนคอลัมน์อัตโนมัติ */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* ปรับจำนวนคอลัมน์อัตโนมัติ */
     gap: 25px; /* ระยะห่างระหว่างการ์ด */
     margin-top: 30px; /* เว้นระยะด้านบน */
 }
@@ -23,7 +23,7 @@
 .news-container {
     width: 95%;
     margin: 0 auto;
-    padding: 0 10;
+    padding: 0 10px;
 }
 
 /* ===============================
