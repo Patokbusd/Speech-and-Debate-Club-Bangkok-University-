@@ -3,19 +3,19 @@
    เปลี่ยนลักษณะ Navbar เมื่อมีการเลื่อนหน้าเว็บ
    ========================================================= */
 
-// ตรวจจับเหตุการณ์ scroll ของหน้าต่าง
-window.addEventListener('scroll', function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-  const navbar = document.querySelector('.navbar'); // เลือก element ที่มี class .navbar
+  const navbar = document.querySelector(".navbar");
 
-  if (!navbar) return; // ถ้าไม่มี navbar ในหน้านี้ ให้หยุดทำงานทันที (กัน error)
-
-  // ถ้าเลื่อนลงมากกว่า 50px จากด้านบน
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled'); // เพิ่ม class 'scrolled'
-  } else {
-    navbar.classList.remove('scrolled'); // เอา class 'scrolled' ออก
+  function handleScroll() {
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
   }
+
+  window.addEventListener("scroll", handleScroll);
 
 });
 
