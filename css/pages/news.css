@@ -20,6 +20,10 @@
     margin-top: 30px; /* เว้นระยะด้านบน */
 }
 
+.news-container {
+    width: 95%;
+    margin: 0 auto;
+}
 
 /* ===============================
    NEWS CARD
@@ -48,6 +52,9 @@
 
     text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
     color: inherit; /* ไม่ให้ตัวหนังสือเป็นสีน้ำเงิน */
+
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .news-card.show { /* เมื่อเพิ่ม class show */
