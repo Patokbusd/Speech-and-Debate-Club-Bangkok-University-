@@ -4,7 +4,7 @@
    ========================================================= */
 
 // ตรวจจับเหตุการณ์ scroll ของหน้าต่าง
-window.addEventListener('scroll', function () {
+document.addEventListener('scroll', function () {
 
   const navbar = document.querySelector('.navbar'); // เลือก element ที่มี class .navbar
 
