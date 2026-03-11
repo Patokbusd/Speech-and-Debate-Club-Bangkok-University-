@@ -6,14 +6,15 @@
 // ตรวจจับเหตุการณ์ scroll ของหน้าต่าง
 window.addEventListener('scroll', function () {
 
-  console.log("scrolling", window.scrollY);
+  const navbar = document.querySelector('.navbar'); // เลือก element ที่มี class .navbar
 
-  const navbar = document.querySelector('.navbar');
+  if (!navbar) return; // ถ้าไม่มี navbar ในหน้านี้ ให้หยุดทำงานทันที (กัน error)
 
+  // ถ้าเลื่อนลงมากกว่า 50px จากด้านบน
   if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
+    navbar.classList.add('scrolled'); // เพิ่ม class 'scrolled'
   } else {
-    navbar.classList.remove('scrolled');
+    navbar.classList.remove('scrolled'); // เอา class 'scrolled' ออก
   }
 
 });
