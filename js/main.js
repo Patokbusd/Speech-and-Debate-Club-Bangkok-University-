@@ -11,9 +11,9 @@ window.addEventListener('scroll', function () {
   if (!navbar) return; // ถ้าไม่มี navbar ในหน้านี้ ให้หยุดทำงานทันที (กัน error)
 
   // ถ้าเลื่อนลงมากกว่า 50px จากด้านบน
-  if (window.scrollY > 50) {
+  if (window.scrollY > window.innerHeight * 0.3) {
     navbar.classList.add('scrolled'); // เพิ่ม class 'scrolled'
-  } else {
+  } else { 
     navbar.classList.remove('scrolled'); // เอา class 'scrolled' ออก
   }
 
