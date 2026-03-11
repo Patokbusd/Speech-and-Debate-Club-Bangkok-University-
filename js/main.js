@@ -20,33 +20,35 @@ window.addEventListener('scroll', function () {
 });
 
 
+
+
 /* =========================================================
    🔹 Hamburger Menu + Overlay Control
    ควบคุมการเปิดปิดเมนูมือถือ
    ========================================================= */
 
 // รอให้ DOM โหลดเสร็จก่อนทำงาน
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-  const hamburger = document.getElementById('hamburger'); // ปุ่ม hamburger
-  const menu = document.getElementById('menu'); // เมนูด้านข้าง
-  const overlay = document.getElementById('overlay'); // พื้นหลัง overlay
-  const body = document.body; // อ้างอิง body
+  const navbar = document.querySelector(".navbar");
 
-  // ถ้าไม่มีเมนูในหน้านี้ ให้หยุด (กัน error)
-  if (!hamburger || !menu || !overlay) return;
+  if (!navbar) return;
 
-  /* ---------------------------
-     เมื่อคลิกปุ่ม hamburger
-  --------------------------- */
-  hamburger.addEventListener('click', function () {
+  function handleScroll() {
 
-    menu.classList.toggle('active'); // เปิด/ปิด เมนู
-    overlay.classList.toggle('active'); // เปิด/ปิด overlay
-    this.classList.toggle('active'); // เปลี่ยนสถานะปุ่ม hamburger
-    body.classList.toggle('menu-open'); // ป้องกัน scroll ขณะเมนูเปิด
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
-  });
+    if (scrollPosition > 50) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+
+  }
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  window.addEventListener("touchmove", handleScroll, { passive: true }); // สำหรับ iPad / mobile
+
 
 
   /* ---------------------------
