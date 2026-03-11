@@ -7,12 +7,11 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   const navbar = document.querySelector(".navbar");
-
   if (!navbar) return;
 
   function handleScroll() {
 
-    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
     if (scrollPosition > 10) {
       navbar.classList.add("scrolled");
@@ -22,11 +21,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   }
 
+  /* เรียกครั้งแรกตอนโหลดหน้า */
+  handleScroll();
+
+  /* ตรวจตอน scroll */
   window.addEventListener("scroll", handleScroll, { passive: true });
-  window.addEventListener("touchmove", handleScroll, { passive: true }); // สำหรับ iPad / mobile
 
 });
-
 
 
 
