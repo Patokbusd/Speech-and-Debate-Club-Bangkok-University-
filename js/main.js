@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
-    if (scrollPosition > 10) {
+    if (scrollPosition > 30) {
       navbar.classList.add("scrolled");
     } else {
       navbar.classList.remove("scrolled");

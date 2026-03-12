@@ -243,38 +243,82 @@
 
 /* ---------------------------------❗️ ACTIVITIES responsive css ❗️--------------------------------- */
 
-@media (max-width: 768px){
+
+/* ===============================
+   Tablet แนวนอน (iPad landscape)
+================================ */
+
+@media (max-width:1024px){
 
   .activity{
-    display: flex;
-    flex-direction: column !important;
-    align-items: flex-start;
-    gap: 20px;
-    margin-bottom: 60px;
-  }
-
-  .activity.reverse{
-    flex-direction: column !important;
-  }
-
-  .section-desc{
-    max-width: 80%;
-    margin-bottom: 60px;
-    padding: 0 10px;
-    font-size: 15px;
-  }
-
-
-  .activity-text,
-  .activity-img{
-    width: 90%;
-    flex: unset;
+    gap:30px;
   }
 
   .activity-img img{
-    width: 100%;
-    height: auto;
-    display: block;
+    max-width:500px;
+  }
+
+}
+
+
+/* ===============================
+   Tablet แนวตั้ง
+================================ */
+
+@media (max-width:900px){
+
+  .activity{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+    margin-bottom:70px;
+  }
+
+  .activity.reverse{
+    flex-direction:column;
+  }
+
+  .activity-text,
+  .activity-img{
+    width:100%;
+  }
+
+}
+
+
+/* ===============================
+   Mobile
+================================ */
+
+@media (max-width:768px){
+
+  .section-title{
+    padding:60px 20px;
+  }
+
+  .section-desc{
+    max-width:100%;
+    padding:0 20px;
+    font-size:15px;
+    margin-bottom:60px;
+  }
+
+}
+
+
+/* ===============================
+   Small Mobile
+================================ */
+
+@media (max-width:480px){
+
+  .activity-text h3{
+    font-size:20px;
+  }
+
+  .activity-text p{
+    font-size:14px;
+    line-height:1.5;
   }
 
 }
