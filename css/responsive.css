@@ -244,82 +244,95 @@
 /* ---------------------------------❗️ ACTIVITIES responsive css ❗️--------------------------------- */
 
 
-/* ===============================
-   Tablet แนวนอน (iPad landscape)
-================================ */
+/* =================================================
+   TABLET LANDSCAPE (แท็บเล็ตแนวนอน)
+================================================= */
 
-@media (max-width:1024px){
+@media (max-width:1200px){ /* ใช้เมื่อหน้าจอกว้างไม่เกิน 1200px */
 
-  .activity{
-    gap:30px;
+  .container{
+    padding:0 30px; /* ลดขอบซ้ายขวา */
   }
 
-  .activity-img img{
-    max-width:500px;
+  .activity{
+    gap:30px; /* ลดระยะห่างภาพกับข้อความ */
   }
 
 }
 
 
-/* ===============================
-   Tablet แนวตั้ง
-================================ */
+/* =================================================
+   TABLET PORTRAIT (แท็บเล็ตแนวตั้ง)
+================================================= */
 
-@media (max-width:900px){
+@media (max-width:1024px){ /* ใช้เมื่อหน้าจอไม่เกิน 1024px */
 
   .activity{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:20px;
-    margin-bottom:70px;
+    flex-direction:column; /* เปลี่ยน layout เป็นแนวตั้ง */
+    align-items:flex-start; /* ชิดซ้าย */
+    gap:25px; /* ระยะห่างภาพกับข้อความ */
   }
 
   .activity.reverse{
-    flex-direction:column;
+    flex-direction:column; /* ยกเลิกการสลับ layout */
   }
 
-  .activity-text,
-  .activity-img{
-    width:100%;
+  .activity-img,
+  .activity-text{
+    width:100%; /* ให้กินความกว้างเต็ม */
+  }
+
+  .activity-img img{
+    max-width:100%; /* ป้องกันภาพล้นจอ */
   }
 
 }
 
 
-/* ===============================
-   Mobile
-================================ */
+/* =================================================
+   MOBILE
+================================================= */
 
-@media (max-width:768px){
+@media (max-width:768px){ /* ใช้เมื่อหน้าจอเล็กกว่า tablet */
+
+  .container{
+    padding:0 20px; /* เว้นขอบจอสำหรับมือถือ */
+  }
 
   .section-title{
-    padding:60px 20px;
+    padding:70px 20px; /* ลด spacing */
   }
 
   .section-desc{
-    max-width:100%;
-    padding:0 20px;
-    font-size:15px;
-    margin-bottom:60px;
+    max-width:100%; /* ให้ข้อความเต็ม width */
+    margin-bottom:60px; /* ลดระยะ section */
+    font-size:15px; /* ลดขนาดตัวอักษร */
+  }
+
+  .activity{
+    gap:20px; /* ลดระยะ layout */
+    margin-bottom:60px; /* ลด spacing */
+  }
+
+  .activity-text h3{
+    font-size:20px; /* ลดขนาดหัวข้อ */
   }
 
 }
 
 
-/* ===============================
-   Small Mobile
-================================ */
+/* =================================================
+   SMALL MOBILE
+================================================= */
 
-@media (max-width:480px){
+@media (max-width:480px){ /* มือถือจอเล็ก */
 
-  .activity-text h3{
-    font-size:20px;
+  .section-title{
+    font-size:26px; /* ลดขนาดหัวข้อ */
   }
 
   .activity-text p{
-    font-size:14px;
-    line-height:1.5;
+    font-size:14px; /* ลดขนาดข้อความ */
   }
 
 }
-

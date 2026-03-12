@@ -1,67 +1,72 @@
-.club-activities {
-  background:none;
+.club-activities{
+  background:none; /* เอาพื้นหลัง section ออก */
 }
 
-.container {
-  max-width: 1360px;
-  margin: auto;
+.container{
+  max-width:1360px; /* จำกัดความกว้างสูงสุดของ content */
+  margin:auto; /* จัดให้อยู่กลางหน้าจอ */
+  padding:0 40px; /* เว้นขอบซ้ายขวาไม่ให้ติดขอบจอ */
 }
 
-.section-title {
-  padding: 100px 20px;
-  text-align: center;
-  margin-bottom: -20px;
+.section-title{
+  padding:100px 20px; /* เว้นพื้นที่บนล่างของหัวข้อ */
+  text-align:center; /* จัดข้อความให้อยู่กลาง */
+  margin-bottom:-20px; /* ดึง section ถัดไปขึ้นมาเล็กน้อย */
 }
 
-.section-desc {
-  text-align: center;
-  max-width: 800px;
-  margin: auto;
-  margin-bottom: 100px;
-  color: #ffffff;
+.section-desc{
+  text-align:center; /* จัดข้อความกลาง */
+  max-width:800px; /* จำกัดความกว้างของข้อความ */
+  margin:auto; /* จัด block ให้อยู่กลาง */
+  margin-bottom:100px; /* เว้นระยะก่อน activity */
+  color:#ffffff; /* สีตัวอักษร */
+  line-height:1.6; /* ระยะห่างระหว่างบรรทัด */
 }
 
+.activity{
+  display:flex; /* จัด layout แบบ flex */
+  align-items:center; /* จัดแนวตั้งให้อยู่กลาง */
+  gap:40px; /* ระยะห่างระหว่างภาพกับข้อความ */
+  margin-bottom:80px; /* ระยะห่างแต่ละ activity */
 
-.activity {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  margin-bottom: 80px;
-  
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeUp 0.8s ease forwards;
+  opacity:0; /* ซ่อนก่อน animation */
+  transform:translateY(40px); /* เลื่อนลงก่อน */
+  animation:fadeUp 0.8s ease forwards; /* animation ตอน scroll */
 }
 
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+@keyframes fadeUp{
+  to{
+    opacity:1; /* ทำให้เห็น */
+    transform:translateY(0); /* เลื่อนขึ้นตำแหน่งจริง */
+  }
 }
 
-.activity.reverse {
-  flex-direction: row-reverse;
+.activity.reverse{
+  flex-direction:row-reverse; /* สลับตำแหน่งภาพกับข้อความ */
 }
 
-.activity-img img {
-  width: 100%;
-  max-width: 620px;
-  border-radius: 12px;
-  object-fit: cover;
+.activity-img{
+  flex:1; /* ให้กินพื้นที่ 1 ส่วน */
 }
 
-.activity-text {
-  flex: 1;
+.activity-img img{
+  width:100%; /* ให้ภาพเต็ม container */
+  max-width:620px; /* จำกัดขนาดภาพ */
+  border-radius:12px; /* ทำมุมโค้ง */
+  object-fit:cover; /* ปรับภาพไม่ให้ยืด */
+  display:block; /* ป้องกันช่องว่างใต้ภาพ */
 }
 
-.activity-text h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
+.activity-text{
+  flex:1; /* ให้ข้อความกินพื้นที่เท่าภาพ */
 }
 
-.activity-text p {
-  color: #ffffff;
-  line-height: 1.6;
+.activity-text h3{
+  font-size:24px; /* ขนาดหัวข้อ */
+  margin-bottom:10px; /* ระยะห่างกับ paragraph */
 }
 
+.activity-text p{
+  color:#ffffff; /* สีตัวอักษร */
+  line-height:1.6; /* ระยะห่างบรรทัด */
+}
