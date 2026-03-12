@@ -48,6 +48,7 @@
 .activity-img img {
   width: 100%;
   max-width: 620px;
+  height: auto;
   border-radius: 12px;
   object-fit: cover;
 }
