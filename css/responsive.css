@@ -311,32 +311,40 @@
 @media (max-width:768px){
 
   .member-section{
-    padding:0 20px; /* เว้นขอบมือถือ */
+    padding:0 15px; /* ลดขอบจอเพื่อให้ card กว้างขึ้น */
   }
 
   .member-detail-card{
-    padding:40px 25px; /* ลด padding card */
-    margin:70px auto; /* ลด margin */
+    max-width:100%; /* ให้ card เต็มพื้นที่มือถือ */
+    padding:35px 25px; /* ลด padding ด้านใน */
+    margin:70px auto; /* ลด margin บน */
   }
 
   .detail-img{
-    max-width:220px; /* ลดขนาดรูปสมาชิก */
+    max-width:200px; /* ลดขนาดรูปเล็กน้อย */
+    margin-bottom:25px; /* ระยะใต้รูป */
   }
 
   .member-detail-card h2{
-    font-size:1.2rem; /* ลดขนาดชื่อ */
+    font-size:1.25rem; /* ลดขนาดชื่อ */
+    line-height:1.4;
+  }
+
+  .member-detail-card .member-position{
+    font-size:0.95rem; /* ลดขนาดตำแหน่ง */
   }
 
   .member-content{
     font-size:15px; /* ลดขนาดเนื้อหา */
+    line-height:1.7; /* ปรับระยะบรรทัด */
   }
 
   .back-btn{
-    padding:14px 40px; /* ปรับขนาดปุ่ม */
+    padding:14px 36px; /* ลดขนาดปุ่ม */
+    font-size:15px;
   }
 
 }
-
 
 
 /* ---------------------------------❗️ ACTIVITIES responsive css ❗️--------------------------------- */
