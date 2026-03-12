@@ -207,6 +207,49 @@
 
 
 
+/* ---------------------------------❗️ NEWS-detail responsive css ❗️--------------------------------- */
+
+
+
+.news-detail { /* กล่องหน้า detail */
+    max-width: 1000px; /* จำกัดความกว้างเนื้อหา */
+    margin: 120px auto; /* เว้นด้านบนล่าง + จัดกลาง */
+    padding: 0 40px; /* เว้นขอบซ้ายขวา */
+}
+
+.news-detail h1 { /* หัวข้อข่าว */
+    margin-bottom: 10px; /* เว้นด้านล่าง */
+}
+
+.news-date { /* วันที่ข่าว */
+    color: gray; /* สีข้อความ */
+    margin-bottom: 20px; /* เว้นด้านล่าง */
+}
+
+.news-cover { /* รูปปกข่าว */
+    width: 100%; /* เต็ม container */
+    border-radius: 12px; /* มุมมน */
+    margin-bottom: 30px; /* เว้นด้านล่าง */
+}
+
+.news-content { /* เนื้อหาข่าว */
+    line-height: 1.8; /* ระยะบรรทัด */
+    padding: 40px 0; /* เว้นบนล่าง */
+}
+
+.news-content p { /* paragraph */
+    text-indent: 2em; /* ย่อหน้า */
+}
+
+.news-content img { /* รูปในเนื้อข่าว */
+    width: 100%; /* เต็ม container */
+    max-width: 600px; /* จำกัดขนาด */
+    display: block; /* ทำให้ margin ใช้ได้ */
+    margin: 20px auto; /* จัดกลาง */
+    border-radius: 10px; /* มุมมน */
+}
+
+
 /* ---------------------------------❗️ ABOUT responsive css ❗️--------------------------------- */
 
 /* ========================================================= */
