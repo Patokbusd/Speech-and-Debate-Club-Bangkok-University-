@@ -217,6 +217,8 @@
 }
 
 .news-content { /* เนื้อหาข่าว */
+    max-width: 600px; /* จำกัดขนาด */
+    margin: auto; /* จัดกึ่งกลาง */
     line-height: 1.8; /* ระยะบรรทัด */
     padding: 40px 0; /* เว้นบนล่าง */
 }
