@@ -95,22 +95,18 @@ html, body {
    ❗️วิดีโอ youtube❗️
    ========================================================= */
 
-.video-wrapper{
-  position: relative;
-  width: 100%;
-  max-width: 900px;   /* จำกัดขนาดวิดีโอ */
-  margin: 0 auto;     /* จัดให้อยู่กลาง */
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
+.video-container{
+  width:100%;
+  max-width:900px;
+  margin:auto;
+  padding:20px;
 }
 
-.video-wrapper iframe{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
+.video-container iframe{
+  width:100%;
+  aspect-ratio:16/9;
+  height:auto;
+  border:0;
 }
 
 
