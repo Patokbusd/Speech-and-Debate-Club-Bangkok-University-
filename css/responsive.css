@@ -245,40 +245,25 @@
 
 
 /* =================================================
-   TABLET LANDSCAPE (แท็บเล็ตแนวนอน)
+   TABLET (แนวตั้ง + แนวนอน)
 ================================================= */
 
-@media (max-width:1200px){ /* ใช้เมื่อหน้าจอกว้างไม่เกิน 1200px */
-
-  .container{
-    padding:0 30px; /* ลดขอบซ้ายขวา */
-  }
+@media (max-width:1024px){ /* ใช้กับ tablet */
 
   .activity{
-    gap:30px; /* ลดระยะห่างภาพกับข้อความ */
-  }
-
-}
-
-
-/* =================================================
-   TABLET PORTRAIT (แท็บเล็ตแนวตั้ง)
-================================================= */
-
-@media (max-width:1024px){ /* ใช้กับ tablet และมือถือ */
-
-  .activity{
-    flex-direction:column; /* เรียงแนวตั้ง */
+    display:flex; /* ใช้ flex layout */
+    flex-direction:column !important; /* เรียงแนวตั้ง */
     align-items:flex-start; /* ชิดซ้าย */
-    gap:25px; /* ระยะห่างภาพกับข้อความ */
+    gap:25px; /* ระยะห่างรูปกับข้อความ */
+    margin-bottom:70px; /* ระยะห่าง activity */
   }
 
   .activity.reverse{
-    flex-direction:column; /* ยกเลิกการ reverse */
+    flex-direction:column !important; /* ยกเลิก row-reverse */
   }
 
   .activity-img{
-    order:1; /* ให้รูปขึ้นก่อน */
+    order:1; /* ให้รูปอยู่ก่อน */
     width:100%; /* เต็มความกว้าง */
   }
 
@@ -297,32 +282,42 @@
 
 
 /* =================================================
-   MOBILE ปรับขนาดตัวอักษร
+   MOBILE
 ================================================= */
 
 @media (max-width:768px){ /* ใช้กับมือถือ */
 
   .container{
-    padding:0 20px; /* เว้นขอบจอ */
+    padding:0 20px; /* เว้นขอบจอมือถือ */
   }
 
   .section-title{
-    padding:70px 20px; /* ลดระยะบนล่าง */
+    padding:70px 20px; /* ลด spacing */
+    font-size:28px; /* ลดขนาดหัวข้อ */
   }
 
   .section-desc{
     max-width:100%; /* ข้อความเต็มจอ */
-    margin-bottom:60px; /* ลดระยะ section */
-    font-size:15px; /* ลดขนาดตัวอักษร */
+    margin-bottom:60px; /* ระยะห่าง section */
+    font-size:15px; /* ขนาดตัวอักษร */
+    line-height:1.6; /* ระยะบรรทัด */
   }
 
   .activity{
-    gap:20px; /* ลดระยะ */
-    margin-bottom:60px; /* ลดระยะระหว่าง activity */
+    gap:20px; /* ลดระยะรูปกับข้อความ */
+    margin-bottom:60px; /* ลดระยะ activity */
   }
 
   .activity-text h3{
-    font-size:20px; /* ลดขนาดหัวข้อ */
+    font-size:20px; /* ลดขนาดหัวข้อ activity */
+  }
+
+  .activity-text p{
+    font-size:14px; /* ลดขนาดเนื้อหา */
+  }
+
+  .activity-img img{
+    border-radius:10px; /* ทำมุมโค้งเล็กลง */
   }
 
 }
