@@ -287,40 +287,36 @@
 
 @media (max-width:768px){ /* ใช้กับมือถือ */
 
-  .container{
-    padding:0 20px; /* เว้นขอบจอมือถือ */
-  }
-
-  .section-title{
-    padding:70px 20px; /* ลด spacing */
-    font-size:28px; /* ลดขนาดหัวข้อ */
-  }
-
-  .section-desc{
-    max-width:100%; /* ข้อความเต็มจอ */
-    margin-bottom:60px; /* ระยะห่าง section */
-    font-size:15px; /* ขนาดตัวอักษร */
-    line-height:1.6; /* ระยะบรรทัด */
-  }
-
   .activity{
-    gap:20px; /* ลดระยะรูปกับข้อความ */
-    margin-bottom:60px; /* ลดระยะ activity */
+    display:flex; /* ใช้ flex layout */
+    flex-direction:column !important; /* บังคับเรียงบนลงล่าง */
+    align-items:flex-start; /* ชิดซ้าย */
+    gap:20px; /* ระยะห่างรูปกับข้อความ */
   }
 
-  .activity-text h3{
-    font-size:20px; /* ลดขนาดหัวข้อ activity */
+  .activity.reverse{
+    flex-direction:column !important; /* ยกเลิก row-reverse */
   }
 
-  .activity-text p{
-    font-size:14px; /* ลดขนาดเนื้อหา */
+  .activity-img{
+    order:1; /* ให้รูปขึ้นก่อน */
+    width:100%; /* เต็มความกว้าง */
+  }
+
+  .activity-text{
+    order:2; /* ให้ข้อความตามหลัง */
+    width:100%; /* เต็มความกว้าง */
   }
 
   .activity-img img{
-    border-radius:10px; /* ทำมุมโค้งเล็กลง */
+    width:100%; /* ภาพเต็ม container */
+    max-width:100%; /* กันภาพล้น */
+    height:auto; /* รักษาสัดส่วน */
   }
 
 }
+
+
 /* =================================================
    SMALL MOBILE
 ================================================= */
