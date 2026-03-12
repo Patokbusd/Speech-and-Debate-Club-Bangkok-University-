@@ -73,19 +73,6 @@
     margin-bottom: 100px;
   }
 
-  .video-container{
-    width:100%;
-    max-width:900px;
-    margin:auto;
-    padding:20px;
-  }
-
-.video-container iframe{
-    width:100%;
-    aspect-ratio:16/9;
-    height:auto;
-  }
-
 }
 
 
