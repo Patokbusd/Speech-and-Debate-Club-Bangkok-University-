@@ -95,7 +95,7 @@ html, body {
    ❗️วิดีโอ youtube❗️
    ========================================================= */
 
-.video-container{
+.video-wrapper{
   position: relative;
   width: 100%;
   max-width: 900px;   /* จำกัดขนาดวิดีโอ */
@@ -104,7 +104,7 @@ html, body {
   height: 0;
 }
 
-.video-container iframe{
+.video-wrapper iframe{
   position: absolute;
   top: 0;
   left: 0;
