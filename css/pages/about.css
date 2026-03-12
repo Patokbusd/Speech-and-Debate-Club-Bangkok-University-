@@ -370,61 +370,68 @@
 /* ===================== MEMBER DETAIL ===================== */
 /* ========================================================= */
 
-/* กล่องหลักรายละเอียด */
-.member-detail-card {
-    max-width: 800px;       /* ความกว้างสูงสุด */
-    margin: 100px auto;      /* จัดกึ่งกลาง */
-    padding: 100px;          /* ระยะด้านใน */
-    border-radius: 15px;    /* มุมโค้ง */
-    background: rgba(255,255,255,0.08); /* พื้นหลังโปร่ง */
-    backdrop-filter: blur(10px); /* เบลอพื้นหลัง */
-    
-    text-align: left;       /* 🔥 ให้ข้อความชิดซ้าย */
+.member-section{
+    padding:0 40px; /* เว้นขอบซ้ายขวาของ section */
 }
 
-/* รูป */
-.detail-img {
-    width: 100%;            /* เต็มความกว้าง */
-    max-width: 300px;       /* ไม่ใหญ่เกินไป */
-    display: block;         
-    margin: 0 auto 30px;    /* รูปอยู่กลาง แต่มีระยะล่าง */
-    border-radius: 20px;
+.member-detail-card {
+    max-width:800px; /* ความกว้างสูงสุดของ card */
+    margin:100px auto; /* จัดกลาง + เว้นด้านบน */
+    padding:80px; /* ระยะด้านใน card */
+    border-radius:15px; /* มุมโค้ง */
+
+    background:rgba(255,255,255,0.08); /* พื้นหลังโปร่ง */
+    backdrop-filter:blur(10px); /* เบลอพื้นหลัง */
+
+    text-align:left; /* จัดข้อความชิดซ้าย */
+}
+
+/* รูปสมาชิก */
+.detail-img{
+    width:100%; /* เต็ม container */
+    max-width:300px; /* จำกัดขนาดรูป */
+    display:block; /* ให้ margin ทำงาน */
+    margin:0 auto 30px; /* จัดรูปกลาง + เว้นล่าง */
+    border-radius:20px; /* มุมโค้ง */
 }
 
 /* ชื่อ */
-.member-detail-card h2 {
-    margin-bottom: 5px;
-    padding: 0px 0px 2px 0px; /* เว้นระยะด้านใน */
-    font-size: 1.4rem; /* ขนาดตัวอักษร */
+.member-detail-card h2{
+    margin-bottom:5px; /* เว้นด้านล่าง */
+    padding:0 0 2px 0; /* เว้นเล็กน้อย */
+    font-size:1.4rem; /* ขนาดตัวอักษร */
 }
 
 /* ตำแหน่ง */
-.member-detail-card .member-position {
-    margin-bottom: 20px;
-    opacity: 0.8;
-    padding: 0px 0px 2px 0px; /* เว้นระยะด้านใน */
-    font-size: 1.0rem; /* ขนาดตัวอักษร */
+.member-detail-card .member-position{
+    margin-bottom:20px; /* เว้นล่าง */
+    opacity:0.8; /* ลดความเข้ม */
+    padding:0 0 2px 0; /* เว้นระยะ */
+    font-size:1rem; /* ขนาดตัวอักษร */
 }
 
 /* เนื้อหา */
-.member-content {
-    line-height: 1.8;
-    margin-bottom: 30px;
+.member-content{
+    line-height:1.8; /* ระยะบรรทัด */
+    margin-bottom:30px; /* เว้นด้านล่าง */
 }
 
-/* ปุ่ม */
-.back-btn {
-    display: inline-block;
-    padding: 16px 50px; /* ระยะภายใน */
-    border-radius: 12px;
-    background: linear-gradient(135deg, #6a0dad, #ff5500);
-    color: white;
-    text-decoration: none;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    
+/* ปุ่มกลับ */
+.back-btn{
+    display:inline-block; /* ให้เป็นปุ่ม */
+    padding:16px 50px; /* ระยะภายใน */
+    border-radius:12px; /* มุมโค้ง */
+
+    background:linear-gradient(135deg,#6a0dad,#ff5500); /* gradient */
+    color:white; /* สีตัวอักษร */
+    text-decoration:none; /* เอาเส้นใต้ลิงก์ออก */
+
+    margin-top:50px; /* เว้นด้านบน */
+    margin-bottom:50px; /* เว้นด้านล่าง */
+
+    transition:0.3s; /* ทำให้ hover smooth */
 }
 
-.back-btn:hover {
-    transform: scale(1.10); /* ขยายขนาด  */
+.back-btn:hover{
+    transform:scale(1.08); /* ขยายตอน hover */
 }

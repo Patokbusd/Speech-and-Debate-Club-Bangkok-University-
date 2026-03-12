@@ -283,6 +283,61 @@
 
 }
 
+/* =================================
+   TABLET
+================================= */
+
+@media (max-width:1024px){
+
+  .member-section{
+    padding:0 30px; /* ลดขอบจอ */
+  }
+
+  .member-detail-card{
+    padding:60px; /* ลด padding card */
+    margin:80px auto; /* ลด margin บน */
+  }
+
+}
+
+
+
+/* ---------------------------------❗️ ABOUT member responsive css ❗️--------------------------------- */
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width:768px){
+
+  .member-section{
+    padding:0 20px; /* เว้นขอบมือถือ */
+  }
+
+  .member-detail-card{
+    padding:40px 25px; /* ลด padding card */
+    margin:70px auto; /* ลด margin */
+  }
+
+  .detail-img{
+    max-width:220px; /* ลดขนาดรูปสมาชิก */
+  }
+
+  .member-detail-card h2{
+    font-size:1.2rem; /* ลดขนาดชื่อ */
+  }
+
+  .member-content{
+    font-size:15px; /* ลดขนาดเนื้อหา */
+  }
+
+  .back-btn{
+    padding:14px 40px; /* ปรับขนาดปุ่ม */
+  }
+
+}
+
+
 
 /* ---------------------------------❗️ ACTIVITIES responsive css ❗️--------------------------------- */
 
