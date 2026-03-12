@@ -5,7 +5,6 @@
 .container {
   max-width: 1360px;
   margin: auto;
-  padding: 0 40px;
 }
 
 .section-title {
@@ -48,7 +47,6 @@
 .activity-img img {
   width: 100%;
   max-width: 620px;
-  height: auto;
   border-radius: 12px;
   object-fit: cover;
 }
