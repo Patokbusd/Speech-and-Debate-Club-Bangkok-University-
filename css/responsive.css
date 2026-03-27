@@ -103,6 +103,19 @@
 
 
 
+/* ===== Responsive sponsor ===== */
+@media (max-width: 768px){
+
+    .sponsor-section h2{
+        font-size: 24px;
+    }
+
+    .sponsor-logos img{
+        max-width: 100px;
+    }
+
+}
+
 
 
 /* ===== Responsive quiz ===== */
