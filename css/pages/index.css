@@ -281,12 +281,10 @@
 
 /* hover */
 .sponsor-row img{
-    filter: grayscale(100%);
     transition: 0.3s;
 }
 
 .sponsor-row img:hover{
-    filter: grayscale(0%);
     transform: scale(1.03);
 }
 
