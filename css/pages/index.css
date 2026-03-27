@@ -186,7 +186,7 @@
 .swiper {
   width: 90%; /* ความกว้าง 90% */
   max-width: 1300px; /* ไม่เกิน 1300px */
-  margin-top: -80px; /* ระยะห่างจากด้านบน */
+  margin-top: 0px; /* ระยะห่างจากด้านบน */
   margin-bottom: 200px; /* ระยะห่างจากด้านล่าง */
   padding: 40px 0; /* ระยะห่างบนล่างด้านใน */
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); /* เพิ่ม effect fade ขอบซ้ายขวา */
