@@ -102,6 +102,30 @@
 }
 
 
+
+
+
+/* ===== Responsive quiz ===== */
+@media (max-width:768px){
+  .quiz-section h2{
+    font-size: 28px;
+  }
+
+  .quiz-section p{
+    font-size: 16px;
+  }
+}
+
+@media (max-width:480px){
+  .quiz-section{
+    padding: 60px 15px;
+  }
+
+  .btn-quiz{
+    width: 100%; /* ปุ่มเต็มจอ */
+  }
+}
+
 /* =========================================================
    🔹 Responsive News (index)
    ========================================================= */

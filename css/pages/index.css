@@ -237,3 +237,114 @@
   background: white; /* สีปุ่มเมื่อ active */
 }
 
+
+
+
+/* =========================================================
+   ❗️เเบบทดสอบ Quiz❗️
+   ========================================================= */
+
+/* ===== Quiz Section ===== */
+.quiz-section{
+  padding: 80px 20px; /* ระยะ */
+  text-align: center; /* จัดกลาง */
+  color: white; /* สีตัวอักษร */
+
+  /* 🔥 ใส่รูปพื้นหลัง */
+  background: 
+    linear-gradient(rgba(42, 42, 42, 0.8), rgba(42, 42, 42, 0.8)), /* overlay มืด */
+    url("../../asset/img/bg/mbti.png"); /* 🔁 เปลี่ยน path รูป */
+
+  background-size: cover; /* เต็มพื้นที่ */
+  background-position: center; /* จัดกลาง */
+  background-repeat: no-repeat; /* ไม่ซ้ำ */
+
+  position: relative; /* เผื่อ effect */
+}
+
+/* container */
+.quiz-section .container{
+  max-width: 800px; /* จำกัดความกว้าง */
+  margin: 0 auto; /* จัดกลาง */
+}
+
+/* หัวข้อ */
+.quiz-section h2{
+  font-family: "Montserrat", sans-serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+  animation: fadeUp 0.8s ease;
+}
+
+/* ข้อความ */
+.quiz-section p{
+  font-family: "Noto Sans Thai", sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  animation: fadeUp 1s ease;
+}
+
+.quiz-badge{
+  display:inline-block;
+  background: linear-gradient(135deg, #6a0dad, #ff5500); /* ม่วง+ส้ม */
+  color:#ffffff;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:14px;
+  margin-bottom:15px;
+  font-weight:bold;
+}
+
+.quiz-features{
+  list-style:none;
+  padding:0;
+  margin:20px 0;
+}
+
+.quiz-features li{
+  margin:8px 0;
+  font-size:16px;
+}
+
+.quiz-highlight{
+  margin:20px 0;
+  font-weight:bold;
+  font-size:18px;
+}
+
+/* ปุ่ม */
+.btn-quiz{
+  display: inline-block;
+  padding: 14px 30px;
+  border-radius: 15px;
+
+  background: linear-gradient(135deg, #6a0dad, #ff5500); /* ม่วง+ส้ม */; /* เปลี่ยนสี */;
+  color: #ffffff;
+
+  font-weight: bold;
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+  animation: fadeUp 1.2s ease;
+}
+
+/* hover ปุ่ม */
+.btn-quiz:hover{
+  transform: translateY(-3px) scale(1.05); /* ลอย + ขยาย */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* ===== Animation ===== */
+@keyframes fadeUp{
+  from{
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
