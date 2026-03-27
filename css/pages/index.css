@@ -256,12 +256,11 @@
 
 .sponsor-desc{
     opacity: 0.8;
-    margin-bottom: 50px;
-    font-size: 16px;
+    margin-bottom: 60px;
 }
 
-/* โลโก้ */
-.sponsor-logos{
+/* layout แถว */
+.sponsor-row{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -269,17 +268,35 @@
     gap: 40px;
 }
 
-.sponsor-logos img{
-    max-width: 140px;
-    filter: grayscale(100%);
+/* ⭐ รายใหญ่ */
+.sponsor-main img{
+    max-width: 180px;
+}
+
+/* ⭐ รายย่อย */
+.sponsor-sub img{
+    max-width: 110px;
     opacity: 0.8;
+}
+
+/* hover */
+.sponsor-row img{
+    filter: grayscale(100%);
     transition: 0.3s;
 }
 
-.sponsor-logos img:hover{
+.sponsor-row img:hover{
     filter: grayscale(0%);
-    opacity: 1;
     transform: scale(1.1);
+}
+
+/* เส้นแบ่ง */
+.sponsor-divider{
+    height: 1px;
+    width: 60%;
+    margin: 50px auto;
+    background: linear-gradient(to right, transparent, #ff5500, transparent);
+    opacity: 0.6;
 }
 
 

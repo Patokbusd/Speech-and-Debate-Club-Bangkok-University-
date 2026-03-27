@@ -106,12 +106,16 @@
 /* ===== Responsive sponsor ===== */
 @media (max-width: 768px){
 
-    .sponsor-section h2{
-        font-size: 24px;
+    .sponsor-main img{
+        max-width: 130px;
     }
 
-    .sponsor-logos img{
-        max-width: 100px;
+    .sponsor-sub img{
+        max-width: 80px;
+    }
+
+    .sponsor-divider{
+        width: 80%;
     }
 
 }
