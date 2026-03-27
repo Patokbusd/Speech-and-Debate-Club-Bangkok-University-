@@ -1,0 +1,188 @@
+/* ===== Layout หลัก ===== */
+.quiz-container{
+  max-width: 700px; /* จำกัดความกว้าง */
+  margin: 120px auto 80px; /* กัน navbar + footer */
+  padding: 30px; /* ระยะด้านใน */
+  text-align: center; /* จัดกลาง */
+
+   background: 
+       linear-gradient(rgba(191, 191, 191, 0.8), rgba(191, 191, 191, 0.8)), /* overlay มืด */
+       url("../../asset/img/bg/mbti.png"); /* 🔁 เปลี่ยน path รูป */
+  
+  background-size: cover; /* เต็มพื้นที่ */
+  background-position: center; /* จัดกลาง */
+  background-repeat: no-repeat; /* ไม่ซ้ำ */
+  border-radius: 20px; /* มุมโค้ง */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* เงา */
+
+  animation: fadeUp 0.8s ease; /* animation ตอนโหลด */
+}
+
+/* ===== หัวข้อ ===== */
+.quiz-container h1{
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #000000;
+}
+
+/* ===== Progress Bar ===== */
+#progressBar{
+  width: 100%;
+  height: 8px;
+  background: #ffffff;
+  border-radius: 10px;
+  margin: 15px 0;
+  overflow: hidden;
+}
+
+#progressFill{
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(135deg, #6a0dad, #ff5500); /* ม่วง+ส้ม */
+  transition: width 0.4s ease;
+}
+
+/* ===== ข้อที่เท่าไร ===== */
+#progress{
+  font-size: 14px;
+  color: #363636;
+  margin-bottom: 10px;
+}
+
+/* ===== กล่องคำถาม ===== */
+#questionBox{
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+#questionText{
+  font-size: 18px;
+  color: #333;
+  font-family: "Noto Sans Thai", sans-serif;
+}
+
+/* ===== Animation ===== */
+.slide-in{
+  animation: slideIn 0.4s;
+}
+
+.slide-out{
+  animation: slideOut 0.3s;
+}
+
+@keyframes slideIn{
+  from{opacity:0; transform: translateX(40px);}
+  to{opacity:1; transform: translateX(0);}
+}
+
+@keyframes slideOut{
+  from{opacity:1; transform: translateX(0);}
+  to{opacity:0; transform: translateX(-40px);}
+}
+
+/* ===== ตัวเลือก ===== */
+.options label{
+  display:block;
+  background:#fff;
+  color:#333;
+  margin:10px 0;
+  padding:12px;
+  border-radius:12px;
+  cursor:pointer;
+  transition: all 0.3s ease;
+  border:1px solid #eee;
+}
+
+.options label:hover{
+  transform: scale(1.03);
+  background: linear-gradient(135deg, #6a0dad, #ff5500); /* ม่วง+ส้ม */
+  color: white; /* สี */
+
+}
+
+/* ซ่อน radio จริง */
+.options input{
+  display:none;
+}
+
+/* เลือกแล้ว */
+.options input:checked + span{
+  font-weight:bolder;
+  color: #ff5500; /* สี */
+}
+
+/* ===== ปุ่ม ===== */
+.controls{
+  display:flex;
+  gap:10px;
+  margin-top:30px;
+}
+
+button{
+  flex:1;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+/* ปุ่มย้อน */
+#backBtn{
+  background:#616161;
+  color:white;
+}
+
+#backBtn:hover{
+  transform: scale(1.03);
+}
+
+/* ปุ่มถัดไป */
+#nextBtn{
+  background: linear-gradient(135deg, #6a0dad, #ff5500); /* ม่วง+ส้ม */
+  color:white;
+}
+
+#nextBtn:hover{
+  transform: scale(1.03);
+  box-shadow:0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* ===== Animation โหลด ===== */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform: translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width:768px){
+  .quiz-container{
+    margin:100px 20px 60px;
+    padding:25px;
+  }
+
+  #questionText{
+    font-size:16px;
+  }
+}
+
+@media (max-width:480px){
+  .quiz-container{
+    padding:20px;
+  }
+
+  button{
+    padding:10px;
+  }
+}

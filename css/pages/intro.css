@@ -1,0 +1,111 @@
+/* ===== Layout หลักของ content ===== */
+.quiz-container{
+  max-width: 700px; /* จำกัดความกว้าง */
+  margin: 180px auto 240px; /* เว้นบน (กัน navbar) + ล่าง */
+  padding: 40px 30px; /* ระยะด้านใน */
+  text-align: center; /* จัดกลาง */
+
+  background: url("../../asset/img/bg/mbti.png"); /* 🔁 เปลี่ยน path รูป */
+  
+  background-size: cover; /* เต็มพื้นที่ */
+  background-position: center; /* จัดกลาง */
+  background-repeat: no-repeat; /* ไม่ซ้ำ */
+
+  position: relative; /* เผื่อ effect */
+  border-radius: 20px; /* มุมโค้ง */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* เงา */
+
+  animation: fadeUp 0.8s ease; /* animation ตอนโหลด */
+}
+
+/* ===== หัวข้อ ===== */
+.quiz-container h1{
+  font-family: "Montserrat", sans-serif; /* ฟอนต์หัว */
+  font-size: 32px; /* ขนาด */
+  margin-bottom: 20px; /* ระยะล่าง */
+  color: #333; /* สี */
+}
+
+/* ===== ข้อความ ===== */
+.quiz-container p{
+  font-family: "Noto Sans Thai", sans-serif; /* ฟอนต์ไทย */
+  font-size: 16px; /* ขนาด */
+  line-height: 1.8; /* ระยะบรรทัด */
+  color: #555; /* สี */
+  margin-bottom: 15px; /* ระยะ */
+}
+
+/* ===== ปุ่มเริ่ม ===== */
+.quiz-container button{
+  margin-top: 30px; /* ระยะ */
+  padding: 14px 30px; /* ขนาดปุ่ม */
+  border: none; /* ไม่มีขอบ */
+  border-radius: 15px; /* โค้ง */
+  font-size: 16px; /* ขนาด */
+  font-weight: bold; /* ตัวหนา */
+  cursor: pointer; /* pointer */
+
+  background: linear-gradient(135deg, #6a0dad, #ff5500); /* ม่วง+ส้ม */
+  color: white; /* สี */
+
+  transition: all 0.3s ease; /* smooth */
+}
+
+/* hover ปุ่ม */
+.quiz-container button:hover{
+  transform: translateY(-3px) scale(1.05); /* ลอย + ขยาย */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* เงา */
+}
+
+/* ===== ลิงก์กลับ ===== */
+.quiz-container a{
+  display: inline-block; /* ทำให้มีขนาด */
+  margin-top: 20px; /* ระยะ */
+  font-size: 16px; /* ขนาด */
+  color: #ff5500; /* สี */
+  text-decoration: none; /* ไม่มีเส้น */
+  transition: 0.3s; /* smooth */
+}
+
+.quiz-container a:hover{
+  transform: translateY(-3px) scale(1.05); /* ลอย + ขยาย */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* ===== Animation ===== */
+@keyframes fadeUp{
+  from{
+    opacity: 0; /* เริ่มจาง */
+    transform: translateY(30px); /* เลื่อนขึ้น */
+  }
+  to{
+    opacity: 1; /* ชัด */
+    transform: translateY(0); /* กลับตำแหน่ง */
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px){
+  .quiz-container{
+    margin: 100px 20px 60px; /* ลด margin */
+    padding: 30px 20px; /* ลด padding */
+  }
+
+  .quiz-container h1{
+    font-size: 26px; /* หัวข้อเล็กลง */
+  }
+
+  .quiz-container p{
+    font-size: 15px; /* ข้อความเล็กลง */
+  }
+}
+
+@media (max-width: 480px){
+  .quiz-container{
+    padding: 25px 15px; /* มือถือ */
+  }
+
+  .quiz-container button{
+    width: 100%; /* ปุ่มเต็มจอ */
+  }
+}
