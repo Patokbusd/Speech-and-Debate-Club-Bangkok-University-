@@ -1,0 +1,134 @@
+
+<!DOCTYPE html> <!-- กำหนดประเภทเอกสารเป็น HTML5 -->
+<html lang="th"> <!-- เริ่มต้นแท็ก html และระบุภาษาว่าเป็นภาษาไทย -->
+
+<head> <!-- เริ่มต้นส่วนหัวของเอกสาร -->
+    <meta charset="UTF-8" /> <!-- กำหนดการเข้ารหัสตัวอักษรเป็น UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- responsive -->
+    <title>Quiz</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> <!-- โหลด CSS ของ Swiper สไลด์โชว์ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /> <!-- โหลดไอคอน Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+Thai:wght@100..900&display=swap">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/pages/quiz.css"> <!-- ลิงก์ CSS -->
+</head>
+
+<body> <!-- เริ่ม body -->
+
+    <!--❗️Navbar ส่วนหัวเว็บไซต์❗️-->
+    <header class="navbar">
+        <div class="logo">
+            <img src="../../asset/img/logo.png" alt="Logo" />
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="nav-right">
+            <nav class="menu" id="menu">
+                <a href="../../index.html">HOME</a>
+                <a href="../activities/activities.html">ACTIVITIES</a>
+                <a href="../news/news.html">NEWS</a>
+                <a href="../about.html">ABOUT US</a>
+                <a href="../contact/contact.html">CONTACT</a>
+
+            </nav>
+        </div>
+    </header>
+
+    
+
+<div class="quiz-container">
+
+  <h1>🎤 Speaker Quiz</h1>
+
+  <div id="progressBar">
+    <div id="progressFill"></div>
+  </div>
+
+  <div id="progress"></div>
+
+  <div id="questionBox" class="slide-in">
+    <p id="questionText"></p>
+  </div>
+
+  <div id="options" class="options"></div>
+
+  <div class="controls">
+    <button id="backBtn">⬅️ย้อนกลับ</button>
+    <button id="nextBtn">ข้อถัดไป➡️</button>
+  </div>
+
+</div>
+
+
+
+    <!--❗️ส่วนท้ายเว็บไซต์ (Footer)❗️-->
+    <footer class="footer"> <!-- ส่วนท้ายเว็บไซต์ -->
+
+        <div class="footer-container"> <!-- คอนเทนเนอร์ส่วน footer -->
+
+            <div class="footer-column"> <!-- คอลัมน์ซ้ายของ footer -->
+                <h4>Speech & Debate Club</h4> <!-- ชื่อชมรมใน footer -->
+                <p>ชมรมปาฐกถาและโต้วาที มหาวิทยาลัยกรุงเทพ</p> <!-- คำอธิบายชมรม -->
+                <p>© 2025 Speech & Debate Club, Bangkok University. This is a student-run website and not an official university page.</p> <!-- ลิขสิทธิ์ -->
+            </div>
+
+            <div class="footer-column"> <!-- คอลัมน์กลางของ footer -->
+
+                <h4>ข้อมูลชมรม</h4> <!-- หัวข้อข้อมูลชมรม -->
+                
+                <ul class="footer-links">
+                    <li><a href="../about.html">เกี่ยวกับชมรม</a></li>
+                    <li><a href="../news/news.html">ข่าวสาร</a></li>
+                    <li><a href="../activities/activities.html">กิจกรรม</a></li>
+                    <li><a href="../activities/activities.html">ปฏิทินชมรม</a></li>
+                    <li><a href="../about.html">คณะกรรมการชมรม</a></li>
+                    <li><a href="#">คำถามที่พบบ่อย</a></li>
+                </ul>
+
+
+            </div>
+
+            <div class="footer-column"> <!-- คอลัมน์ขวาของ footer -->
+
+                <h4>ติดต่อสนับสนุนกิจกรรม</h4> <!-- หัวข้อติดต่อ -->
+
+                <ul class="contact-links"> <!-- รายการข้อมูลติดต่อ -->
+                    <li><a href="mailto:busd.bu@gmail.com"><i class="fas fa-envelope"></i>busd.bu@gmail.com</a></li> <!-- อีเมล -->
+                    <li><a href="https://line.me/R/ti/p/@yourlineid" target="_blank"><i class="fab fa-line"></i> LINE Official</a></li> <!-- Line Official -->
+                    <li><a href="https://www.google.com/maps/place/มหาวิทยาลัยกรุงเทพ+วิทยาเขตรังสิต" target="_blank"><i class="fas fa-map-marker-alt"></i> มหาวิทยาลัยกรุงเทพ วิทยาเขตรังสิต</a></li> <!-- ที่อยู่ -->
+                </ul>
+
+                <div class="social-icons"> <!-- ไอคอนโซเชียลมีเดีย -->
+                    <a href="https://www.facebook.com/busdclub?" target="_blank"><i class="fab fa-facebook"></i></a> <!-- Facebook -->
+                    <a href="https://www.instagram.com/patok_bu?igsh=bDdlb3Z6Mzg3MGdw" target="_blank"><i class="fab fa-instagram"></i></a> <!-- Instagram -->
+                    <a href="https://www.tiktok.com/@patok.bu?_r=1&_t=ZS-94NHFK2TTi0" target="_blank"><i class="fab fa-tiktok"></i></a> <!-- TikTok -->
+                    <a href="https://youtube.com/@speechanddebateclubbu?si=llt5XSlEJdN_TLaL" target="_blank"><i class="fab fa-youtube"></i></a> <!-- YouTube -->
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- ❗️JavaScript เพื่อให้ Swiper และ Script ทำงาน❗️ -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> <!-- โหลดไฟล์ JS ของ Swiper -->
+    <script src="../../js/main.js"></script> <!-- โหลดไฟล์ JS หลักของเว็บไซต์ -->
+    <!-- โหลดไฟล์ JS หลักของเว็บไซต์ -->
+
+    <div id="overlay"></div> <!-- แถบโอเวอร์เลย์ (ซ้อนด้านบนหน้าจอ) -->
+
+<script src="../../js/pages/personality_test/quiz.js"></script>
+
+</body>
+</html>
