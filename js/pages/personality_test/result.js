@@ -259,8 +259,9 @@ function typeEffect(){ // ฟังก์ชันพิมพ์ทีละต
 
 setTimeout(typeEffect, 500); // หน่วงก่อนเริ่ม
 
-// ===== สร้างกราฟนักพูด =====
 function createChart() {
+  chart.innerHTML = ""; // 🔥 ล้างกราฟนักพูดก่อนสร้างใหม่
+
   speakerKeys.forEach(key => {
     let bar = document.createElement("div");
     bar.className = "bar";
@@ -286,9 +287,9 @@ function createChart() {
   });
 }
 
-// ===== สร้างกราฟบ้าน =====
 function createHouseChart() {
   const houseChart = document.getElementById("houseChart");
+  houseChart.innerHTML = ""; // 🔥 ล้างกราฟบ้านก่อนสร้างใหม่
 
   houseKeys.forEach(key => {
     let bar = document.createElement("div");
@@ -311,10 +312,9 @@ function createHouseChart() {
       let inner = bar.querySelector(".bar-inner");
       inner.style.width = percentScore + "%";
       inner.querySelector(".bar-text").innerText = percentScore + "%";
+
+      // ใช้สีบ้านไดนามิก
+      inner.style.background = houseTheme[key];
     }, 100);
   });
 }
-
-// ===== เรียกฟังก์ชัน =====
-createChart();       // กราฟนักพูด
-createHouseChart();  // กราฟบ้าน
