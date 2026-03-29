@@ -252,19 +252,25 @@ function createChart(){
     let bar = document.createElement("div");
     bar.className = "bar";
 
-    bar.innerHTML = `
-      <span>${speakerMap[key]}</span>
-      <div class="bar-fill">
-        <div class="bar-inner"></div>
-      </div>
-    `;
+bar.innerHTML = `
+  <span>${speakerMap[key]}</span>
+  <div class="bar-fill">
+    <div class="bar-inner">
+      <span class="bar-text"></span>
+    </div>
+  </div>
+`;
 
     chart.appendChild(bar);
 
-    setTimeout(()=>{
-      let percentScore = percentScores?.[key] ?? 0; // กัน error
-      bar.querySelector(".bar-inner").style.width = percentScore + "%";
-    },100);
+setTimeout(()=>{
+  let percentScore = percentScores[key] || 0;
+
+  let inner = bar.querySelector(".bar-inner");
+  inner.style.width = percentScore + "%";
+
+  inner.querySelector(".bar-text").innerText = percentScore + "%"; // 🔥 ตรงนี้
+},100);
 
   });
 
