@@ -1,6 +1,6 @@
 // ===== กัน error ถ้าเข้าหน้านี้ตรงๆ =====
 let scores = JSON.parse(localStorage.getItem("scores")); // ดึงคะแนนจาก localStorage
-let percent = JSON.parse(localStorage.getItem("percentScores"));
+let percentScores = JSON.parse(localStorage.getItem("percentScores"));
 if(!scores){ // ถ้าไม่มีคะแนน
   window.location.href = "quiz.html"; // เด้งกลับไปทำ quiz
 }
