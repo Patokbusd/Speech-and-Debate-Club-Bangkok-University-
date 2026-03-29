@@ -291,7 +291,7 @@ function createChart() {
 // ===== สร้างกราฟบ้าน =====
 function createHouseChart() {
   const houseChart = document.getElementById("houseChart");
-  houseChart.innerHTML = ""; // 🔥 ล้างเนื้อหาก่อน
+  houseChart.innerHTML = "";
 
   houseKeys.forEach(key => {
     let bar = document.createElement("div");
@@ -309,18 +309,11 @@ function createHouseChart() {
     houseChart.appendChild(bar);
 
     setTimeout(() => {
-      let percentScore = percentScores[key] || 0;
-
+      let percentScore = percentScores[key] || 0; // ✅ ใช้คะแนนจริง
       let inner = bar.querySelector(".bar-inner");
       inner.style.width = percentScore + "%";
       inner.querySelector(".bar-text").innerText = percentScore + "%";
-
-      // ใช้สีเฉพาะบ้าน
-      inner.style.background = houseTheme[key];
+      inner.style.background = houseTheme[key]; // สีเฉพาะบ้าน
     }, 100);
   });
 }
-
-// เรียกใช้
-createChart();       // กราฟนักพูด
-createHouseChart();  // กราฟบ้าน
