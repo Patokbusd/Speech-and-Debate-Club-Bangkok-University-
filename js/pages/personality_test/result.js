@@ -1,10 +1,10 @@
 // ===== กัน error ถ้าเข้าหน้านี้ตรงๆ =====
-let scores = JSON.parse(localStorage.getItem("scores")); // ดึงคะแนนจาก localStorage
-let percentScore = percentScores[key] ?? 0;
-if(!scores){ // ถ้าไม่มีคะแนน
-  window.location.href = "quiz.html"; // เด้งกลับไปทำ quiz
-}
+let scores = JSON.parse(localStorage.getItem("scores"));
+let percentScores = JSON.parse(localStorage.getItem("percentScores"));
 
+if(!scores || !percentScores){
+  window.location.href = "quiz.html";
+}
 
 
 // ===== ดึง element =====
@@ -262,10 +262,11 @@ function createChart(){
     chart.appendChild(bar);
 
     setTimeout(()=>{
-      let percentScore = percentScores[key] ?? 0; // ✅ กัน undefined
+      let percentScore = percentScores?.[key] ?? 0; // กัน error
       bar.querySelector(".bar-inner").style.width = percentScore + "%";
     },100);
 
   });
+
 
 }
