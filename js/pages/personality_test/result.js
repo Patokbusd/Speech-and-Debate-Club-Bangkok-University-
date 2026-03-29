@@ -215,7 +215,7 @@ ${speakerDesc[primarySpeaker.key]}
 คุณยังมีความเป็น ${speakerMap[secondarySpeaker.key]}
 ${speakerDesc[secondarySpeaker.key]}
 
----
+------------------
 
 บุคลิกของคุณอยู่ใน ${houseMap[primaryHouse.key]} (${houseLevel})
 ${houseDesc[primaryHouse.key]}
@@ -223,9 +223,9 @@ ${houseDesc[primaryHouse.key]}
 และยังมีลักษณะของ ${houseMap[secondaryHouse.key]}
 ${houseDesc[secondaryHouse.key]}
 
----
+------------------
 
-คุณเป็นคนที่มีศักยภาพสูงในการพัฒนาเป็นนักพูดที่โดดเด่นในอนาคต 🎤✨
+คุณเป็นคนที่มีศักยภาพสูงในการพัฒนาเป็นนักพูดที่โดดเด่นในอนาคต เข้าร่วมชมรมปาฐกถาเเละโต้วาที มหาวิทยาลัยกรุงเทพ เพื่อยกระดับตัวเองไปสู่จุดสูงสุดของการพูด🎤✨
 `;
 
 // ===== เอฟเฟกต์พิมพ์ =====
