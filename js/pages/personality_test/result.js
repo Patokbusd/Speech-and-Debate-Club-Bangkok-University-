@@ -243,29 +243,26 @@ function typeEffect(){ // ฟังก์ชันพิมพ์ทีละต
 setTimeout(typeEffect, 500); // หน่วงก่อนเริ่ม
 
 // ===== สร้างกราฟ =====
-function createChart(){ // ฟังก์ชันสร้างกราฟ
+function createChart(){
 
-  speakerKeys.forEach(key => { // loop ทุก type
+  speakerKeys.forEach(key => {
 
-    let maxScore = 20; // ✅ คะแนนเต็ม (แก้แล้ว)
-    let percent = (scores[key] / maxScore) * 100; // คำนวณ %
-
-    let bar = document.createElement("div"); // สร้าง div
-    bar.className = "bar"; // ใส่ class
+    let bar = document.createElement("div");
+    bar.className = "bar";
 
     bar.innerHTML = `
       <span>${speakerMap[key]}</span>
       <div class="bar-fill">
         <div class="bar-inner"></div>
       </div>
-    `; // โครงสร้างกราฟ
+    `;
 
-    chart.appendChild(bar); // เพิ่มเข้า DOM
+    chart.appendChild(bar);
 
-setTimeout(()=>{ // animation
-  let percentScore = percent[key]; // ดึง % จาก localStorage
-  bar.querySelector(".bar-inner").style.width = percentScore + "%"; // ใช้ % จริง
-},100);
+    setTimeout(()=>{
+      let percentScore = percentScores[key] || 0; // ✅ ใช้ตัวนี้
+      bar.querySelector(".bar-inner").style.width = percentScore + "%";
+    },100);
 
   });
 
