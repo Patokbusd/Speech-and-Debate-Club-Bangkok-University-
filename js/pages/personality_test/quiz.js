@@ -89,33 +89,27 @@ const backBtn = document.getElementById("backBtn");
 // ================== LOAD ==================
 function loadQuestion(){
 
-  if(!questions[current]) return; // กัน index หลุด
-
   questionText.innerText = questions[current].text;
   progress.innerText = `ข้อ ${current+1} / ${questions.length}`;
 
   optionsDiv.innerHTML = "";
 
-  let shuffled = shuffle([...scale]); // สุ่มตัวเลือก
-  let selectedVal = answers[current]; // คำตอบเดิม
+  // ✅ ไม่ต้อง shuffle แล้ว
+  scale.forEach(opt=>{
 
-  shuffled.forEach(opt=>{
-    let checked = selectedVal === opt.value ? "checked" : "";
+    let checked = answers[current] === opt.value ? "checked" : "";
 
     let label = document.createElement("label");
     label.innerHTML = `
       <input type="radio" name="opt" value="${opt.value}" ${checked}>
       <span>${opt.text}</span>
     `;
+
     optionsDiv.appendChild(label);
   });
 
-  // progress bar (กัน null)
   let percent = ((current+1)/questions.length)*100;
-  let bar = document.getElementById("progressFill");
-  if(bar){
-    bar.style.width = percent + "%";
-  }
+  document.getElementById("progressFill").style.width = percent+"%";
 }
 
 // ================== NEXT ==================
