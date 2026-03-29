@@ -157,27 +157,45 @@ body{
   font-weight: bold;
 }
 
-/* ===== กราฟบ้าน ===== */
+/* ===== กราฟบ้าน ปรับให้เหมือนนักพูด ===== */
 #houseChart .bar {
   margin: 10px 0;
 }
 
+#houseChart .bar span {
+  display: block;
+  font-size: 14px; /* ขนาดฟอนต์เหมือนนักพูด */
+  margin-bottom: 5px;
+}
+
 #houseChart .bar-fill {
-  width: 100%;
+  height: 12px; /* สูงเหมือนนักพูด */
+  border-radius: 10px; /* มุมมนเหมือนนักพูด */
   background: #ddd;
-  border-radius: 10px;
   overflow: hidden;
 }
 
 #houseChart .bar-inner {
-  height: 16px; /* ลดจาก 20px ให้สมดุลกับนักพูด */
+  height: 100%; /* ใช้เต็มแท่ง */
   width: 0;
-  /* สีบ้านเปลี่ยนจาก JS houseTheme */
   border-radius: 10px;
+  position: relative;
+  transition: width 0.8s ease;
   text-align: right;
   padding-right: 5px;
   box-sizing: border-box;
   color: #fff;
-  font-size: 9px;
-  line-height: 16px;
+  font-size: 9px; /* ขนาดตัวเลขเหมือนนักพูด */
+  line-height: 12px; /* ความสูงบรรทัดเท่ากับแท่ง */
+  /* สีจะตั้งใน JS ตาม houseTheme[key] */
+}
+
+#houseChart .bar-text {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 9px; /* ขนาดเหมือนนักพูด */
+  color: #fff;
+  font-weight: bold;
 }
