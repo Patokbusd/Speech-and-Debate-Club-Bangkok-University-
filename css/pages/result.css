@@ -147,13 +147,13 @@ body{
 }
 
 /* แท่งคะแนน */
-
-.bar-inner {
+.bar-inner{
   height: 100%;
-  background: none;
-  position: relative;
-  transition: width 0.8s ease;
+  width: 0%;
+  border-radius: 10px;
+  transition: width 1s ease;
 }
+
 
 
 .bar-text {
