@@ -259,41 +259,36 @@ function typeEffect(){ // ฟังก์ชันพิมพ์ทีละต
 
 setTimeout(typeEffect, 500); // หน่วงก่อนเริ่ม
 
-// ===== สร้างกราฟ =====
-function createChart(){
-
+// ===== สร้างกราฟนักพูด =====
+function createChart() {
   speakerKeys.forEach(key => {
-
     let bar = document.createElement("div");
     bar.className = "bar";
 
-bar.innerHTML = `
-  <span>${speakerMap[key]}</span>
-  <div class="bar-fill">
-    <div class="bar-inner">
-      <span class="bar-text"></span>
-    </div>
-  </div>
-`;
+    bar.innerHTML = `
+      <span>${speakerMap[key]}</span>
+      <div class="bar-fill">
+        <div class="bar-inner">
+          <span class="bar-text"></span>
+        </div>
+      </div>
+    `;
 
     chart.appendChild(bar);
 
-setTimeout(()=>{
-  let percentScore = percentScores[key] || 0;
+    setTimeout(() => {
+      let percentScore = percentScores[key] || 0;
 
-  let inner = bar.querySelector(".bar-inner");
-  inner.style.width = percentScore + "%";
-
-  inner.querySelector(".bar-text").innerText = percentScore + "%"; // 🔥 ตรงนี้
-},100);
-
+      let inner = bar.querySelector(".bar-inner");
+      inner.style.width = percentScore + "%";
+      inner.querySelector(".bar-text").innerText = percentScore + "%";
+    }, 100);
   });
-
-
+}
 
 // ===== สร้างกราฟบ้าน =====
 function createHouseChart() {
-  const houseChart = document.getElementById("houseChart"); // div สำหรับบ้าน
+  const houseChart = document.getElementById("houseChart");
 
   houseKeys.forEach(key => {
     let bar = document.createElement("div");
@@ -315,14 +310,11 @@ function createHouseChart() {
 
       let inner = bar.querySelector(".bar-inner");
       inner.style.width = percentScore + "%";
-
       inner.querySelector(".bar-text").innerText = percentScore + "%";
     }, 100);
   });
 }
 
-// เรียกใช้พร้อมกับ createChart() ของนักพูด
+// ===== เรียกฟังก์ชัน =====
 createChart();       // กราฟนักพูด
 createHouseChart();  // กราฟบ้าน
-
-}
