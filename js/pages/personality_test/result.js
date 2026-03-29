@@ -211,8 +211,8 @@ let description = `
 ${speakerDesc[primarySpeaker.key]}
 `;
 
-// แสดงนักพูดรองแค่กรณีไม่ชัดเจนมาก
-if (speakerLevel !== "ชัดเจนมาก") {
+// นักพูดรอง: แสดงเฉพาะกรณีไม่ใช่ "ชัดเจนมาก"
+if(speakerLevel !== "ชัดเจนมาก") {
   description += `
 คุณยังมีความเป็น ${speakerMap[secondarySpeaker.key]}
 ${speakerDesc[secondarySpeaker.key]}
@@ -221,13 +221,13 @@ ${speakerDesc[secondarySpeaker.key]}
 
 description += `
 ---
-
+// บ้านหลัก
 บุคลิกของคุณอยู่ใน ${houseMap[primaryHouse.key]} (${houseLevel})
 ${houseDesc[primaryHouse.key]}
 `;
 
-// แสดงบ้านรองแค่กรณีไม่ชัดเจนมาก หรือค่อนข้างชัด
-if (houseLevel === "ผสมผสาน") {
+// บ้านรอง: แสดงเฉพาะกรณีไม่ใช่ "ชัดเจนมาก"
+if(houseLevel !== "ชัดเจนมาก") {
   description += `
 และยังมีลักษณะของ ${houseMap[secondaryHouse.key]}
 ${houseDesc[secondaryHouse.key]}
@@ -237,7 +237,7 @@ ${houseDesc[secondaryHouse.key]}
 description += `
 ---
 
-คุณเป็นคนที่มีศักยภาพสูงในการพัฒนาเป็นนักพูดที่โดดเด่นในอนาคต 🎤✨
+คุณเป็นคนที่มีศักยภาพสูงในการพัฒนาเป็นนักพูดที่โดดเด่นในอนาคต เข้าร่วมชมรมปาฐกถาเเละโต้วาที มหาวิทยาลัยกรุงเทพ เพื่อยกระดับตัวเองไปสู่จุดสูงสุดของการพูด🎤✨
 `;
 
 // ===== เอฟเฟกต์พิมพ์ =====
