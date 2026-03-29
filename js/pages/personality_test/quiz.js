@@ -59,7 +59,7 @@ const questions = [
 ];
 
 // ================== RANDOMIZE QUESTIONS ==================
-questions.sort(() => Math.random() - 0.5);
+questions.sort(() => Math.random() - 0.5); // สุ่มคำถาม (ไม่ต้อง assign ใหม่)
 
 // ================== SCALE ==================
 let scale = [
@@ -70,9 +70,9 @@ let scale = [
   { text:"น้อยที่สุด", value:1 }
 ];
 
-// ================== SHUFFLE SCALE ==================
+// ================== SHUFFLE ==================
 function shuffle(arr){
-  return arr.sort(()=>Math.random()-0.5);
+  return arr.sort(()=>Math.random()-0.5); // สุ่มตัวเลือก
 }
 
 // ================== STATE ==================
@@ -89,25 +89,33 @@ const backBtn = document.getElementById("backBtn");
 // ================== LOAD ==================
 function loadQuestion(){
 
+  if(!questions[current]) return; // กัน index หลุด
+
   questionText.innerText = questions[current].text;
   progress.innerText = `ข้อ ${current+1} / ${questions.length}`;
 
   optionsDiv.innerHTML = "";
 
   let shuffled = shuffle([...scale]); // สุ่มตัวเลือก
+  let selectedVal = answers[current]; // คำตอบเดิม
 
   shuffled.forEach(opt=>{
+    let checked = selectedVal === opt.value ? "checked" : "";
+
     let label = document.createElement("label");
     label.innerHTML = `
-      <input type="radio" name="opt" value="${opt.value}">
+      <input type="radio" name="opt" value="${opt.value}" ${checked}>
       <span>${opt.text}</span>
     `;
     optionsDiv.appendChild(label);
   });
 
-  // progress bar
+  // progress bar (กัน null)
   let percent = ((current+1)/questions.length)*100;
-  document.getElementById("progressFill").style.width = percent+"%";
+  let bar = document.getElementById("progressFill");
+  if(bar){
+    bar.style.width = percent + "%";
+  }
 }
 
 // ================== NEXT ==================
@@ -147,7 +155,7 @@ function calculateResult(){
 
   answers.forEach((ans,i)=>{
     let q = questions[i];
-    let val = ans;
+    let val = ans || 0; // กัน null
 
     if(q.reverse){
       val = 6 - val;
@@ -156,17 +164,16 @@ function calculateResult(){
     let weight = q.weight || 1;
 
     scores[q.type] += val * weight;
-    maxScores[q.type] += 5 * weight; // max possible
+    maxScores[q.type] += 5 * weight;
   });
 
-  // ================== PERCENT ==================
+  // percent
   let percentScores = {};
-
   for(let key in scores){
     percentScores[key] = Math.round((scores[key]/maxScores[key])*100);
   }
 
-  // เก็บ
+  // save
   localStorage.setItem("scores", JSON.stringify(scores));
   localStorage.setItem("percentScores", JSON.stringify(percentScores));
 
@@ -174,4 +181,6 @@ function calculateResult(){
 }
 
 // ================== START ==================
-loadQuestion();
+document.addEventListener("DOMContentLoaded", () => {
+  loadQuestion(); // โหลดหลัง DOM พร้อม
+});
