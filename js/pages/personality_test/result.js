@@ -5,6 +5,8 @@ if(!scores){ // ถ้าไม่มีคะแนน
   window.location.href = "quiz.html"; // เด้งกลับไปทำ quiz
 }
 
+
+
 // ===== ดึง element =====
 const resultText = document.getElementById("result"); // ช่องชื่อผลลัพธ์
 const descText = document.getElementById("desc"); // ช่องคำอธิบาย
@@ -260,7 +262,7 @@ function createChart(){
     chart.appendChild(bar);
 
     setTimeout(()=>{
-      let percentScore = percentScores[key] || 0; // ✅ ใช้ตัวนี้
+      let percentScore = percentScores[key] ?? 0; // ✅ กัน undefined
       bar.querySelector(".bar-inner").style.width = percentScore + "%";
     },100);
 
