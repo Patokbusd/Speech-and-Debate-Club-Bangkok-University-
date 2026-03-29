@@ -147,9 +147,10 @@ body{
 }
 
 /* แท่งคะแนน */
+
 .bar-inner {
   height: 100%;
-  background: #fff;
+  background: none;
   position: relative;
   transition: width 0.8s ease;
 }

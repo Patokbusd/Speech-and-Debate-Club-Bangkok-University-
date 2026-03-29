@@ -269,7 +269,7 @@ setTimeout(()=>{
   let inner = bar.querySelector(".bar-inner");
   inner.style.width = percentScore + "%";
 
-  inner.querySelector(".bar-text").innerText = percentScore + "%"; // ✅ ใส่เลข
+  inner.querySelector(".bar-text").innerText = percentScore + "%"; // 🔥 ตรงนี้
 },100);
 
   });
