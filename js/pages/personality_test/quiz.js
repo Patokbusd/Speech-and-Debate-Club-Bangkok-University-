@@ -59,21 +59,17 @@ const questions = [
 ];
 
 // ================== RANDOMIZE QUESTIONS ==================
-questions.sort(() => Math.random() - 0.5); // สุ่มคำถาม (ไม่ต้อง assign ใหม่)
+questions.sort(() => Math.random() - 0.5); // สุ่มคำถาม (โอเค)
 
 // ================== SCALE ==================
-let scale = [
+const scale = Object.freeze([
   { text:"มากที่สุด", value:5 },
   { text:"มาก", value:4 },
   { text:"ปานกลาง", value:3 },
   { text:"น้อย", value:2 },
   { text:"น้อยที่สุด", value:1 }
-];
+]);
 
-// ================== SHUFFLE ==================
-function shuffle(arr){
-  return arr.sort(()=>Math.random()-0.5); // สุ่มตัวเลือก
-}
 
 // ================== STATE ==================
 let current = 0;
@@ -94,8 +90,8 @@ function loadQuestion(){
 
   optionsDiv.innerHTML = "";
 
-  // ✅ ไม่ต้อง shuffle แล้ว
-  scale.forEach(opt=>{
+  // ✅ ใช้ scale ตรง ๆ + clone กันโดนแก้
+  [...scale].forEach(opt=>{
 
     let checked = answers[current] === opt.value ? "checked" : "";
 
@@ -149,7 +145,7 @@ function calculateResult(){
 
   answers.forEach((ans,i)=>{
     let q = questions[i];
-    let val = ans || 0; // กัน null
+    let val = ans || 0;
 
     if(q.reverse){
       val = 6 - val;
@@ -161,13 +157,12 @@ function calculateResult(){
     maxScores[q.type] += 5 * weight;
   });
 
-  // percent
   let percentScores = {};
+
   for(let key in scores){
     percentScores[key] = Math.round((scores[key]/maxScores[key])*100);
   }
 
-  // save
   localStorage.setItem("scores", JSON.stringify(scores));
   localStorage.setItem("percentScores", JSON.stringify(percentScores));
 
@@ -176,5 +171,5 @@ function calculateResult(){
 
 // ================== START ==================
 document.addEventListener("DOMContentLoaded", () => {
-  loadQuestion(); // โหลดหลัง DOM พร้อม
+  loadQuestion();
 });
