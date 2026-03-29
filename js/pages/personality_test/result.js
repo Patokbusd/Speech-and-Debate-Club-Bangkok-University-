@@ -209,19 +209,24 @@ let title = `🎤 คุณคือ: ${speakerMap[primarySpeaker.key]}
 
 // ===== DESCRIPTION =====
 let description = `
+<div class="center-text">
 คุณเป็น ${speakerMap[primarySpeaker.key]} อย่าง${speakerLevel}
-${speakerDesc[primarySpeaker.key]}
+</div>
 
-คุณยังมีความเป็น ${speakerMap[secondarySpeaker.key]}
+<div class="center-text">
+บุคลิกของคุณอยู่ใน ${houseMap[primaryHouse.key]} (${houseLevel})<br>
+${houseDesc[primaryHouse.key].split("\n")[0]} <!-- แค่บรรทัดแรกของคำอธิบายบ้าน -->
+</div>
+
+<p>
+คุณยังมีความเป็น ${speakerMap[secondarySpeaker.key]}<br>
 ${speakerDesc[secondarySpeaker.key]}
+</p>
 
----
-
-บุคลิกของคุณอยู่ใน ${houseMap[primaryHouse.key]} (${houseLevel})
-${houseDesc[primaryHouse.key]}
-
-และยังมีลักษณะของ ${houseMap[secondaryHouse.key]}
+<p>
+และยังมีลักษณะของ ${houseMap[secondaryHouse.key]}<br>
 ${houseDesc[secondaryHouse.key]}
+</p>
 
 ---
 

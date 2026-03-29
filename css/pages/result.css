@@ -45,6 +45,14 @@
   text-align: left;
 }
 
+/* ===== ข้อความตรงกลาง ===== */
+.center-text {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 20px 0;
+}
+
 /* ===== ปุ่ม ===== */
 .result-box a{
   display: inline-block;
