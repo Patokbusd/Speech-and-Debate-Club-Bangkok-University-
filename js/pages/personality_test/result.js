@@ -228,40 +228,21 @@ ${houseDesc[secondaryHouse.key]}
 คุณเป็นคนที่มีศักยภาพสูงในการพัฒนาเป็นนักพูดที่โดดเด่นในอนาคต 🎤✨
 `;
 
-
-// ===== element สำหรับข้อความหลัก =====
-const primarySpeakerEl = document.getElementById("primary-speaker");
-const primaryHouseEl = document.getElementById("primary-house");
-
-// ===== title แยก 2 ส่วน =====
-let titleSpeaker = `คุณเป็น ${speakerMap[primarySpeaker.key]} อย่าง${speakerLevel}`;
-let titleHouse = `บุคลิกของคุณอยู่ใน ${houseMap[primaryHouse.key]} (${houseLevel})`;
-
-// ===== ฟังก์ชันพิมพ์ทีละตัว =====
-let i = 0;
-function typeEffectTitle(text, element, callback){
-  if(i < text.length){
-    element.innerHTML += text.charAt(i);
-    i++;
-    setTimeout(()=>typeEffectTitle(text, element, callback), 25);
+// ===== เอฟเฟกต์พิมพ์ =====
+let i = 0; // ตัวนับ
+function typeEffect(){ // ฟังก์ชันพิมพ์ทีละตัว
+  if(i < title.length){ // ถ้ายังไม่ครบ
+    resultText.innerHTML += title.charAt(i); // เพิ่มทีละตัว
+    resultText.style.opacity = 1; // ทำให้ค่อยๆปรากฏ
+    i++; // เพิ่ม index
+    setTimeout(typeEffect, 25); // หน่วงเวลา
   } else {
-    if(callback) callback();
+    descText.innerText = description; // แสดงคำอธิบาย
+    createChart(); // สร้างกราฟ
   }
 }
 
-// ===== เริ่มพิมพ์ =====
-setTimeout(()=>{
-  typeEffectTitle(titleSpeaker, primarySpeakerEl, ()=>{
-    i = 0; // reset
-    typeEffectTitle(titleHouse, primaryHouseEl, ()=>{
-      // หลังจากพิมพ์ title ทั้งสองแล้ว
-      // แสดง description และ paragraph ทั้งหมด
-      descText.innerHTML = description
-        .replace(/\n\n/g, "<br><br>"); // ใช้ <br> สำหรับ line break
-      createChart(); // สร้างกราฟ
-    });
-  });
-}, 500);
+setTimeout(typeEffect, 500); // หน่วงก่อนเริ่ม
 
 // ===== สร้างกราฟ =====
 function createChart(){
@@ -271,25 +252,19 @@ function createChart(){
     let bar = document.createElement("div");
     bar.className = "bar";
 
-bar.innerHTML = `
-  <span>${speakerMap[key]}</span>
-  <div class="bar-fill">
-    <div class="bar-inner">
-      <span class="bar-text"></span>
-    </div>
-  </div>
-`;
+    bar.innerHTML = `
+      <span>${speakerMap[key]}</span>
+      <div class="bar-fill">
+        <div class="bar-inner"></div>
+      </div>
+    `;
 
     chart.appendChild(bar);
 
-setTimeout(()=>{
-  let percentScore = percentScores[key] || 0;
-
-  let inner = bar.querySelector(".bar-inner");
-  inner.style.width = percentScore + "%";
-
-  inner.querySelector(".bar-text").innerText = percentScore + "%"; // 🔥 ตรงนี้
-},100);
+    setTimeout(()=>{
+      let percentScore = percentScores?.[key] ?? 0; // กัน error
+      bar.querySelector(".bar-inner").style.width = percentScore + "%";
+    },100);
 
   });
 
