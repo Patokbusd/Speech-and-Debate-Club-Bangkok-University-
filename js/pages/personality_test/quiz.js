@@ -59,7 +59,7 @@ const questions = [
 ];
 
 // ================== RANDOMIZE QUESTIONS ==================
-questions.sort(() => Math.random() - 0.5); // สุ่มคำถาม
+questions.sort(() => Math.random() - 0.5);
 
 // ================== SCALE ==================
 let scale = [
