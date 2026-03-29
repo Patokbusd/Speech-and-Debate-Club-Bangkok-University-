@@ -206,40 +206,34 @@ const houseDesc = {
 
 
 // ===== DESCRIPTION =====
-let description = "";
-
-// ส่วนของนักพูดหลัก
-description += `
+let description = `
 คุณเป็น ${speakerMap[primarySpeaker.key]} อย่าง${speakerLevel}
 ${speakerDesc[primarySpeaker.key]}
 `;
 
-// นักพูดรอง แสดงเฉพาะผสมผสานหรือค่อนข้างชัด
-if(speakerLevel !== "ชัดเจนมาก"){
+// แสดงนักพูดรองแค่กรณีไม่ชัดเจนมาก
+if (speakerLevel !== "ชัดเจนมาก") {
   description += `
 คุณยังมีความเป็น ${speakerMap[secondarySpeaker.key]}
 ${speakerDesc[secondarySpeaker.key]}
 `;
 }
 
-// เส้นคั่น
-description += "\n---\n";
-
-// บ้านหลัก
 description += `
+---
+
 บุคลิกของคุณอยู่ใน ${houseMap[primaryHouse.key]} (${houseLevel})
 ${houseDesc[primaryHouse.key]}
 `;
 
-// บ้านรอง แสดงเฉพาะผสมผสาน
-if(houseLevel === "ผสมผสาน" || houseLevel === "ค่อนข้างชัด"){
+// แสดงบ้านรองแค่กรณีไม่ชัดเจนมาก หรือค่อนข้างชัด
+if (houseLevel === "ผสมผสาน") {
   description += `
 และยังมีลักษณะของ ${houseMap[secondaryHouse.key]}
 ${houseDesc[secondaryHouse.key]}
 `;
 }
 
-// ปิดท้าย
 description += `
 ---
 
