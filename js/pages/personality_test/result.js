@@ -206,15 +206,24 @@ const houseDesc = {
 
 
 // ===== DESCRIPTION =====
-let description = `
+let description = "";
+
+// ส่วนของนักพูดหลัก
+description += `
 คุณเป็น ${speakerMap[primarySpeaker.key]} อย่าง${speakerLevel}
 ${speakerDesc[primarySpeaker.key]}
+`;
 
+// นักพูดรอง แสดงเฉพาะผสมผสานหรือค่อนข้างชัด
+if(speakerLevel !== "ชัดเจนมาก"){
+  description += `
 คุณยังมีความเป็น ${speakerMap[secondarySpeaker.key]}
 ${speakerDesc[secondarySpeaker.key]}
-
----
 `;
+}
+
+// เส้นคั่น
+description += "\n---\n";
 
 // บ้านหลัก
 description += `
@@ -222,18 +231,19 @@ description += `
 ${houseDesc[primaryHouse.key]}
 `;
 
-// บ้านรอง เฉพาะกรณีที่ houseLevel === "ผสมผสาน"
-if(houseLevel === "ผสมผสาน"){
+// บ้านรอง แสดงเฉพาะผสมผสาน
+if(houseLevel === "ผสมผสาน" || houseLevel === "ค่อนข้างชัด"){
   description += `
 และยังมีลักษณะของ ${houseMap[secondaryHouse.key]}
 ${houseDesc[secondaryHouse.key]}
 `;
 }
 
+// ปิดท้าย
 description += `
 ---
 
-คุณเป็นคนที่มีศักยภาพสูงในการพัฒนาเป็นนักพูดที่โดดเด่นในอนาคต เข้าร่วมชมรมปาฐกถาเเละโต้วาที มหาวิทยาลัยกรุงเทพ เพื่อยกระดับตัวเองไปสู่จุดสูงสุดของการพูด🎤✨
+คุณเป็นคนที่มีศักยภาพสูงในการพัฒนาเป็นนักพูดที่โดดเด่นในอนาคต 🎤✨
 `;
 
 // ===== เอฟเฟกต์พิมพ์ =====
