@@ -46,11 +46,12 @@
 }
 
 /* ===== ข้อความตรงกลาง ===== */
-.center-text {
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.2em;
-  margin: 20px 0;
+.center-text{
+  text-align: center;   /* จัดกลางข้อความ */
+  font-weight: bold;    /* ทำตัวหนา */
+  font-size: 26px;      /* ขนาดตามต้องการ */
+  margin: 15px 0;       /* เว้นระยะบน-ล่าง */
+  color: #ff5500;       /* สีส้ม */
 }
 
 /* ===== ปุ่ม ===== */

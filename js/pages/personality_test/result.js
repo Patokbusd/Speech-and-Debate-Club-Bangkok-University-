@@ -209,45 +209,57 @@ let title = `🎤 คุณคือ: ${speakerMap[primarySpeaker.key]}
 
 // ===== DESCRIPTION =====
 let description = `
-<div class="center-text">
 คุณเป็น ${speakerMap[primarySpeaker.key]} อย่าง${speakerLevel}
-</div>
+${speakerDesc[primarySpeaker.key]}
 
-<div class="center-text">
-บุคลิกของคุณอยู่ใน ${houseMap[primaryHouse.key]} (${houseLevel})<br>
-${houseDesc[primaryHouse.key].split("\n")[0]} <!-- แค่บรรทัดแรกของคำอธิบายบ้าน -->
-</div>
-
-<p>
-คุณยังมีความเป็น ${speakerMap[secondarySpeaker.key]}<br>
+คุณยังมีความเป็น ${speakerMap[secondarySpeaker.key]}
 ${speakerDesc[secondarySpeaker.key]}
-</p>
 
-<p>
-และยังมีลักษณะของ ${houseMap[secondaryHouse.key]}<br>
+---
+
+บุคลิกของคุณอยู่ใน ${houseMap[primaryHouse.key]} (${houseLevel})
+${houseDesc[primaryHouse.key]}
+
+และยังมีลักษณะของ ${houseMap[secondaryHouse.key]}
 ${houseDesc[secondaryHouse.key]}
-</p>
 
 ---
 
 คุณเป็นคนที่มีศักยภาพสูงในการพัฒนาเป็นนักพูดที่โดดเด่นในอนาคต 🎤✨
 `;
 
-// ===== เอฟเฟกต์พิมพ์ =====
-let i = 0; // ตัวนับ
-function typeEffect(){ // ฟังก์ชันพิมพ์ทีละตัว
-  if(i < title.length){ // ถ้ายังไม่ครบ
-    resultText.innerHTML += title.charAt(i); // เพิ่มทีละตัว
-    resultText.style.opacity = 1; // ทำให้ค่อยๆปรากฏ
-    i++; // เพิ่ม index
-    setTimeout(typeEffect, 25); // หน่วงเวลา
+
+// ===== แยก element สำหรับข้อความหลัก =====
+const primarySpeakerEl = document.getElementById("primary-speaker");
+const primaryHouseEl = document.getElementById("primary-house");
+
+// ===== แยก title เป็น 2 ส่วน =====
+let titleSpeaker = `คุณเป็น ${speakerMap[primarySpeaker.key]} อย่าง${speakerLevel}`;
+let titleHouse = `บุคลิกของคุณอยู่ใน ${houseMap[primaryHouse.key]} (${houseLevel})`;
+
+// ===== ฟังก์ชัน typeEffect ใหม่สำหรับข้อความหลัก =====
+let i = 0;
+function typeEffectTitle(text, element, callback){
+  if(i < text.length){
+    element.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(()=>typeEffectTitle(text, element, callback), 25);
   } else {
-    descText.innerText = description; // แสดงคำอธิบาย
-    createChart(); // สร้างกราฟ
+    if(callback) callback();
   }
 }
 
-setTimeout(typeEffect, 500); // หน่วงก่อนเริ่ม
+// ===== เริ่มพิมพ์ข้อความทีละตัว =====
+setTimeout(()=>{
+  typeEffectTitle(titleSpeaker, primarySpeakerEl, ()=>{
+    i = 0; // reset สำหรับข้อความถัดไป
+    typeEffectTitle(titleHouse, primaryHouseEl, ()=>{
+      // หลังจากพิมพ์ title ทั้งสอง
+      descText.innerText = description; // แสดงคำอธิบายยาว
+      createChart(); // สร้างกราฟ
+    });
+  });
+}, 500);
 
 // ===== สร้างกราฟ =====
 function createChart(){
