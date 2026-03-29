@@ -288,7 +288,6 @@ function createChart() {
   });
 }
 
-// ===== สร้างกราฟบ้าน =====
 function createHouseChart() {
   const houseChart = document.getElementById("houseChart");
   houseChart.innerHTML = "";
