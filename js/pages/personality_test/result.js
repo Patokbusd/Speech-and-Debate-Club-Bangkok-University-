@@ -203,9 +203,7 @@ const houseDesc = {
 หากคุณสามารถเปิดใจให้ผู้คนเข้าถึงตัวตนที่แท้จริงของคุณมากขึ้น ลดการป้องกันตัวเองในบางสถานการณ์ คุณจะไม่เพียงแค่เป็นคนที่ “น่าดึงดูด” แต่จะกลายเป็นคนที่ “น่าผูกพัน” และมีพลังต่อผู้คนในระยะยาวมากยิ่งขึ้น`
 };
 
-// ===== TITLE =====
-let title = `🎤 คุณคือ: ${speakerMap[primarySpeaker.key]}
-🏠 บ้าน: ${houseMap[primaryHouse.key]}`; // แสดงตัวหลัก
+
 
 // ===== DESCRIPTION =====
 let description = `
@@ -224,8 +222,8 @@ description += `
 ${houseDesc[primaryHouse.key]}
 `;
 
-// บ้านรอง เฉพาะกรณีที่ houseLevel ไม่ใช่ "ชัดเจนมาก"
-if(houseLevel !== "ชัดเจนมาก"){
+// บ้านรอง เฉพาะกรณีที่ houseLevel === "ผสมผสาน"
+if(houseLevel === "ผสมผสาน"){
   description += `
 และยังมีลักษณะของ ${houseMap[secondaryHouse.key]}
 ${houseDesc[secondaryHouse.key]}
