@@ -1,8 +1,8 @@
 // ===== กัน error ถ้าเข้าหน้านี้ตรงๆ =====
 let scores = JSON.parse(localStorage.getItem("scores"));
-let percentScores = JSON.parse(localStorage.getItem("percentScores"));
+let percentScores = JSON.parse(localStorage.getItem("percentScores")); // ✅ แก้ตรงนี้
 
-if(!scores || !percentScores){
+if(!scores){
   window.location.href = "quiz.html";
 }
 
@@ -261,10 +261,10 @@ function createChart(){
 
     chart.appendChild(bar);
 
-    setTimeout(()=>{
-      let percentScore = percentScores?.[key] ?? 0; // กัน error
-      bar.querySelector(".bar-inner").style.width = percentScore + "%";
-    },100);
+setTimeout(()=>{
+  let percentScore = percentScores[key] || 0; // ✅ ใช้ตัวนี้
+  bar.querySelector(".bar-inner").style.width = percentScore + "%";
+},100);
 
   });
 
