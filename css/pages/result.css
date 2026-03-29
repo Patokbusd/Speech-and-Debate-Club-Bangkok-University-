@@ -47,11 +47,16 @@
 
 /* ===== ข้อความตรงกลาง ===== */
 .center-text{
-  text-align: center;   /* จัดกลางข้อความ */
-  font-weight: bold;    /* ทำตัวหนา */
-  font-size: 26px;      /* ขนาดตามต้องการ */
-  margin: 15px 0;       /* เว้นระยะบน-ล่าง */
-  color: #ff5500;       /* สีส้ม */
+  text-align: center;
+  font-weight: bold;
+  font-size: 26px;
+  margin: 10px 0; /* spacing ระหว่าง speaker + house */
+  color: #ff5500;
+}
+
+#desc{
+  margin-top: 20px;
+  line-height: 1.6;
 }
 
 /* ===== ปุ่ม ===== */

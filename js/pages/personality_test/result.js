@@ -229,15 +229,15 @@ ${houseDesc[secondaryHouse.key]}
 `;
 
 
-// ===== แยก element สำหรับข้อความหลัก =====
+// ===== element สำหรับข้อความหลัก =====
 const primarySpeakerEl = document.getElementById("primary-speaker");
 const primaryHouseEl = document.getElementById("primary-house");
 
-// ===== แยก title เป็น 2 ส่วน =====
+// ===== title แยก 2 ส่วน =====
 let titleSpeaker = `คุณเป็น ${speakerMap[primarySpeaker.key]} อย่าง${speakerLevel}`;
 let titleHouse = `บุคลิกของคุณอยู่ใน ${houseMap[primaryHouse.key]} (${houseLevel})`;
 
-// ===== ฟังก์ชัน typeEffect ใหม่สำหรับข้อความหลัก =====
+// ===== ฟังก์ชันพิมพ์ทีละตัว =====
 let i = 0;
 function typeEffectTitle(text, element, callback){
   if(i < text.length){
@@ -249,13 +249,15 @@ function typeEffectTitle(text, element, callback){
   }
 }
 
-// ===== เริ่มพิมพ์ข้อความทีละตัว =====
+// ===== เริ่มพิมพ์ =====
 setTimeout(()=>{
   typeEffectTitle(titleSpeaker, primarySpeakerEl, ()=>{
-    i = 0; // reset สำหรับข้อความถัดไป
+    i = 0; // reset
     typeEffectTitle(titleHouse, primaryHouseEl, ()=>{
-      // หลังจากพิมพ์ title ทั้งสอง
-      descText.innerText = description; // แสดงคำอธิบายยาว
+      // หลังจากพิมพ์ title ทั้งสองแล้ว
+      // แสดง description และ paragraph ทั้งหมด
+      descText.innerHTML = description
+        .replace(/\n\n/g, "<br><br>"); // ใช้ <br> สำหรับ line break
       createChart(); // สร้างกราฟ
     });
   });
