@@ -3,161 +3,175 @@ const questions = [
 
   // ================= 🎤 SPEAKER =================
 
-  // STORY
-  { text:"ฉันสามารถเล่าเรื่องให้คนฟังรู้สึกอินและเห็นภาพตามได้", type:"story", weight:2 },
-  { text:"เวลาพูด ฉันมักใช้ตัวอย่างหรือประสบการณ์จริงประกอบ", type:"story", weight:1 },
-  { text:"ฉันไม่ค่อยถนัดการเล่าเรื่องยาว ๆ ให้คนฟัง", type:"story", reverse:true },
+  // STORY (เล่าเรื่อง = emotion + visualization)
+  { text:"เมื่อฉันเล่าเรื่อง คนฟังมักแสดงอารมณ์ร่วม (เช่น หัวเราะ เงียบ หรืออินตาม)", type:"story", weight:2 },
+  { text:"ฉันมักใช้เหตุการณ์จริงหรือภาพเปรียบเทียบเพื่อให้คนเข้าใจสิ่งที่ฉันพูด", type:"story", weight:1 },
+  { text:"เวลาพูด ฉันมักเน้นข้อมูลมากกว่าการเล่าเรื่องหรือสร้างอารมณ์", type:"story", reverse:true },
 
-  // DEBATE
-  { text:"ฉันสามารถโต้แย้งความคิดเห็นที่ไม่เห็นด้วยได้อย่างมั่นใจ", type:"debate", weight:2 },
-  { text:"ฉันชอบวิเคราะห์ข้อดีข้อเสียของแต่ละมุมมอง", type:"debate", weight:1 },
-  { text:"ฉันหลีกเลี่ยงการโต้เถียงหรือถกเถียงกับคนอื่น", type:"debate", reverse:true },
+  // DEBATE (logic + pressure thinking)
+  { text:"เมื่อมีคนเห็นต่าง ฉันสามารถโต้แย้งด้วยเหตุผลโดยไม่เสียความมั่นใจ", type:"debate", weight:2 },
+  { text:"ฉันสามารถหาจุดอ่อนของเหตุผลคนอื่นได้อย่างรวดเร็ว", type:"debate", weight:1 },
+  { text:"ฉันมักหลีกเลี่ยงสถานการณ์ที่ต้องแสดงความคิดเห็นขัดแย้งกับผู้อื่น", type:"debate", reverse:true },
 
-  // ANALYST
-  { text:"ฉันสามารถอธิบายเรื่องซับซ้อนให้เข้าใจง่ายเป็นขั้นตอน", type:"analyst", weight:2 },
-  { text:"ฉันชอบจัดระเบียบความคิดก่อนจะพูด", type:"analyst", weight:1 },
-  { text:"ฉันมักพูดแบบไม่ค่อยมีโครงสร้างชัดเจน", type:"analyst", reverse:true },
+  // ANALYST (structure + clarity)
+  { text:"ฉันสามารถอธิบายเรื่องยากให้คนอื่นเข้าใจได้เป็นขั้นตอนอย่างชัดเจน", type:"analyst", weight:2 },
+  { text:"ก่อนพูด ฉันมักเรียบเรียงสิ่งที่จะพูดเป็นลำดับในหัวก่อนเสมอ", type:"analyst", weight:1 },
+  { text:"ฉันมักพูดไปเรื่อย ๆ โดยไม่ได้จัดโครงสร้างความคิดให้ชัดเจน", type:"analyst", reverse:true },
 
-  // PERSUADE
-  { text:"ฉันสามารถทำให้คนอื่นคล้อยตามสิ่งที่ฉันพูดได้", type:"persuade", weight:2 },
-  { text:"ฉันรู้ว่าควรใช้คำพูดแบบไหนให้เหมาะกับแต่ละคน", type:"persuade", weight:1 },
-  { text:"ฉันไม่ค่อยสนใจว่าจะโน้มน้าวคนอื่นได้หรือไม่", type:"persuade", reverse:true },
+  // PERSUADE (influence + audience awareness)
+  { text:"ฉันสามารถปรับวิธีพูดให้เหมาะกับคนแต่ละแบบเพื่อให้เขาคล้อยตาม", type:"persuade", weight:2 },
+  { text:"ฉันมักพูดโดยมีเป้าหมายชัดเจนว่าต้องการให้ผู้ฟังคิดหรือทำอะไร", type:"persuade", weight:1 },
+  { text:"ฉันพูดในสิ่งที่คิด โดยไม่ได้สนใจว่าคนฟังจะรู้สึกหรือเปลี่ยนความคิดหรือไม่", type:"persuade", reverse:true },
 
-  // FORMAL
-  { text:"ฉันสามารถพูดในงานทางการได้อย่างมั่นใจและเหมาะสม", type:"formal", weight:2 },
-  { text:"ฉันให้ความสำคัญกับภาพลักษณ์และความสุภาพเวลาพูด", type:"formal", weight:1 },
-  { text:"ฉันไม่ค่อยใส่ใจเรื่องมารยาทหรือความเป็นทางการในการพูด", type:"formal", reverse:true },
+  // FORMAL (professional + control)
+  { text:"ฉันสามารถควบคุมน้ำเสียง ภาษา และท่าทางให้เหมาะสมกับสถานการณ์ทางการได้", type:"formal", weight:2 },
+  { text:"ฉันให้ความสำคัญกับภาพลักษณ์และความน่าเชื่อถือเวลาพูดต่อหน้าคนอื่น", type:"formal", weight:1 },
+  { text:"ฉันมักพูดแบบสบาย ๆ โดยไม่ค่อยปรับให้เหมาะกับสถานการณ์ที่เป็นทางการ", type:"formal", reverse:true },
 
-  // FUN
-  { text:"ฉันสามารถสร้างบรรยากาศให้คนรอบตัวสนุกได้", type:"fun", weight:2 },
-  { text:"ฉันชอบโต้ตอบหรือเล่นกับผู้ฟังเวลาพูด", type:"fun", weight:1 },
-  { text:"ฉันไม่ค่อยชอบเป็นจุดสนใจของคนจำนวนมาก", type:"fun", reverse:true },
+  // FUN (engagement + energy)
+  { text:"เมื่อฉันพูด ฉันสามารถทำให้บรรยากาศสนุกและคนมีส่วนร่วมได้", type:"fun", weight:2 },
+  { text:"ฉันชอบโต้ตอบกับผู้ฟัง เช่น ถาม-ตอบ เล่นมุก หรือดึงคนเข้ามามีส่วนร่วม", type:"fun", weight:1 },
+  { text:"ฉันรู้สึกไม่สบายใจเมื่อเป็นจุดสนใจของคนจำนวนมาก", type:"fun", reverse:true },
 
 
   // ================= 🏠 HOUSE =================
 
-  // DESTINITE (vanguard)
-  { text:"ฉันมักเป็นคนที่ตัดสินใจหรือพาทีมไปข้างหน้า", type:"vanguard", weight:2 },
-  { text:"ฉันให้ความสำคัญกับทีมและความสามัคคี", type:"vanguard", weight:1 },
-  { text:"ฉันไม่ชอบรับบทเป็นผู้นำ", type:"vanguard", reverse:true },
+  // DESTINITE (vanguard) — เน้นทีม + ใจสู้ (3 ข้อ)
+  { text:"ฉันให้ความสำคัญกับความสามัคคีและความสัมพันธ์ภายในทีมมากกว่าความสำเร็จของตัวเอง", type:"vanguard", weight:2 }, // ทีมมาก่อน
+  { text:"เมื่อทีมเจอสถานการณ์ยากลำบาก ฉันพร้อมสู้ไปกับทีมและไม่ยอมแพ้ง่าย ๆ", type:"vanguard", weight:1 }, // ใจสู้
+  { text:"ฉันมักเลือกหลีกเลี่ยงปัญหาหรือปล่อยให้คนอื่นรับมือแทน", type:"vanguard", reverse:true }, // ไม่สู้ = คะแนนน้อย
 
-  // BOREALISE (strategist)
-  { text:"ฉันมักวางแผนก่อนลงมือทำเสมอ", type:"strategist", weight:2 },
-  { text:"ฉันคิดถึงผลลัพธ์ระยะยาวก่อนตัดสินใจ", type:"strategist", weight:1 },
-  { text:"ฉันมักตัดสินใจแบบไม่คิดล่วงหน้า", type:"strategist", reverse:true },
+  // BOREALISE (planning + system + foresight)
+  { text:"ก่อนลงมือทำ ฉันมักวิเคราะห์ทางเลือกและวางแผนล่วงหน้าอย่างละเอียด", type:"strategist", weight:2 },
+  { text:"ฉันมักคิดถึงผลลัพธ์ระยะยาวและเตรียมแผนสำรองไว้เสมอ", type:"strategist", weight:1 },
+  { text:"ฉันมักตัดสินใจจากสถานการณ์ตรงหน้า โดยไม่ได้วางแผนล่วงหน้า", type:"strategist", reverse:true },
 
-  // SUPPERMIERE (explorer)
-  { text:"ฉันพร้อมลองสิ่งใหม่และเรียนรู้จากมัน", type:"explorer", weight:2 },
-  { text:"ฉันสามารถปรับตัวกับสถานการณ์ใหม่ได้ดี", type:"explorer", weight:1 },
-  { text:"ฉันไม่ชอบการเปลี่ยนแปลง", type:"explorer", reverse:true },
+  // SUPPERMIERE (growth + adaptability)
+  { text:"ฉันพร้อมลองสิ่งใหม่ แม้จะยังไม่มั่นใจว่าทำได้ดีหรือไม่", type:"explorer", weight:2 },
+  { text:"ฉันสามารถปรับตัวได้ดีเมื่อสถานการณ์เปลี่ยนแปลงโดยไม่คาดคิด", type:"explorer", weight:1 },
+  { text:"ฉันรู้สึกไม่สบายใจเมื่อเจอสิ่งใหม่หรือสถานการณ์ที่ไม่คุ้นเคย", type:"explorer", reverse:true },
 
-  // UTOPIS (spotlight)
-  { text:"ฉันรู้สึกมีพลังเมื่อได้อยู่ท่ามกลางผู้คน", type:"spotlight", weight:2 },
-  { text:"ฉันสามารถสร้างความสัมพันธ์กับคนอื่นได้ง่าย", type:"spotlight", weight:1 },
-  { text:"ฉันรู้สึกเหนื่อยเมื่ออยู่ในสังคมนาน ๆ", type:"spotlight", reverse:true }
+  // UTOPIS (social strategy + influence + presence)
+  { text:"ฉันสามารถอ่านบรรยากาศและพฤติกรรมของคนรอบตัว เพื่อปรับตัวให้ได้เปรียบ", type:"spotlight", weight:2 },
+  { text:"ฉันมักเลือกแสดงออกในจังหวะที่เหมาะสมเพื่อสร้างผลลัพธ์ที่ดีที่สุด", type:"spotlight", weight:1 },
+  { text:"ฉันมักแสดงออกตามความรู้สึกทันที โดยไม่ค่อยคิดถึงผลลัพธ์ในสายตาคนอื่น", type:"spotlight", reverse:true }
 
 ];
 
+// ================== RANDOMIZE QUESTIONS ==================
+questions = questions.sort(() => Math.random() - 0.5); // สุ่มคำถาม
+
 // ================== SCALE ==================
-const scale = ["มากที่สุด","มาก","ปานกลาง","น้อย","น้อยที่สุด"]; // ตัวเลือกคำตอบ
+let scale = [
+  { text:"มากที่สุด", value:5 },
+  { text:"มาก", value:4 },
+  { text:"ปานกลาง", value:3 },
+  { text:"น้อย", value:2 },
+  { text:"น้อยที่สุด", value:1 }
+];
+
+// ================== SHUFFLE SCALE ==================
+function shuffle(arr){
+  return arr.sort(()=>Math.random()-0.5);
+}
 
 // ================== STATE ==================
-let current = 0; // ข้อปัจจุบัน
-let answers = new Array(questions.length).fill(null); // เก็บคำตอบทุกข้อ
+let current = 0;
+let answers = new Array(questions.length).fill(null);
 
 // ================== DOM ==================
-const questionText = document.getElementById("questionText"); // กล่องคำถาม
-const optionsDiv = document.getElementById("options"); // กล่องตัวเลือก
-const progress = document.getElementById("progress"); // ข้อที่เท่าไร
-const nextBtn = document.getElementById("nextBtn"); // ปุ่มถัดไป
-const backBtn = document.getElementById("backBtn"); // ปุ่มย้อน
-const questionBox = document.getElementById("questionBox"); // ใช้ animation
+const questionText = document.getElementById("questionText");
+const optionsDiv = document.getElementById("options");
+const progress = document.getElementById("progress");
+const nextBtn = document.getElementById("nextBtn");
+const backBtn = document.getElementById("backBtn");
 
-// ================== LOAD QUESTION ==================
-function loadQuestion(){ // โหลดคำถาม
-  questionText.innerText = questions[current].text; // แสดงคำถาม
-  progress.innerText = `ข้อ ${current+1} / ${questions.length}`; // แสดงลำดับข้อ
-  optionsDiv.innerHTML = ""; // ล้างตัวเลือก
+// ================== LOAD ==================
+function loadQuestion(){
 
-  scale.forEach((s,i)=>{ // loop ตัวเลือก
-    let val = 5 - i; // คะแนน
-    let checked = answers[current] === val ? "checked" : ""; // restore คำตอบ
+  questionText.innerText = questions[current].text;
+  progress.innerText = `ข้อ ${current+1} / ${questions.length}`;
 
-    let label = document.createElement("label"); // สร้าง label
-    label.innerHTML = `<input type="radio" name="opt" value="${val}" ${checked}><span>${s}</span>`;
-    optionsDiv.appendChild(label); // แสดง
+  optionsDiv.innerHTML = "";
+
+  let shuffled = shuffle([...scale]); // สุ่มตัวเลือก
+
+  shuffled.forEach(opt=>{
+    let label = document.createElement("label");
+    label.innerHTML = `
+      <input type="radio" name="opt" value="${opt.value}">
+      <span>${opt.text}</span>
+    `;
+    optionsDiv.appendChild(label);
   });
 
-  // ===== progress bar =====
-  let percent = ((current+1) / questions.length) * 100; // คำนวณ %
-  document.getElementById("progressFill").style.width = percent + "%"; // อัปเดต bar
+  // progress bar
+  let percent = ((current+1)/questions.length)*100;
+  document.getElementById("progressFill").style.width = percent+"%";
 }
 
 // ================== NEXT ==================
-nextBtn.onclick = () => { // เมื่อกดถัดไป
-  let selected = document.querySelector("input[name=opt]:checked"); // คำตอบที่เลือก
-  if(!selected) return alert("กรุณาเลือกคำตอบ"); // กันไม่ตอบ
+nextBtn.onclick = () => {
 
-  let val = parseInt(selected.value); // แปลงเป็นตัวเลข
-  answers[current] = val; // เก็บคำตอบ
+  let selected = document.querySelector("input[name=opt]:checked");
+  if(!selected) return alert("กรุณาเลือกคำตอบ");
 
-  questionBox.classList.add("slide-out"); // เล่น animation ออก
+  answers[current] = parseInt(selected.value);
 
-  setTimeout(()=>{ // รอ animation
-    current++; // ไปข้อถัดไป
+  current++;
 
-    if(current < questions.length){ // ถ้ายังไม่จบ
-      questionBox.classList.remove("slide-in","slide-out");
-      questionBox.classList.add("slide-in");
-      loadQuestion(); // โหลดข้อใหม่
-    } else {
-
-      let finalScores = { // object คะแนน
-        story:0, debate:0, analyst:0, persuade:0, formal:0, fun:0,
-        vanguard:0, strategist:0, explorer:0, spotlight:0
-      };
-
-      answers.forEach((ans, i) => { // loop ทุกข้อ
-      let q = questions[i]; // ดึงคำถามข้อนั้น
-      let type = q.type; // ประเภท
-
-      let base = ans || 0; // ค่าคะแนนที่เลือก (1-5)+กันค่า null
-
-      // ===== reverse scoring =====
-      if(q.reverse){ // ถ้าเป็นคำถามกลับด้าน
-        base = 6 - base; // กลับคะแนน เช่น 5→1
-      }
-
-      // ===== weight =====
-      let weight = q.weight || 1; // ถ้าไม่มี weight ให้ =1
-
-      let final = base * weight; // คูณน้ำหนัก
-
-      finalScores[type] += final; // บวกคะแนน
-    });
-
-      localStorage.setItem("scores", JSON.stringify(finalScores)); // เก็บคะแนน
-      localStorage.setItem("answers", JSON.stringify(answers)); // เก็บคำตอบ
-
-      window.location.href = "result.html"; // ไปหน้า result
-    }
-  },300); // เวลา animation
-};
-
-// ================== BACK ==================
-backBtn.onclick = () => { // เมื่อกดย้อน
-  if(current > 0){ // ถ้าไม่ใช่ข้อแรก
-
-    questionBox.classList.add("slide-out"); // animation ออก
-
-    setTimeout(()=>{ // หน่วง
-      current--; // ย้อนข้อ
-      questionBox.classList.remove("slide-out"); // ลบ class
-      questionBox.classList.add("slide-in"); // animation เข้า
-      loadQuestion(); // โหลดใหม่
-    },300);
+  if(current < questions.length){
+    loadQuestion();
+  } else {
+    calculateResult();
   }
 };
 
+// ================== BACK ==================
+backBtn.onclick = () => {
+  if(current > 0){
+    current--;
+    loadQuestion();
+  }
+};
+
+// ================== CALCULATE ==================
+function calculateResult(){
+
+  let scores = {
+    story:0, debate:0, analyst:0, persuade:0, formal:0, fun:0,
+    vanguard:0, strategist:0, explorer:0, spotlight:0
+  };
+
+  let maxScores = {...scores};
+
+  answers.forEach((ans,i)=>{
+    let q = questions[i];
+    let val = ans;
+
+    if(q.reverse){
+      val = 6 - val;
+    }
+
+    let weight = q.weight || 1;
+
+    scores[q.type] += val * weight;
+    maxScores[q.type] += 5 * weight; // max possible
+  });
+
+  // ================== PERCENT ==================
+  let percentScores = {};
+
+  for(let key in scores){
+    percentScores[key] = Math.round((scores[key]/maxScores[key])*100);
+  }
+
+  // เก็บ
+  localStorage.setItem("scores", JSON.stringify(scores));
+  localStorage.setItem("percentScores", JSON.stringify(percentScores));
+
+  window.location.href = "result.html";
+}
+
 // ================== START ==================
-loadQuestion(); // เริ่มต้นโหลดข้อแรก
+loadQuestion();
