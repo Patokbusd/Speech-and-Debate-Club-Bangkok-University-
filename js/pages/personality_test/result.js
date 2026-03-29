@@ -204,7 +204,6 @@ const houseDesc = {
 };
 
 
-
 // ===== DESCRIPTION =====
 let description = `
 คุณเป็น ${speakerMap[primarySpeaker.key]} อย่าง${speakerLevel}
@@ -222,8 +221,8 @@ description += `
 ${houseDesc[primaryHouse.key]}
 `;
 
-// บ้านรอง เฉพาะกรณีที่ houseLevel ไม่ใช่ "ชัดเจนมาก"
-if(houseLevel !== "ชัดเจนมาก"){
+// บ้านรอง เฉพาะกรณีที่ houseLevel === "ผสมผสาน"
+if(houseLevel === "ผสมผสาน"){
   description += `
 และยังมีลักษณะของ ${houseMap[secondaryHouse.key]}
 ${houseDesc[secondaryHouse.key]}
