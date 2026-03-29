@@ -262,10 +262,10 @@ function createChart(){ // ฟังก์ชันสร้างกราฟ
 
     chart.appendChild(bar); // เพิ่มเข้า DOM
 
-    setTimeout(()=>{ // animation
-      bar.querySelector(".bar-inner").style.width = percent + "%"; // ความยาวแท่ง
-      bar.querySelector(".bar-inner").style.background = houseTheme[primaryHouse.key]; // สีตามบ้าน
-    },100);
+setTimeout(()=>{ // animation
+  let percentScore = percent[key]; // ดึง % จาก localStorage
+  bar.querySelector(".bar-inner").style.width = percentScore + "%"; // ใช้ % จริง
+},100);
 
   });
 
