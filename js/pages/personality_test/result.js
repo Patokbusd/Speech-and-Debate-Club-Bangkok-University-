@@ -290,4 +290,39 @@ setTimeout(()=>{
   });
 
 
+
+// ===== สร้างกราฟบ้าน =====
+function createHouseChart() {
+  const houseChart = document.getElementById("houseChart"); // div สำหรับบ้าน
+
+  houseKeys.forEach(key => {
+    let bar = document.createElement("div");
+    bar.className = "bar";
+
+    bar.innerHTML = `
+      <span>${houseMap[key]}</span>
+      <div class="bar-fill">
+        <div class="bar-inner">
+          <span class="bar-text"></span>
+        </div>
+      </div>
+    `;
+
+    houseChart.appendChild(bar);
+
+    setTimeout(() => {
+      let percentScore = percentScores[key] || 0;
+
+      let inner = bar.querySelector(".bar-inner");
+      inner.style.width = percentScore + "%";
+
+      inner.querySelector(".bar-text").innerText = percentScore + "%";
+    }, 100);
+  });
+}
+
+// เรียกใช้พร้อมกับ createChart() ของนักพูด
+createChart();       // กราฟนักพูด
+createHouseChart();  // กราฟบ้าน
+
 }
