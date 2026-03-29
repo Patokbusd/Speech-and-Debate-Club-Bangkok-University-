@@ -216,13 +216,23 @@ ${speakerDesc[primarySpeaker.key]}
 ${speakerDesc[secondarySpeaker.key]}
 
 ---
+`;
 
+// บ้านหลัก
+description += `
 บุคลิกของคุณอยู่ใน ${houseMap[primaryHouse.key]} (${houseLevel})
 ${houseDesc[primaryHouse.key]}
+`;
 
+// บ้านรอง เฉพาะกรณีที่ houseLevel ไม่ใช่ "ชัดเจนมาก"
+if(houseLevel !== "ชัดเจนมาก"){
+  description += `
 และยังมีลักษณะของ ${houseMap[secondaryHouse.key]}
 ${houseDesc[secondaryHouse.key]}
+`;
+}
 
+description += `
 ---
 
 คุณเป็นคนที่มีศักยภาพสูงในการพัฒนาเป็นนักพูดที่โดดเด่นในอนาคต เข้าร่วมชมรมปาฐกถาเเละโต้วาที มหาวิทยาลัยกรุงเทพ เพื่อยกระดับตัวเองไปสู่จุดสูงสุดของการพูด🎤✨
