@@ -313,7 +313,7 @@
     transform: translateX(0); /* เริ่มต้น */
   }
   to{
-    transform: translateX(-10%); /* เลื่อนไปครึ่งนึง */
+    transform: translateX(-25%); /* เลื่อนไปครึ่งนึง */
   }
 }
 
