@@ -261,24 +261,12 @@ const swiper = new Swiper(".mySwiper", { // เริ่มต้นตั้ง
 ================================= */
 document.addEventListener("DOMContentLoaded", () => {
 
-  // เลือกโลโก้ทั้งหมด
-  const logos = document.querySelectorAll(".sponsor-marquee img");
+  const track = document.getElementById("sponsorTrack");
+  if(!track) return;
 
-  // จำนวนโลโก้
-  const total = logos.length;
-
-  // ความเร็ว (ยิ่งมาก = ยิ่งช้า)
-  const duration = total * 4; 
-  // เช่น 8 รูป = 32 วินาที
-
-  logos.forEach((logo, index) => {
-
-    // ตั้ง duration ให้ทุกตัว
-    logo.style.animationDuration = duration + "s";
-
-    // ตั้ง delay ให้แต่ละตัวไม่ชนกัน
-    logo.style.animationDelay = (index * (duration / total)) + "s";
-
-  });
+  // 🔥 clone จนกว้างมากพอ (สำคัญมาก)
+  while(track.scrollWidth < window.innerWidth * 2){
+    track.innerHTML += track.innerHTML;
+  }
 
 });

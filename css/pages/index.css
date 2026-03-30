@@ -284,64 +284,62 @@
 
 
 /* =========================================================
-   ⭐ SPONSOR รายย่อย (MARQUEE VERSION)
+   ⭐ SPONSOR รายย่อย 
    ========================================================= */
 
 .sponsor-sub{
-    overflow: hidden; /* ซ่อนส่วนเกิน */
-    position: relative; /* อ้างอิงตำแหน่ง */
-    height: 120px; /* ความสูงแถว */
-}
-
-/* container โลโก้ */
-.sponsor-marquee{
-    position: relative; /* ให้ลูกใช้ absolute */
-    width: 100%; /* เต็ม */
-    height: 100%; /* เต็ม */
-}
-
-/* โลโก้แต่ละตัว */
-.sponsor-marquee img{
-    position: absolute; /* 🔥 สำคัญ */
-    right: -150px; /* เริ่มนอกจอ */
-
-    max-width: 110px; /* ขนาด */
-    opacity: 0.8; /* จาง */
-
-    animation-name: moveLeft; /* ใช้ animation */
-    animation-timing-function: linear; /* ความเร็วคงที่ */
-    animation-iteration-count: infinite; /* loop */
-}
-
-/* animation วิ่งจากขวาไปซ้าย */
-@keyframes moveLeft{
-    from{
-        transform: translateX(0); /* จุดเริ่ม */
-    }
-    to{
-        transform: translateX(-120vw); /* วิ่งข้ามจอ */
-    }
-}
-
-/* hover โลโก้ */
-.sponsor-marquee img:hover{
-    transform: scale(1.05); /* ขยาย */
-    opacity: 1; /* ชัด */
+  overflow: hidden; /* ซ่อนส่วนเกิน */
+  position: relative; /* ใช้กับ animation */
 }
 
 /* =========================================================
-   ➖ เส้นแบ่ง
+   ⭐ track ที่เลื่อน
    ========================================================= */
 
-.sponsor-divider{
-    height: 1px; /* ความสูง */
-    width: 60%; /* ความกว้าง */
-    margin: 50px auto; /* จัดกลาง */
-    background: linear-gradient(135deg, #6a0dad, #ff5500); /* สี */
-    opacity: 0.6; /* จาง */
+.sponsor-track{
+  display: flex; /* เรียงแนวนอน */
+  gap: 40px; /* ระยะห่างโลโก้ */
+  width: max-content; /* กว้างตาม content */
+
+  animation: scrollLoop 20s linear infinite; /* เลื่อน */
 }
 
+/* =========================================================
+   ⭐ animation เลื่อนแบบ loop เนียน
+   ========================================================= */
 
+@keyframes scrollLoop{
+  from{
+    transform: translateX(0); /* เริ่มต้น */
+  }
+  to{
+    transform: translateX(-50%); /* เลื่อนไปครึ่งนึง */
+  }
+}
+
+/* =========================================================
+   ⭐ โลโก้
+   ========================================================= */
+
+.sponsor-track img{
+  max-width: 110px; /* ขนาด */
+  opacity: 0.8; /* จาง */
+  transition: 0.3s; /* smooth */
+}
+
+/* hover */
+.sponsor-track img:hover{
+  transform: scale(1.05); /* ขยาย */
+  opacity: 1;
+}
+
+/* =========================================================
+   ⭐ hover แล้วหยุด
+   ========================================================= */
+
+.sponsor-sub:hover .sponsor-track{
+  animation-play-state: paused;
+}
 
 
 /* =========================================================
