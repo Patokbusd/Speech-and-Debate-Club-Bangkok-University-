@@ -301,7 +301,7 @@
 /* ===== container ===== */
 .sponsor-sub{
   overflow: hidden; /* ซ่อนส่วนเกิน */
-  width: 100%;
+  position: relative; /* ใช้กับ effect */
 }
 
 /* ===== track ===== */
@@ -309,19 +309,34 @@
   display: flex; /* เรียงแนวนอน */
   gap: 40px; /* ระยะห่าง */
   width: max-content; /* กว้างตาม content */
-  will-change: transform; /* ทำให้ลื่น */
+
+  animation: scrollLoop linear infinite; /* เลื่อน */
+}
+
+/* ===== animation (ใช้ตัวแปรจาก JS) ===== */
+@keyframes scrollLoop{
+  from{
+    transform: translateX(0); /* เริ่ม */
+  }
+  to{
+    transform: translateX(calc(-1 * var(--scroll-width))); /* เลื่อนตามความยาวจริง */
+  }
 }
 
 /* ===== โลโก้ ===== */
-.sponsor-track img{
+.sponsor-sub img{
   max-width: 110px;
   opacity: 0.8;
   transition: 0.3s;
 }
 
-/* hover */
-.sponsor-track img:hover{
+.sponsor-sub img:hover{
   transform: scale(1.05);
+}
+
+/* ===== hover หยุด ===== */
+.sponsor-sub:hover .sponsor-track{
+  animation-play-state: paused;
 }
 
 

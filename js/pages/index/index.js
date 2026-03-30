@@ -259,31 +259,26 @@ const swiper = new Swiper(".mySwiper", { // เริ่มต้นตั้ง
 /* ================================
    🔹 สปอนเซอร์ (ทำให้เลื่อนไม่ขาด)
 ================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
 
   const track = document.getElementById("sponsorTrack");
   if(!track) return;
 
-  // 1️⃣ clone content ซ้ำ (สำคัญมาก)
-  track.innerHTML += track.innerHTML;
+  const container = track.parentElement;
 
-  let scrollX = 0;
-  let speed = 0.5; // 👉 ปรับความเร็วตรงนี้
-
-  function loop(){
-    scrollX += speed;
-
-    // 2️⃣ รีเซ็ตแบบเนียน
-    if(scrollX >= track.scrollWidth / 2){
-      scrollX = 0;
-    }
-
-    track.style.transform = `translateX(-${scrollX}px)`;
-
-    requestAnimationFrame(loop); // loop ลื่นกว่า setInterval
+  // 1️⃣ clone ไปเรื่อยๆ จนกว้างเกิน container 2 เท่า
+  while(track.scrollWidth < container.offsetWidth * 2){
+    track.innerHTML += track.innerHTML;
   }
 
-  loop();
+  // 2️⃣ เอาความกว้าง "ครึ่งนึง" (1 loop)
+  const loopWidth = track.scrollWidth / 2;
+
+  // 3️⃣ ส่งค่าไป CSS
+  track.style.setProperty('--scroll-width', loopWidth + 'px');
+
+  // 4️⃣ ปรับความเร็ว (ยิ่งกว้าง → ยิ่งช้า)
+  const speed = loopWidth / 100; // ปรับเลขนี้ได้
+  track.style.animationDuration = speed + 's';
 
 });
