@@ -260,31 +260,38 @@ const swiper = new Swiper(".mySwiper", { // เริ่มต้นตั้ง
    🔹 สปอน
 ================================== */
 document.addEventListener("DOMContentLoaded", () => {
-
   const track = document.getElementById("sponsorTrack");
-  if(!track) return;
+  if (!track) return;
 
-  // ❗ กัน clone ซ้ำ (สำคัญมาก)
-  if(track.dataset.cloned === "true") return;
+  // ❗ กัน clone ซ้ำ
+  if (track.dataset.cloned === "true") return;
   track.dataset.cloned = "true";
 
-  // clone 1 รอบ
+  // ตรวจสอบว่าต้องเลื่อนหรือไม่
+  const containerWidth = track.parentElement.offsetWidth;
+  const trackWidth = track.scrollWidth;
+
+  // ถ้าเนื้อหาไม่พอกว้างกว่า container = ไม่ต้องเลื่อน
+  if (trackWidth <= containerWidth) {
+    return; // จบตรงนี้ โลโก้นิ่ง
+  }
+
+  // clone 1 รอบสำหรับการเลื่อน
   track.innerHTML += track.innerHTML;
 
   // ===== ระบบเลื่อน =====
-  let speed = 0.5; // 🔥 ปรับตรงนี้ (ยิ่งน้อย = ช้า)
+  let speed = 0.6; // 🔥 ปรับตรงนี้ (ยิ่งน้อย = ช้า)
   let x = 0;
 
-  function animate(){
+  function animate() {
     x -= speed;
 
     // รีเซตเมื่อเลื่อนครบครึ่ง
-    if(x <= -track.scrollWidth / 2){
+    if (x <= -track.scrollWidth / 2) {
       x = 0;
     }
 
     track.style.transform = `translateX(${x}px)`;
-
     requestAnimationFrame(animate);
   }
 
