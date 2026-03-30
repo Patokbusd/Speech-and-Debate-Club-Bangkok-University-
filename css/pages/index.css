@@ -239,15 +239,16 @@
 
 
 
+
 /* =========================================================
    ❗️SECTION SPONSOR (โครงหลัก)
    ========================================================= */
 
 .sponsor-section{
-    text-align: center; /* จัดข้อความกลาง */
-    padding: 50px 20px 200px; /* เว้นระยะรอบ */
+    text-align: center; /* จัดข้อความให้อยู่กลาง */
+    padding: 50px 20px 200px; /* เว้นระยะรอบ section */
     max-width: 1300px; /* จำกัดความกว้าง */
-    margin: auto; /* จัดกลาง */
+    margin: auto; /* จัดให้อยู่กลางหน้า */
 }
 
 .sponsor-section h2{
@@ -256,7 +257,7 @@
 }
 
 .sponsor-desc{
-    opacity: 0.8; /* ทำให้จาง */
+    opacity: 0.8; /* ทำให้จางลง */
     margin-bottom: 60px; /* เว้นด้านล่าง */
 }
 
@@ -266,10 +267,10 @@
    ========================================================= */
 
 .sponsor-row{
-    display: flex; /* flex layout */
-    justify-content: center; /* กลางแนวนอน */
-    align-items: center; /* กลางแนวตั้ง */
-    gap: 40px; /* ระยะห่าง */
+    display: flex; /* ใช้ flex layout */
+    justify-content: center; /* จัดกลางแนวนอน */
+    align-items: center; /* จัดกลางแนวตั้ง */
+    gap: 40px; /* ระยะห่างระหว่าง element */
 }
 
 
@@ -283,51 +284,51 @@
 
 
 /* =========================================================
-   ⭐ SPONSOR รายย่อย (เลื่อน)
+   ⭐ SPONSOR รายย่อย (เลื่อนแบบ infinite)
    ========================================================= */
 
 /* ===== container (กรอบนอก) ===== */
 .sponsor-sub{
-  overflow: hidden; /* ซ่อนส่วนเกิน (สำคัญ) */
-  position: relative; /* ใช้กับ effect เพิ่มได้ */
+  overflow: hidden; /* ❗ ซ่อนส่วนที่ล้นออกมา */
+  position: relative; /* เผื่อใช้ effect เพิ่ม */
 }
 
-/* ===== track (ตัวเลื่อนจริง) ===== */
+/* ===== track (ตัวที่เลื่อนจริง) ===== */
 .sponsor-track{
-  display: flex; /* เรียงแนวนอน */
+  display: flex; /* เรียงโลโก้แนวนอน */
   gap: 40px; /* ระยะห่างโลโก้ */
-  width: max-content; /* กว้างตามจำนวนโลโก้ */
+  width: max-content; /* กว้างตามจำนวนโลโก้ทั้งหมด */
 
-  animation: scrollSponsor 20s linear infinite; /* เลื่อนตลอด */
+  animation: scrollLoop 20s linear infinite; /* เลื่อนต่อเนื่อง */
 }
 
-/* ===== animation เลื่อน ===== */
-@keyframes scrollSponsor{
+/* ===== animation ===== */
+@keyframes scrollLoop{
   from{
-    transform: translateX(0); /* เริ่มต้น */
+    transform: translateX(0); /* เริ่มต้นตำแหน่ง */
   }
   to{
-    transform: translateX(calc(-1 * var(--scroll-width))); 
-    /* เลื่อนไปเท่าความกว้าง "ชุดแรก" */
+    transform: translateX(-50%); 
+    /* 🔥 เลื่อนครึ่งหนึ่งของทั้งหมด (เพราะมี 2 ชุด) */
   }
 }
 
 /* ===== โลโก้ ===== */
 .sponsor-track img{
   max-width: 110px; /* ขนาดโลโก้ */
-  opacity: 0.8; /* จางเล็กน้อย */
-  flex-shrink: 0; /* ❗ สำคัญ กันภาพย่อ */
-  transition: 0.3s; /* smooth */
+  opacity: 0.8; /* ทำให้ดู soft */
+  flex-shrink: 0; /* ❗ กันภาพถูกบีบ */
+  transition: 0.3s; /* smooth ตอน hover */
 }
 
 /* ===== hover โลโก้ ===== */
 .sponsor-track img:hover{
-  transform: scale(1.05); /* ขยาย */
+  transform: scale(1.05); /* ขยายเล็กน้อย */
 }
 
 /* ===== hover แล้วหยุด ===== */
 .sponsor-sub:hover .sponsor-track{
-  animation-play-state: paused; /* หยุดเลื่อน */
+  animation-play-state: paused; /* หยุด animation */
 }
 
 
@@ -336,12 +337,16 @@
    ========================================================= */
 
 .sponsor-divider{
-    height: 1px;
-    width: 60%;
-    margin: 50px auto;
-    background: linear-gradient(135deg, #6a0dad, #ff5500);
-    opacity: 0.6;
+    height: 1px; /* ความสูงเส้น */
+    width: 60%; /* ความกว้าง */
+    margin: 50px auto; /* เว้นระยะ + จัดกลาง */
+    background: linear-gradient(135deg, #6a0dad, #ff5500); /* ไล่สี */
+    opacity: 0.6; /* ทำให้จาง */
 }
+
+
+
+
 
 /* =========================================================
    ❗️เเบบทดสอบ Quiz❗️

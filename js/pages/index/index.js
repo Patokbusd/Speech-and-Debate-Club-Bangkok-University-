@@ -262,23 +262,17 @@ const swiper = new Swiper(".mySwiper", { // เริ่มต้นตั้ง
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const track = document.getElementById("sponsorTrack");
-  if(!track) return;
+  const track = document.getElementById("sponsorTrack"); // ดึง track
+  if(!track) return; // ถ้าไม่มี element นี้ให้หยุด
 
-  const container = track.parentElement;
+  // 🔥 clone "1 รอบ" เท่านั้น
+  track.innerHTML += track.innerHTML;
 
-  // 🔥 clone ไปเรื่อย ๆ จน "ยาวพอ"
-  while (track.scrollWidth < container.offsetWidth * 2) {
-    track.innerHTML += track.innerHTML;
-  }
-
-  // เอาความกว้าง "ครึ่งแรก"
-  const width = track.scrollWidth / 2;
-
-  // ส่งให้ CSS
-  track.style.setProperty('--scroll-width', width + 'px');
+  // ตอนนี้ structure = [A B C] + [A B C]
+  // พอ animation เลื่อน -50% → จะ seamless ทันที
 
 });
+
 
 
   
