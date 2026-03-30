@@ -259,20 +259,31 @@ const swiper = new Swiper(".mySwiper", { // เริ่มต้นตั้ง
 /* ================================
    🔹 สปอนเซอร์ (ทำให้เลื่อนไม่ขาด)
 ================================= */
+
 document.addEventListener("DOMContentLoaded", () => {
 
-  const track = document.getElementById("sponsorTrack"); // ดึง track
-  if(!track) return; // กัน error
+  const track = document.getElementById("sponsorTrack");
+  if(!track) return;
 
-  // 🔥 clone ซ้ำเรื่อย ๆ จนกว้างพอ (แก้ปัญหาโลโก้น้อย)
-  while(track.scrollWidth < window.innerWidth * 2){
-    track.innerHTML += track.innerHTML;
+  // 1️⃣ clone content ซ้ำ (สำคัญมาก)
+  track.innerHTML += track.innerHTML;
+
+  let scrollX = 0;
+  let speed = 0.5; // 👉 ปรับความเร็วตรงนี้
+
+  function loop(){
+    scrollX += speed;
+
+    // 2️⃣ รีเซ็ตแบบเนียน
+    if(scrollX >= track.scrollWidth / 2){
+      scrollX = 0;
+    }
+
+    track.style.transform = `translateX(-${scrollX}px)`;
+
+    requestAnimationFrame(loop); // loop ลื่นกว่า setInterval
   }
 
-  // 🔥 เก็บ "ความกว้างจริง" ของครึ่งแรก
-  const width = track.scrollWidth / 2;
-
-  // 🔥 ส่งค่าไปให้ CSS
-  track.style.setProperty('--scroll-width', width + 'px');
+  loop();
 
 });

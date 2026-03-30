@@ -298,56 +298,30 @@
    ⭐ SUB SPONSOR (สำคัญ)
    ========================================================= */
 
+/* ===== container ===== */
 .sponsor-sub{
-    overflow: hidden; /* ซ่อนส่วนเกิน */
-    position: relative; /* ใช้ overlay */
+  overflow: hidden; /* ซ่อนส่วนเกิน */
+  width: 100%;
 }
 
 /* ===== track ===== */
 .sponsor-track{
-    display: flex; /* เรียงแนวนอน */
-    gap: 40px; /* ช่องว่าง */
-    width: max-content; /* กว้างตามจริง */
-
-    animation: scrollLoop 25s linear infinite; /* เลื่อน */
+  display: flex; /* เรียงแนวนอน */
+  gap: 40px; /* ระยะห่าง */
+  width: max-content; /* กว้างตาม content */
+  will-change: transform; /* ทำให้ลื่น */
 }
 
-/* =========================================================
-   ⭐ animation (ใช้ค่าจริง ไม่ใช้ %)
-   ========================================================= */
-
-@keyframes scrollLoop{
-  from{
-    transform: translateX(0); /* เริ่ม */
-  }
-  to{
-    transform: translateX(calc(-1 * var(--scroll-width))); 
-    /* 🔥 เลื่อนเท่าความกว้างจริง */
-  }
-}
-
-/* =========================================================
-   ⭐ LOGO STYLE
-   ========================================================= */
-
-.sponsor-sub img{
-    max-width: 110px; /* ขนาด */
-    opacity: 0.8; /* จาง */
-    transition: 0.3s; /* ลื่น */
+/* ===== โลโก้ ===== */
+.sponsor-track img{
+  max-width: 110px;
+  opacity: 0.8;
+  transition: 0.3s;
 }
 
 /* hover */
-.sponsor-sub img:hover{
-    transform: scale(1.08); /* ขยาย */
-    opacity: 1; /* ชัด */
-}
-
-/* =========================================================
-   ⭐ hover แล้วหยุด
-   ========================================================= */
-
-.sponsor-sub:hover .sponsor-track{
-    animation-play-state: paused; /* หยุด */
+.sponsor-track img:hover{
+  transform: scale(1.05);
 }
 
 
