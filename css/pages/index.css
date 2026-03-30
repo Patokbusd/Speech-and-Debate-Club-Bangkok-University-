@@ -194,9 +194,9 @@
 
 /* สไลด์แต่ละอัน */
 .swiper-slide {
-  width: 50%;              /* ใช้ % แทน px */
+  width: 60%;              /* ใช้ % แทน px */
   aspect-ratio: 16 / 9;    /* รักษาสัดส่วนวิดีโอ */
-  border-radius: 2px; /* มุมโค้ง */
+  border-radius: 6px; /* มุมโค้ง */
   overflow: hidden; /* ซ่อนส่วนเกิน */
   box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* เงา */
   position: relative; /* สำหรับจัดวางซ้อน */
