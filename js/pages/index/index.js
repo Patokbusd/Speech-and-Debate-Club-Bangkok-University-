@@ -252,3 +252,27 @@ const swiper = new Swiper(".mySwiper", { // เริ่มต้นตั้ง
   }                                 // ปิด object ของ pagination
 
 });                                  // ปิด config object และจบการสร้าง Swiper
+
+
+
+
+
+/* ================================
+   🔹 สปอนเซอร์
+================================== */
+document.addEventListener("DOMContentLoaded", () => {
+
+  const track = document.getElementById("sponsorTrack");
+
+  if(!track) return;
+
+  let contentWidth = track.scrollWidth;
+  let containerWidth = track.parentElement.offsetWidth;
+
+  // clone ไปเรื่อยๆจนกว้างพอ
+  while(contentWidth < containerWidth * 2){
+    track.innerHTML += track.innerHTML;
+    contentWidth = track.scrollWidth;
+  }
+
+});
