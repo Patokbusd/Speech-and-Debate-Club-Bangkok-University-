@@ -52,7 +52,7 @@
 .activity-img img{
   width:100%; /* ให้ภาพเต็ม container */
   max-width:620px; /* จำกัดขนาดภาพ */
-  border-radius:12px; /* ทำมุมโค้ง */
+  border-radius: 8px; /* มุมโค้ง */
   object-fit:cover; /* ปรับภาพไม่ให้ยืด */
   display:block; /* ป้องกันช่องว่างใต้ภาพ */
 }

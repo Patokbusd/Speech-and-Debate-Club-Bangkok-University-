@@ -12,7 +12,7 @@
   background-repeat: no-repeat; /* ไม่ซ้ำ */
 
   position: relative; /* เผื่อ effect */
-  border-radius: 20px; /* มุมโค้ง */
+  border-radius: 8px; /* มุมโค้ง */
   box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* เงา */
 
   animation: fadeUp 0.8s ease; /* animation ตอนโหลด */
@@ -40,7 +40,7 @@
   margin-top: 30px; /* ระยะ */
   padding: 14px 30px; /* ขนาดปุ่ม */
   border: none; /* ไม่มีขอบ */
-  border-radius: 15px; /* โค้ง */
+  border-radius: 8px; /* มุมโค้ง */
   font-size: 16px; /* ขนาด */
   font-weight: bold; /* ตัวหนา */
   cursor: pointer; /* pointer */
