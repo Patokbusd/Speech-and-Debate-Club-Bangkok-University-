@@ -173,7 +173,6 @@
 /* ปรับระยะ section หน้า home เท่านั้น */
 .news-section {
   padding: 20px 20px;
-  margin-top: 60px;
 }
 
 
@@ -288,71 +287,73 @@
    ⭐ SPONSOR รายย่อย (แถวล่าง - แบบเลื่อน)
    ========================================================= */
 
+/* ===== sponsor-sub container ===== */
 .sponsor-sub{
-    overflow: hidden; /* ซ่อนส่วนที่เกิน (สำคัญมากสำหรับ scroll) */
-    position: relative; /* ใช้กับ pseudo element (fade) */
+  overflow: hidden; /* ซ่อนส่วนเกิน */
+  position: relative; /* ใช้กับ fade */
 }
 
 .sponsor-sub img{
   max-width: 100px;
 }
 
-/* track ที่เอาไว้เลื่อนโลโก้ */
+/* ===== track ที่เลื่อน ===== */
 .sponsor-track{
-    display: flex; /* เรียงโลโก้แนวนอน */
-    gap: 40px; /* ระยะห่างโลโก้ */
-    width: max-content; /* ให้กว้างตาม content จริง */
+  display: flex; /* เรียงแนวนอน */
+  gap: 40px; /* ระยะห่าง */
+  width: max-content; /* กว้างตาม content */
 
-    animation: scrollSponsor 20s linear infinite; 
-    /* animation เลื่อนซ้าย
-       20s = ความเร็ว (ยิ่งมากยิ่งช้า)
-       linear = ความเร็วคงที่
-       infinite = loop ตลอด */
+  animation: scrollSponsor 20s linear infinite; /* เลื่อน */
 }
 
-
-/* =========================================================
-   🎬 ANIMATION เลื่อนโลโก้
-   ========================================================= */
-
+/* ===== animation แบบ dynamic (ไม่ขาดแน่นอน) ===== */
 @keyframes scrollSponsor{
-    from{
-        transform: translateX(0); /* เริ่มที่ตำแหน่งปกติ */
-    }
-    to{
-        transform: translateX(-50%); 
-        /* เลื่อนไปซ้ายครึ่งหนึ่งของความยาว track
-           (เพราะ JS clone ทำให้มี 2 ชุด) */
-    }
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(calc(-1 * var(--scroll-width)));
+  }
 }
 
-
-/* =========================================================
-   ✨ EFFECT เพิ่มความเนียน (fade ซ้าย-ขวา)
-   ========================================================= */
-
-.sponsor-sub::before,
-.sponsor-sub::after{
-    content:""; /* สร้าง element หลอก */
-    position:absolute; /* วางทับ */
-    top:0; /* ชิดด้านบน */
-    width:80px; /* ความกว้าง fade */
-    height:100%; /* สูงเต็ม container */
-    z-index:2; /* อยู่ด้านบนโลโก้ */
+/* ===== โลโก้ ===== */
+.sponsor-sub img{
+  max-width: 110px;
+  opacity: 0.8;
+  transition: 0.3s;
 }
 
-/* ด้านซ้าย */
+.sponsor-sub img:hover{
+  transform: scale(1.05);
+}
+
+/* ===== hover แล้วหยุด ===== */
+.sponsor-sub:hover .sponsor-track{
+  animation-play-state: paused;
+}
+
+/* ===== fade ซ้าย ===== */
 .sponsor-sub::before{
-    left:0; /* ชิดซ้าย */
-    background: linear-gradient(to right, white, transparent);
-    /* ไล่สีจากขาว → โปร่ง */
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:80px;
+  height:100%;
+  background: none;
+  z-index:2;
 }
 
-/* ด้านขวา */
+/* ===== fade ขวา ===== */
 .sponsor-sub::after{
-    right:0; /* ชิดขวา */
-    background: linear-gradient(to left, white, transparent);
-    /* ไล่สีจากขาว → โปร่ง */
+  content:"";
+  position:absolute;
+  right:0;
+  top:0;
+  width:80px;
+  height:100%;
+  background: none;
+  z-index:2;
 }
 
 
@@ -383,7 +384,7 @@
     height: 1px; /* ความสูงเส้น */
     width: 60%; /* ความกว้าง */
     margin: 50px auto; /* เว้นระยะ + จัดกลาง */
-    background: linear-gradient(to right, transparent, #ff5500, transparent);
+    background: linear-gradient(135deg, #6a0dad, #ff5500); /* ม่วง+ส้ม */
     /* ไล่สีเส้น */
     opacity: 0.6; /* ทำให้จาง */
 }
