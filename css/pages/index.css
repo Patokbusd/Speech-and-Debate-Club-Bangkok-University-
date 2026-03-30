@@ -247,7 +247,7 @@
 .sponsor-section{
     text-align: center; /* จัดข้อความทั้งหมดให้อยู่กลาง */
     padding: 50px 20px 200px; /* ระยะด้านบน-ซ้ายขวา-ล่าง */
-    max-width: 1300px; /* จำกัดความกว้างไม่ให้ยืดเกิน */
+    max-width: max-content; /* จำกัดความกว้างไม่ให้ยืดเกิน */
     margin: auto; /* จัดให้อยู่กลางหน้าจอ */
 }
 
@@ -291,6 +291,10 @@
 .sponsor-sub{
     overflow: hidden; /* ซ่อนส่วนที่เกิน (สำคัญมากสำหรับ scroll) */
     position: relative; /* ใช้กับ pseudo element (fade) */
+}
+
+.sponsor-sub img{
+  max-width: 100px;
 }
 
 /* track ที่เอาไว้เลื่อนโลโก้ */
