@@ -241,134 +241,113 @@
 
 
 /* =========================================================
-   ❗️SECTION SPONSOR (โครงหลัก)
+   ⭐ SECTION SPONSOR
    ========================================================= */
 
 .sponsor-section{
-    text-align: center; /* จัดข้อความกลาง */
-    padding: 50px 20px 200px; /* ระยะรอบ */
-    max-width: 1560px; /* จำกัดความกว้าง */
+    text-align: center; /* จัดกลาง */
+    padding: 60px 20px 200px; /* เพิ่มระยะ */
+    max-width: 1600px; /* จำกัดความกว้าง */
     margin: auto; /* จัดกลาง */
 }
 
+/* ===== หัวข้อ ===== */
 .sponsor-section h2{
-    font-size: 32px; /* ขนาดหัวข้อ */
-    margin-bottom: 10px; /* ระยะล่าง */
+    font-size: 32px; /* ขนาด */
+    margin-bottom: 10px; /* ระยะ */
 }
 
+/* ===== คำอธิบาย ===== */
 .sponsor-desc{
-    opacity: 0.8; /* ทำให้จาง */
-    margin-bottom: 60px; /* ระยะล่าง */
+    opacity: 0.8; /* จาง */
+    margin-bottom: 60px; /* เว้น */
 }
-
 
 /* =========================================================
-   ❗️ROW LAYOUT
+   ⭐ ROW
    ========================================================= */
 
 .sponsor-row{
     display: flex; /* flex */
-    justify-content: center; /* กลางแนวนอน */
-    align-items: center; /* กลางแนวตั้ง */
-    gap: 40px; /* ระยะห่าง */
+    justify-content: center; /* กลาง */
+    align-items: center; /* กลาง */
+    gap: 40px; /* ช่องว่าง */
 }
 
-
 /* =========================================================
-   ⭐ SPONSOR รายใหญ่
+   ⭐ MAIN SPONSOR
    ========================================================= */
 
-.sponsor-main{
-    margin-bottom: 50px; /* 🔥 เว้นก่อนเส้นแบ่ง */
-}
-
 .sponsor-main img{
-    max-width: 180px; /* ขนาดโลโก้ */
+    max-width: 180px; /* ขนาดใหญ่ */
 }
-
 
 /* =========================================================
-   ➖ เส้นแบ่ง (ใหม่ + สวยขึ้น)
+   ⭐ DIVIDER (เส้นแบ่ง)
    ========================================================= */
 
 .sponsor-divider{
-    height: 2px; /* 🔥 หนาขึ้นนิด */
-    width: 70%; /* 🔥 ยาวขึ้น */
-    margin: 40px auto 60px; /* 🔥 เว้นบน-ล่าง */
-
-    background: linear-gradient(
-        to right,
-        transparent,
-        rgba(255,85,0,0.8),
-        rgba(106,13,173,0.8),
-        transparent
-    );
-
-    border-radius: 10px; /* 🔥 ขอบมน */
-    opacity: 0.8;
+    height: 2px; /* ความสูง */
+    width: 70%; /* ความกว้าง */
+    margin: 60px auto; /* เว้นระยะ */
+    background: linear-gradient(to right, transparent, #ff5500, transparent); /* ไล่สี */
+    opacity: 0.7; /* จาง */
 }
 
-
 /* =========================================================
-   ⭐ sponsor รายย่อย
+   ⭐ SUB SPONSOR (สำคัญ)
    ========================================================= */
 
 .sponsor-sub{
-  overflow: hidden;
-  position: relative;
-  margin-top: 20px; /* 🔥 เว้นจากเส้น */
+    overflow: hidden; /* ซ่อนส่วนเกิน */
+    position: relative; /* ใช้ overlay */
 }
 
-
-/* =========================================================
-   ⭐ track เลื่อน
-   ========================================================= */
-
+/* ===== track ===== */
 .sponsor-track{
-  display: flex;
-  gap: 50px; /* 🔥 เพิ่มระยะโลโก้ */
-  width: max-content;
+    display: flex; /* เรียงแนวนอน */
+    gap: 40px; /* ช่องว่าง */
+    width: max-content; /* กว้างตามจริง */
 
-  animation: scrollLoop 20s linear infinite;
+    animation: scrollLoop 25s linear infinite; /* เลื่อน */
 }
 
-
 /* =========================================================
-   ⭐ animation
+   ⭐ animation (ใช้ค่าจริง ไม่ใช้ %)
    ========================================================= */
 
 @keyframes scrollLoop{
   from{
-    transform: translateX(0);
+    transform: translateX(0); /* เริ่ม */
   }
   to{
-    transform: translateX(-50%);
+    transform: translateX(calc(-1 * var(--scroll-width))); 
+    /* 🔥 เลื่อนเท่าความกว้างจริง */
   }
 }
 
-
 /* =========================================================
-   ⭐ โลโก้
+   ⭐ LOGO STYLE
    ========================================================= */
 
-.sponsor-track img{
-  max-width: 110px;
-  opacity: 0.8;
-  transition: 0.3s;
+.sponsor-sub img{
+    max-width: 110px; /* ขนาด */
+    opacity: 0.8; /* จาง */
+    transition: 0.3s; /* ลื่น */
 }
 
-.sponsor-track img:hover{
-  transform: scale(1.08); /* 🔥 เพิ่ม effect */
-  opacity: 1;
+/* hover */
+.sponsor-sub img:hover{
+    transform: scale(1.08); /* ขยาย */
+    opacity: 1; /* ชัด */
 }
-
 
 /* =========================================================
-   ⭐ hover หยุด
+   ⭐ hover แล้วหยุด
    ========================================================= */
 
 .sponsor-sub:hover .sponsor-track{
-  animation-play-state: paused;
+    animation-play-state: paused; /* หยุด */
 }
 
 

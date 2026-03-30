@@ -261,12 +261,18 @@ const swiper = new Swiper(".mySwiper", { // เริ่มต้นตั้ง
 ================================= */
 document.addEventListener("DOMContentLoaded", () => {
 
-  const track = document.getElementById("sponsorTrack");
-  if(!track) return;
+  const track = document.getElementById("sponsorTrack"); // ดึง track
+  if(!track) return; // กัน error
 
-  // 🔥 clone จนกว้างมากพอ (สำคัญมาก)
+  // 🔥 clone ซ้ำเรื่อย ๆ จนกว้างพอ (แก้ปัญหาโลโก้น้อย)
   while(track.scrollWidth < window.innerWidth * 2){
     track.innerHTML += track.innerHTML;
   }
+
+  // 🔥 เก็บ "ความกว้างจริง" ของครึ่งแรก
+  const width = track.scrollWidth / 2;
+
+  // 🔥 ส่งค่าไปให้ CSS
+  track.style.setProperty('--scroll-width', width + 'px');
 
 });
