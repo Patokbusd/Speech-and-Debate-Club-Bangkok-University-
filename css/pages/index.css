@@ -297,31 +297,18 @@
 /* =========================================================
    ⭐ SUB SPONSOR
    ========================================================= */
-/* container */
 .sponsor-sub{
   overflow: hidden;
+  width: 100%;
 }
 
-/* track */
 .sponsor-track{
   display: flex;
   gap: 40px;
   width: max-content;
-
-  animation: scrollLoop 25s linear infinite;
+  will-change: transform; /* ลื่นขึ้น */
 }
 
-/* animation */
-@keyframes scrollLoop{
-  from{
-    transform: translateX(0);
-  }
-  to{
-    transform: translateX(-50%);
-  }
-}
-
-/* logo */
 .sponsor-track img{
   max-width: 110px;
   opacity: 0.8;
@@ -331,7 +318,6 @@
 .sponsor-track img:hover{
   transform: scale(1.05);
 }
-
 
 
 

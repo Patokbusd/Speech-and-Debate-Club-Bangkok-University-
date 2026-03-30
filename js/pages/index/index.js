@@ -264,15 +264,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const track = document.getElementById("sponsorTrack");
   if(!track) return;
 
-  const logos = Array.from(track.children); // เก็บโลโก้เดิม
+  // 🔥 clone 1 รอบให้มี 2 ชุด
+  track.innerHTML += track.innerHTML;
 
-  let i = 0;
+  let x = 0;
+  let speed = 0.5; // ปรับความเร็วตรงนี้
 
-  // 🔥 เติมทีละโลโก้จนยาวพอ
-  while(track.scrollWidth < window.innerWidth * 2){
-    const clone = logos[i % logos.length].cloneNode(true); // clone ทีละตัว
-    track.appendChild(clone); // ต่อท้าย
-    i++;
+  function animate(){
+
+    x += speed;
+
+    // 🔥 รีเซ็ตแบบ "ไม่กระตุก"
+    if(x >= track.scrollWidth / 2){
+      x = 0;
+    }
+
+    track.style.transform = `translateX(-${x}px)`;
+
+    requestAnimationFrame(animate); // smooth กว่า setInterval
   }
+
+  animate();
 
 });
