@@ -259,29 +259,34 @@ const swiper = new Swiper(".mySwiper", { // เริ่มต้นตั้ง
 /* ================================
    🔹 สปอนเซอร์ (ทำให้เลื่อนไม่ขาด)
 ================================= */
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
 
   const track = document.getElementById("sponsorTrack");
   if(!track) return;
 
-  // 🔥 clone 1 รอบให้มี 2 ชุด
-  track.innerHTML += track.innerHTML;
-
+  let speed = 0.5; // ความเร็ว
   let x = 0;
-  let speed = 0.5; // ปรับความเร็วตรงนี้
 
   function animate(){
 
     x += speed;
 
-    // 🔥 รีเซ็ตแบบ "ไม่กระตุก"
-    if(x >= track.scrollWidth / 2){
-      x = 0;
-    }
-
     track.style.transform = `translateX(-${x}px)`;
 
-    requestAnimationFrame(animate); // smooth กว่า setInterval
+    // 🔥 ดึงรูปแรก
+    const first = track.children[0];
+
+    // 🔥 ถ้ารูปแรกหลุดออกจากจอแล้ว
+    if(first.getBoundingClientRect().right < 0){
+
+      // ลบออกจากหน้า
+      track.appendChild(first); // ย้ายไปท้าย
+
+      // รีเซ็ตตำแหน่ง x
+      x -= first.offsetWidth + 40; // 40 = margin
+    }
+
+    requestAnimationFrame(animate);
   }
 
   animate();
