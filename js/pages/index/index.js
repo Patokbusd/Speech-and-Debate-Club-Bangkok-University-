@@ -256,3 +256,52 @@ const swiper = new Swiper(".mySwiper", { // เริ่มต้นตั้ง
 
 
 
+/* ================================
+   🔹 สปอน
+================================== */
+window.addEventListener("load", () => {
+
+  const track = document.getElementById("sponsorTrack");
+  if(!track) return;
+
+  // 🔥 STEP 1: เติมโลโก้ให้ "เต็มหน้าจอ + buffer"
+  const fillScreen = () => {
+    const logos = Array.from(track.children);
+
+    while(track.scrollWidth < window.innerWidth * 2){
+      logos.forEach(el => {
+        track.appendChild(el.cloneNode(true));
+      });
+    }
+  };
+
+  fillScreen();
+
+  let x = 0;
+  let speed = 0.5;
+
+  function animate(){
+
+    x += speed;
+
+    track.style.transform = `translateX(-${x}px)`;
+
+    const first = track.children[0];
+
+    // 🔥 ถ้าตัวแรกหลุดจอ → ย้ายไปท้ายทันที
+    if(first.getBoundingClientRect().right < 0){
+
+      track.appendChild(first);
+
+      const style = getComputedStyle(first);
+      const margin = parseInt(style.marginRight) || 0;
+
+      x -= first.offsetWidth + margin;
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+});

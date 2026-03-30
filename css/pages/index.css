@@ -297,39 +297,21 @@
 /* =========================================================
    ⭐ SUB SPONSOR
    ========================================================= */
-/* container */
 .sponsor-sub{
   overflow: hidden;
   width: 100%;
 }
 
-/* track หลัก */
-.track{
+.sponsor-track{
   display: flex;
+  align-items: center;
   width: max-content;
-
-  animation: scroll 20s linear infinite;
 }
 
-/* แต่ละชุด */
-.track-content{
-  display: flex;
-}
-
-/* logo */
-.track-content img{
+.sponsor-track img{
   max-width: 110px;
   margin-right: 40px;
-}
-
-/* 🔥 animation */
-@keyframes scroll{
-  from{
-    transform: translateX(0);
-  }
-  to{
-    transform: translateX(-50%);
-  }
+  flex-shrink: 0; /* 🔥 ห้ามหด */
 }
 
 
