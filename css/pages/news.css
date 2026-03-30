@@ -35,7 +35,7 @@
     backdrop-filter: blur(12px); /* เบลอพื้นหลังด้านหลัง */
     -webkit-backdrop-filter: blur(12px); /* รองรับ Safari */
 
-    border-radius: 15px; /* ทำมุมการ์ดให้โค้งมน */
+    border-radius: 8px; /* มุมโค้ง */
     overflow: hidden; /* ซ่อนส่วนที่เกินกรอบ */
 
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.08); /* เงานุ่ม ๆ */
@@ -146,7 +146,7 @@
     margin: 5px 10px; /* ระยะห่างระหว่างปุ่ม */
     padding: 10px 48px; /* ขนาดปุ่ม */
     border: none; /* ไม่มีเส้นขอบ */
-    border-radius: 10px; /* ทำปุ่มมน */
+    border-radius: 8px; /* มุมโค้ง */
     cursor: pointer; /* เมาส์เป็น pointer */
     background: linear-gradient(135deg, #6a0dad, #ff5500); /* ม่วง+ส้ม */
     color: white; /* ตัวอักษรสีขาว */
@@ -212,7 +212,7 @@
 
 .news-cover { /* รูปปกข่าว */
     width: 100%; /* เต็ม container */
-    border-radius: 12px; /* มุมมน */
+    border-radius: 8px; /* มุมโค้ง */
     margin-bottom: 30px; /* เว้นด้านล่าง */
 }
 
@@ -232,7 +232,7 @@
     max-width: 600px; /* จำกัดขนาด */
     display: block; /* ทำให้ margin ใช้ได้ */
     margin: 20px auto; /* จัดกลาง */
-    border-radius: 10px; /* มุมมน */
+    border-radius: 8px; /* มุมโค้ง */ 
 }
 
 
@@ -256,7 +256,7 @@
     font-size: 17px; /* ขนาดตัวอักษร */
     font-weight: 600; /* ตัวหนา */
     border: none; /* ไม่มีเส้นขอบ */
-    border-radius: 15px; /* ความมนของปุ่ม */
+    border-radius: 8px; /* มุมโค้ง */
     cursor: pointer; /* pointer */
     transition: all 0.3s ease; /* animation */
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* เงา */

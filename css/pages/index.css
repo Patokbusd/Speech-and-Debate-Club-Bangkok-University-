@@ -196,7 +196,7 @@
 .swiper-slide {
   width: 50%;              /* ใช้ % แทน px */
   aspect-ratio: 16 / 9;    /* รักษาสัดส่วนวิดีโอ */
-  border-radius: 5px; /* มุมโค้ง */
+  border-radius: 8px; /* มุมโค้ง */
   overflow: hidden; /* ซ่อนส่วนเกิน */
   box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* เงา */
   position: relative; /* สำหรับจัดวางซ้อน */
@@ -208,7 +208,7 @@
   width: 100%; /* วิดีโอกว้างเต็ม */
   height: 100%; /* สูงเต็ม */
   object-fit: cover; /* ครอบวิดีโอให้เต็ม */
-  border-radius: 5px; /* มุมโค้ง */
+  border-radius: 8px; /* มุมโค้ง */
 }
 
 /* สไลด์ที่ไม่ถูกเลือก */
@@ -371,7 +371,7 @@
   background: linear-gradient(135deg, #6a0dad, #ff5500); /* ม่วง+ส้ม */
   color:#ffffff;
   padding:6px 12px;
-  border-radius:20px;
+  border-radius: 8px; /* มุมโค้ง */
   font-size:14px;
   margin-bottom:15px;
   font-weight:bold;
@@ -398,7 +398,7 @@
 .btn-quiz{
   display: inline-block;
   padding: 14px 30px;
-  border-radius: 15px;
+  border-radius: 8px; /* มุมโค้ง */
 
   background: linear-gradient(135deg, #6a0dad, #ff5500); /* ม่วง+ส้ม */; /* เปลี่ยนสี */;
   color: #ffffff;
