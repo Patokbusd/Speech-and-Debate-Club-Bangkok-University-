@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
   track.innerHTML += track.innerHTML;
 
   // ===== ระบบเลื่อน =====
-  let speed = 0.3; // 🔥 ปรับตรงนี้ (ยิ่งน้อย = ช้า)
+  let speed = 0.4; // 🔥 ปรับตรงนี้ (ยิ่งน้อย = ช้า)
   let x = 0;
 
   function animate(){
