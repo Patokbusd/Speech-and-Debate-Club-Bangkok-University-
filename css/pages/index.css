@@ -241,14 +241,14 @@
 
 
 /* =========================================================
-   ❗️SECTION SPONSOR (โครงหลัก)
+   ❗️SECTION SPONSOR (โครงหลักทั้งบล็อก)
    ========================================================= */
 
 .sponsor-section{
-    text-align: center; /* จัดข้อความให้อยู่กลาง */
-    padding: 50px 20px 200px; /* เว้นระยะรอบ section */
-    max-width: 1300px; /* จำกัดความกว้าง */
-    margin: auto; /* จัดให้อยู่กลางหน้า */
+    text-align: center; /* จัดข้อความทั้งหมดให้อยู่กลาง */
+    padding: 50px 20px 200px; /* เว้นระยะ: บน ซ้ายขวา ล่าง */
+    max-width: 1300px; /* จำกัดความกว้างสูงสุด */
+    margin: auto; /* จัดให้อยู่กลางหน้าจอ */
 }
 
 .sponsor-section h2{
@@ -257,8 +257,8 @@
 }
 
 .sponsor-desc{
-    opacity: 0.8; /* ทำให้จางลง */
-    margin-bottom: 60px; /* เว้นด้านล่าง */
+    opacity: 0.8; /* ทำให้ข้อความจางลงเล็กน้อย */
+    margin-bottom: 60px; /* เว้นระยะด้านล่าง */
 }
 
 
@@ -279,24 +279,24 @@
    ========================================================= */
 
 .sponsor-main img{
-    max-width: 180px; /* ขนาดโลโก้ใหญ่ */
+    max-width: 180px; /* จำกัดขนาดโลโก้รายใหญ่ */
 }
 
 
 /* =========================================================
-   ⭐ SPONSOR รายย่อย (เลื่อนแบบ infinite)
+   ⭐ SPONSOR รายย่อย (แถวเลื่อนแบบ infinite)
    ========================================================= */
 
 /* ===== container (กรอบนอก) ===== */
 .sponsor-sub{
-  overflow: hidden; /* ❗ ซ่อนส่วนที่ล้นออกมา */
-  position: relative; /* เผื่อใช้ effect เพิ่ม */
+  overflow: hidden; /* ❗ ซ่อนส่วนที่ล้นออกจากกรอบ */
+  position: relative; /* ใช้สำหรับ effect เพิ่ม (เช่น fade) */
 }
 
 /* ===== track (ตัวที่เลื่อนจริง) ===== */
 .sponsor-track{
   display: flex; /* เรียงโลโก้แนวนอน */
-  gap: 40px; /* ระยะห่างโลโก้ */
+  gap: 40px; /* ระยะห่างระหว่างโลโก้ */
   width: max-content; /* กว้างตามจำนวนโลโก้ทั้งหมด */
 
   animation: scrollLoop 20s linear infinite; /* เลื่อนต่อเนื่อง */
@@ -305,30 +305,32 @@
 /* ===== animation ===== */
 @keyframes scrollLoop{
   from{
-    transform: translateX(0); /* เริ่มต้นตำแหน่ง */
+    transform: translateX(0); /* เริ่มที่ตำแหน่งเดิม */
   }
   to{
-    transform: translateX(-50%); 
-    /* 🔥 เลื่อนครึ่งหนึ่งของทั้งหมด (เพราะมี 2 ชุด) */
+    transform: translateX(-50%);
+    /* 🔥 เลื่อนครึ่งหนึ่งของ track (เพราะ JS clone แล้ว 2 ชุดขึ้นไป)
+       → ทำให้ loop เนียน ไม่มีสะดุด */
   }
 }
 
 /* ===== โลโก้ ===== */
 .sponsor-track img{
-  max-width: 110px; /* ขนาดโลโก้ */
-  opacity: 0.8; /* ทำให้ดู soft */
-  flex-shrink: 0; /* ❗ กันภาพถูกบีบ */
-  transition: 0.3s; /* smooth ตอน hover */
+  max-width: 110px; /* ขนาดโลโก้รายย่อย */
+  opacity: 0.8; /* ทำให้ดู soft ไม่แข็ง */
+  flex-shrink: 0; /* ❗ กันภาพถูกบีบใน flex */
+  transition: 0.3s; /* ทำให้ hover ลื่น */
 }
 
 /* ===== hover โลโก้ ===== */
 .sponsor-track img:hover{
-  transform: scale(1.05); /* ขยายเล็กน้อย */
+  transform: scale(1.05); /* ขยายเล็กน้อยตอน hover */
+  opacity: 1; /* ทำให้ชัดขึ้น */
 }
 
-/* ===== hover แล้วหยุด ===== */
+/* ===== hover แล้วหยุด animation ===== */
 .sponsor-sub:hover .sponsor-track{
-  animation-play-state: paused; /* หยุด animation */
+  animation-play-state: paused; /* หยุดเลื่อน */
 }
 
 
@@ -340,10 +342,40 @@
     height: 1px; /* ความสูงเส้น */
     width: 60%; /* ความกว้าง */
     margin: 50px auto; /* เว้นระยะ + จัดกลาง */
-    background: linear-gradient(135deg, #6a0dad, #ff5500); /* ไล่สี */
+    background: linear-gradient(135deg, #6a0dad, #ff5500); /* ไล่สีม่วง→ส้ม */
     opacity: 0.6; /* ทำให้จาง */
 }
 
+
+/* =========================================================
+   📱 RESPONSIVE (มือถือ)
+   ========================================================= */
+
+@media (max-width:768px){
+
+  .sponsor-track{
+    gap: 25px; /* ลดระยะห่างโลโก้ */
+    animation-duration: 15s; /* เลื่อนเร็วขึ้นเล็กน้อย */
+  }
+
+  .sponsor-track img{
+    max-width: 90px; /* ลดขนาดโลโก้ */
+  }
+
+}
+
+@media (max-width:480px){
+
+  .sponsor-track{
+    gap: 20px; /* ลด gap เพิ่ม */
+    animation-duration: 12s; /* เร็วขึ้นอีก */
+  }
+
+  .sponsor-track img{
+    max-width: 75px; /* เล็กลงสำหรับมือถือ */
+  }
+
+}
 
 
 

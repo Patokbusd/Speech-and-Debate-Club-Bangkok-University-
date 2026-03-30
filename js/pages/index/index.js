@@ -259,20 +259,21 @@ const swiper = new Swiper(".mySwiper", { // เริ่มต้นตั้ง
 /* ================================
    🔹 สปอนเซอร์ (ทำให้เลื่อนไม่ขาด)
 ================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
 
-  const track = document.getElementById("sponsorTrack"); // ดึง track
-  if(!track) return; // ถ้าไม่มี element นี้ให้หยุด
+  const track = document.getElementById("sponsorTrack"); // ตัวเลื่อน
+  if(!track) return;
 
-  // 🔥 clone "1 รอบ" เท่านั้น
-  track.innerHTML += track.innerHTML;
+  const container = track.parentElement; // กรอบนอก
 
-  // ตอนนี้ structure = [A B C] + [A B C]
-  // พอ animation เลื่อน -50% → จะ seamless ทันที
+  const original = track.innerHTML; // เก็บของเดิมไว้
+
+  // 🔥 เคลียร์ก่อน (กันบัคเวลา reload)
+  track.innerHTML = original;
+
+  // 🔥 clone ทีละชุด (ไม่ใช้ += track.innerHTML ตรง ๆ)
+  while (track.scrollWidth < container.offsetWidth * 2) {
+    track.innerHTML += original;
+  }
 
 });
-
-
-
-  
