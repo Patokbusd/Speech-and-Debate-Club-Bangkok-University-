@@ -262,19 +262,23 @@ const swiper = new Swiper(".mySwiper", { // เริ่มต้นตั้ง
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const track = document.getElementById("sponsorTrack"); // ดึง track
-  if(!track) return; // ถ้าไม่มีให้หยุด
+  const track = document.getElementById("sponsorTrack");
+  if(!track) return;
 
-  // 1️⃣ clone โลโก้ "ทั้งชุด"
-  track.innerHTML += track.innerHTML;
-  // ตอนนี้มี 2 ชุดต่อกัน
+  const container = track.parentElement;
 
-  // 2️⃣ หาความกว้างของ "ชุดแรก"
+  // 🔥 clone ไปเรื่อย ๆ จน "ยาวพอ"
+  while (track.scrollWidth < container.offsetWidth * 2) {
+    track.innerHTML += track.innerHTML;
+  }
+
+  // เอาความกว้าง "ครึ่งแรก"
   const width = track.scrollWidth / 2;
 
-  // 3️⃣ ส่งค่าไปให้ CSS animation ใช้
+  // ส่งให้ CSS
   track.style.setProperty('--scroll-width', width + 'px');
 
 });
+
 
   
