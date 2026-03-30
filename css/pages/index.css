@@ -278,68 +278,99 @@
    ⭐ SPONSOR รายใหญ่
    ========================================================= */
 
+.sponsor-main{
+    margin-bottom: 50px; /* 🔥 เว้นก่อนเส้นแบ่ง */
+}
+
 .sponsor-main img{
     max-width: 180px; /* ขนาดโลโก้ */
 }
 
 
 /* =========================================================
-   ⭐ SPONSOR รายย่อย 
+   ➖ เส้นแบ่ง (ใหม่ + สวยขึ้น)
+   ========================================================= */
+
+.sponsor-divider{
+    height: 2px; /* 🔥 หนาขึ้นนิด */
+    width: 70%; /* 🔥 ยาวขึ้น */
+    margin: 40px auto 60px; /* 🔥 เว้นบน-ล่าง */
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255,85,0,0.8),
+        rgba(106,13,173,0.8),
+        transparent
+    );
+
+    border-radius: 10px; /* 🔥 ขอบมน */
+    opacity: 0.8;
+}
+
+
+/* =========================================================
+   ⭐ sponsor รายย่อย
    ========================================================= */
 
 .sponsor-sub{
-  overflow: hidden; /* ซ่อนส่วนเกิน */
-  position: relative; /* ใช้กับ animation */
+  overflow: hidden;
+  position: relative;
+  margin-top: 20px; /* 🔥 เว้นจากเส้น */
 }
 
+
 /* =========================================================
-   ⭐ track ที่เลื่อน
+   ⭐ track เลื่อน
    ========================================================= */
 
 .sponsor-track{
-  display: flex; /* เรียงแนวนอน */
-  gap: 40px; /* ระยะห่างโลโก้ */
-  width: max-content; /* กว้างตาม content */
+  display: flex;
+  gap: 50px; /* 🔥 เพิ่มระยะโลโก้ */
+  width: max-content;
 
-  animation: scrollLoop 20s linear infinite; /* เลื่อน */
+  animation: scrollLoop 20s linear infinite;
 }
 
+
 /* =========================================================
-   ⭐ animation เลื่อนแบบ loop เนียน
+   ⭐ animation
    ========================================================= */
 
 @keyframes scrollLoop{
   from{
-    transform: translateX(0); /* เริ่มต้น */
+    transform: translateX(0);
   }
   to{
-    transform: translateX(-25%); /* เลื่อนไปครึ่งนึง */
+    transform: translateX(-50%);
   }
 }
+
 
 /* =========================================================
    ⭐ โลโก้
    ========================================================= */
 
 .sponsor-track img{
-  max-width: 110px; /* ขนาด */
-  opacity: 0.8; /* จาง */
-  transition: 0.3s; /* smooth */
+  max-width: 110px;
+  opacity: 0.8;
+  transition: 0.3s;
 }
 
-/* hover */
 .sponsor-track img:hover{
-  transform: scale(1.05); /* ขยาย */
+  transform: scale(1.08); /* 🔥 เพิ่ม effect */
   opacity: 1;
 }
 
+
 /* =========================================================
-   ⭐ hover แล้วหยุด
+   ⭐ hover หยุด
    ========================================================= */
 
 .sponsor-sub:hover .sponsor-track{
   animation-play-state: paused;
 }
+
 
 
 /* =========================================================
