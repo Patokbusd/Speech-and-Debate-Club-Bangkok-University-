@@ -175,7 +175,7 @@
   width: 100%; /* กว้างเต็มหน้าจอ */
   display: flex; /* ใช้ flex layout */
   flex-direction: column; /* จัดเป็นแนวตั้ง (2 แถว) */
-  gap: 20px; /* ระยะห่างระหว่างแถวบนและล่าง */
+  gap: 10px; /* ระยะห่างระหว่างแถวบนและล่าง */
 }
 
 .preview-track { /* แต่ละแถว */
@@ -186,8 +186,8 @@
 }
 
 .preview-track img { /* รูปแต่ละรูป */
-  width: 400px; /* กว้าง 400px */
-  height: 220px; /* สูง 220px */
+  width: 300px; /* กว้าง 400px */
+  height: 165px; /* สูง 220px */
   margin: 10px; /* ช่องว่างรอบด้าน 10px */
   flex-shrink: 0; /* ห้ามย่อขนาด */
   object-fit: cover; /* ครอบเต็มกล่องโดยไม่เสียอัตราส่วน */
