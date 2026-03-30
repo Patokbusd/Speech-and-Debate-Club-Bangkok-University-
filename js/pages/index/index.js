@@ -259,34 +259,49 @@ const swiper = new Swiper(".mySwiper", { // เริ่มต้นตั้ง
 /* ================================
    🔹 สปอน
 ================================== */
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
 
   const track = document.getElementById("sponsorTrack");
   if(!track) return;
 
-  // ❗ กัน clone ซ้ำ (สำคัญมาก)
-  if(track.dataset.cloned === "true") return;
-  track.dataset.cloned = "true";
+  // 🔥 STEP 1: เติมโลโก้ให้เต็มหน้าจอ
+  const fillScreen = () => {
+    const logos = Array.from(track.children);
 
-  // clone 1 รอบ
-  track.innerHTML += track.innerHTML;
+    // เติมจนกว่ายาวกว่าหน้าจอ 1.5 เท่า
+    while(track.scrollWidth < window.innerWidth * 1.5){
+      logos.forEach(el => {
+        track.appendChild(el.cloneNode(true));
+      });
+    }
+  };
 
-  // ===== ระบบเลื่อน =====
-  let speed = 0.5; // 🔥 ปรับตรงนี้ (ยิ่งน้อย = ช้า)
+  fillScreen();
+
+  // ===== STEP 2: animate =====
   let x = 0;
+  let speed = 0.2;
 
   function animate(){
-    x -= speed;
 
-    // รีเซตเมื่อเลื่อนครบครึ่ง
-    if(x <= -track.scrollWidth / 2){
-      x = 0;
+    x += speed;
+    track.style.transform = `translateX(-${x}px)`;
+
+    const first = track.children[0];
+
+    if(first.getBoundingClientRect().right < 0){
+
+      const style = getComputedStyle(first);
+      const margin = parseInt(style.marginRight) || 0;
+
+      x -= first.offsetWidth + margin;
+
+      track.appendChild(first);
     }
-
-    track.style.transform = `translateX(${x}px)`;
 
     requestAnimationFrame(animate);
   }
 
   animate();
+
 });
