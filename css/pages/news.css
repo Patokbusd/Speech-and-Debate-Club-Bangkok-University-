@@ -35,7 +35,7 @@
     backdrop-filter: blur(12px); /* เบลอพื้นหลังด้านหลัง */
     -webkit-backdrop-filter: blur(12px); /* รองรับ Safari */
 
-    border-radius: 8px; /* มุมโค้ง */
+    border-radius: 2px; /* มุมโค้ง */
     overflow: hidden; /* ซ่อนส่วนที่เกินกรอบ */
 
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.08); /* เงานุ่ม ๆ */
