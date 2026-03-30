@@ -297,45 +297,39 @@
 /* =========================================================
    ⭐ SUB SPONSOR
    ========================================================= */
+/* container */
 .sponsor-sub{
-  overflow: hidden; /* ซ่อนส่วนเกิน */
-  width: 100%; /* เต็มจอ */
+  overflow: hidden;
 }
 
-/* =========================================================
-   🔹 track ที่เลื่อน
-   ========================================================= */
+/* track */
 .sponsor-track{
-  display: flex; /* เรียงแนวนอน */
-  gap: 40px; /* ระยะห่างโลโก้ */
-  width: max-content; /* กว้างตามเนื้อหา */
+  display: flex;
+  gap: 40px;
+  width: max-content;
 
-  animation: scrollLoop 25s linear infinite; /* เลื่อน */
+  animation: scrollLoop 25s linear infinite;
 }
 
-/* =========================================================
-   🔹 logo
-   ========================================================= */
+/* animation */
+@keyframes scrollLoop{
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-50%);
+  }
+}
+
+/* logo */
 .sponsor-track img{
-  max-width: 110px; /* ขนาดโลโก้ */
-  opacity: 0.8; /* จางเล็กน้อย */
-  transition: 0.3s; /* smooth */
+  max-width: 110px;
+  opacity: 0.8;
+  transition: 0.3s;
 }
 
 .sponsor-track img:hover{
-  transform: scale(1.05); /* hover ขยาย */
-}
-
-/* =========================================================
-   🔹 animation (สำคัญมาก)
-   ========================================================= */
-@keyframes scrollLoop{
-  from{
-    transform: translateX(0); /* เริ่ม */
-  }
-  to{
-    transform: translateX(-50%); /* เลื่อนครึ่ง track */
-  }
+  transform: scale(1.05);
 }
 
 

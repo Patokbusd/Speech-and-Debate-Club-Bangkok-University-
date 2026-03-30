@@ -261,14 +261,18 @@ const swiper = new Swiper(".mySwiper", { // เริ่มต้นตั้ง
 ================================= */
 document.addEventListener("DOMContentLoaded", () => {
 
-  const track = document.getElementById("sponsorTrack"); // ดึง track
-  if (!track) return; // กัน error
+  const track = document.getElementById("sponsorTrack");
+  if(!track) return;
 
-  let content = track.innerHTML; // เก็บ content เดิม
+  const logos = Array.from(track.children); // เก็บโลโก้เดิม
 
-  // 🔥 clone จนกว่าจะยาวพอ (มากกว่า 2 เท่าของหน้าจอ)
-  while (track.scrollWidth < window.innerWidth * 2) {
-    track.innerHTML += content; // เพิ่มซ้ำ
+  let i = 0;
+
+  // 🔥 เติมทีละโลโก้จนยาวพอ
+  while(track.scrollWidth < window.innerWidth * 2){
+    const clone = logos[i % logos.length].cloneNode(true); // clone ทีละตัว
+    track.appendChild(clone); // ต่อท้าย
+    i++;
   }
 
 });
