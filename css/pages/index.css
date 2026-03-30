@@ -298,20 +298,21 @@
    ⭐ SUB SPONSOR
    ========================================================= */
 .sponsor-sub{
-  overflow: hidden;
+  overflow: hidden; /* ซ่อนส่วนเกิน */
   width: 100%;
 }
 
 .sponsor-track{
   display: flex;
   align-items: center;
-  width: max-content;
+  width: max-content; /* สำคัญ */
+  will-change: transform; /* ทำให้ลื่น */
 }
 
 .sponsor-track img{
   max-width: 110px;
   margin-right: 40px;
-  flex-shrink: 0; /* 🔥 ห้ามหด */
+  flex-shrink: 0; /* ❗ ห้ามหด */
 }
 
 
