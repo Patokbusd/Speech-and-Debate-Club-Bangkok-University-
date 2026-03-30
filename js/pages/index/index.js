@@ -278,7 +278,7 @@ window.addEventListener("load", () => {
   fillScreen();
 
   let x = 0;
-  let speed = 0.5;
+  let speed = 0.05;
 
   function animate(){
 
