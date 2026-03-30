@@ -267,26 +267,24 @@ document.addEventListener("DOMContentLoaded", () => {
   if (track.dataset.cloned === "true") return;
   track.dataset.cloned = "true";
 
-  // ตรวจสอบว่าต้องเลื่อนหรือไม่
   const containerWidth = track.parentElement.offsetWidth;
-  const trackWidth = track.scrollWidth;
 
-  // ถ้าเนื้อหาไม่พอกว้างกว่า container = ไม่ต้องเลื่อน
-  if (trackWidth <= containerWidth) {
-    return; // จบตรงนี้ โลโก้นิ่ง
+  // clone ทีละภาพจนกว่า track จะยาวพอให้เลื่อน
+  while (track.scrollWidth < containerWidth * 2) {
+    const imgs = Array.from(track.children);
+    imgs.forEach(img => {
+      const clone = img.cloneNode(true);
+      track.appendChild(clone);
+    });
   }
 
-  // clone 1 รอบสำหรับการเลื่อน
-  track.innerHTML += track.innerHTML;
-
-  // ===== ระบบเลื่อน =====
-  let speed = 0.6; // 🔥 ปรับตรงนี้ (ยิ่งน้อย = ช้า)
+  let speed = 0.8; // ปรับความเร็วได้
   let x = 0;
 
   function animate() {
     x -= speed;
 
-    // รีเซตเมื่อเลื่อนครบครึ่ง
+    // รีเซตเมื่อเลื่อนครบ track ทั้งหมด
     if (x <= -track.scrollWidth / 2) {
       x = 0;
     }

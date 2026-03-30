@@ -294,27 +294,29 @@
     opacity: 0.7; /* จาง */
 }
 
+
+
 /* =========================================================
    ⭐ SUB SPONSOR
    ========================================================= */
-.sponsor-sub{
+.sponsor-sub {
   overflow: hidden; /* ซ่อนส่วนเกิน */
   width: 100%;
+  background: #fff; /* ปรับตามธีม */
 }
 
-.sponsor-track{
+.sponsor-track {
   display: flex;
   align-items: center;
   width: max-content; /* สำคัญ */
   will-change: transform; /* ทำให้ลื่น */
 }
 
-.sponsor-track img{
+.sponsor-track img {
   max-width: 110px;
   margin-right: 40px;
   flex-shrink: 0; /* ❗ ห้ามหด */
 }
-
 
 
 
