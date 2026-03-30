@@ -295,49 +295,49 @@
 }
 
 /* =========================================================
-   ⭐ SUB SPONSOR (สำคัญ)
+   ⭐ SUB SPONSOR
    ========================================================= */
-
-/* ===== container ===== */
 .sponsor-sub{
   overflow: hidden; /* ซ่อนส่วนเกิน */
-  position: relative; /* ใช้กับ effect */
+  width: 100%; /* เต็มจอ */
 }
 
-/* ===== track ===== */
+/* =========================================================
+   🔹 track ที่เลื่อน
+   ========================================================= */
 .sponsor-track{
   display: flex; /* เรียงแนวนอน */
-  gap: 40px; /* ระยะห่าง */
-  width: max-content; /* กว้างตาม content */
+  gap: 40px; /* ระยะห่างโลโก้ */
+  width: max-content; /* กว้างตามเนื้อหา */
 
-  animation: scrollLoop linear infinite; /* เลื่อน */
+  animation: scrollLoop 25s linear infinite; /* เลื่อน */
 }
 
-/* ===== animation (ใช้ตัวแปรจาก JS) ===== */
+/* =========================================================
+   🔹 logo
+   ========================================================= */
+.sponsor-track img{
+  max-width: 110px; /* ขนาดโลโก้ */
+  opacity: 0.8; /* จางเล็กน้อย */
+  transition: 0.3s; /* smooth */
+}
+
+.sponsor-track img:hover{
+  transform: scale(1.05); /* hover ขยาย */
+}
+
+/* =========================================================
+   🔹 animation (สำคัญมาก)
+   ========================================================= */
 @keyframes scrollLoop{
   from{
     transform: translateX(0); /* เริ่ม */
   }
   to{
-    transform: translateX(calc(-1 * var(--scroll-width))); /* เลื่อนตามความยาวจริง */
+    transform: translateX(-50%); /* เลื่อนครึ่ง track */
   }
 }
 
-/* ===== โลโก้ ===== */
-.sponsor-sub img{
-  max-width: 110px;
-  opacity: 0.8;
-  transition: 0.3s;
-}
-
-.sponsor-sub img:hover{
-  transform: scale(1.05);
-}
-
-/* ===== hover หยุด ===== */
-.sponsor-sub:hover .sponsor-track{
-  animation-play-state: paused;
-}
 
 
 

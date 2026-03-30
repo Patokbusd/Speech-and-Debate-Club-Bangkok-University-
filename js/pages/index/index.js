@@ -261,24 +261,14 @@ const swiper = new Swiper(".mySwiper", { // เริ่มต้นตั้ง
 ================================= */
 document.addEventListener("DOMContentLoaded", () => {
 
-  const track = document.getElementById("sponsorTrack");
-  if(!track) return;
+  const track = document.getElementById("sponsorTrack"); // ดึง track
+  if (!track) return; // กัน error
 
-  const container = track.parentElement;
+  let content = track.innerHTML; // เก็บ content เดิม
 
-  // 1️⃣ clone ไปเรื่อยๆ จนกว้างเกิน container 2 เท่า
-  while(track.scrollWidth < container.offsetWidth * 2){
-    track.innerHTML += track.innerHTML;
+  // 🔥 clone จนกว่าจะยาวพอ (มากกว่า 2 เท่าของหน้าจอ)
+  while (track.scrollWidth < window.innerWidth * 2) {
+    track.innerHTML += content; // เพิ่มซ้ำ
   }
-
-  // 2️⃣ เอาความกว้าง "ครึ่งนึง" (1 loop)
-  const loopWidth = track.scrollWidth / 2;
-
-  // 3️⃣ ส่งค่าไป CSS
-  track.style.setProperty('--scroll-width', loopWidth + 'px');
-
-  // 4️⃣ ปรับความเร็ว (ยิ่งกว้าง → ยิ่งช้า)
-  const speed = loopWidth / 100; // ปรับเลขนี้ได้
-  track.style.animationDuration = speed + 's';
 
 });
