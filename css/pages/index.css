@@ -247,7 +247,7 @@
 .sponsor-section{
     text-align: center; /* จัดข้อความกลาง */
     padding: 50px 20px 200px; /* ระยะรอบ */
-    max-width: 1400px; /* จำกัดความกว้าง */
+    max-width: 1500px; /* จำกัดความกว้าง */
     margin: auto; /* จัดกลาง */
 }
 
@@ -342,7 +342,7 @@
     transform: translateX(0);
   }
   to{
-    transform: translateX(-50%);
+    transform: translateX(-25%);
   }
 }
 
