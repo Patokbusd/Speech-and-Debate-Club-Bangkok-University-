@@ -194,7 +194,7 @@
 
 /* สไลด์แต่ละอัน */
 .swiper-slide {
-  width: 60%;              /* ใช้ % แทน px */
+  width: 65%;              /* ใช้ % แทน px */
   aspect-ratio: 16 / 9;    /* รักษาสัดส่วนวิดีโอ */
   border-radius: 6px; /* มุมโค้ง */
   overflow: hidden; /* ซ่อนส่วนเกิน */
@@ -314,7 +314,7 @@
 
 .sponsor-track img {
   max-width: 110px;
-  margin-right: 40px;
+  margin-right: 0px;
   flex-shrink: 0; /* ❗ ห้ามหด */
 }
 
