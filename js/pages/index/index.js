@@ -278,7 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  let speed = 0.8; // ปรับความเร็วได้
+  let speed = 1.0; // ปรับความเร็วได้
   let x = 0;
 
   function animate() {

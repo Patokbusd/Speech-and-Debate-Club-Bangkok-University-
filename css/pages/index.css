@@ -302,7 +302,7 @@
 .sponsor-sub {
   overflow: hidden; /* ซ่อนส่วนเกิน */
   width: 100%;
-  background: #fff; /* ปรับตามธีม */
+  background: none; /* ปรับตามธีม */
 }
 
 .sponsor-track {
