@@ -263,16 +263,15 @@ const swiper = new Swiper(".mySwiper", { // เริ่มต้นตั้ง
 document.addEventListener("DOMContentLoaded", () => {
 
   const track = document.getElementById("sponsorTrack");
-
   if(!track) return;
 
-  let contentWidth = track.scrollWidth;
-  let containerWidth = track.parentElement.offsetWidth;
+  // 1️⃣ clone ให้มี 2 ชุด (เหมือนกันเป๊ะ)
+  track.innerHTML += track.innerHTML;
 
-  // clone ไปเรื่อยๆจนกว้างพอ
-  while(contentWidth < containerWidth * 2){
-    track.innerHTML += track.innerHTML;
-    contentWidth = track.scrollWidth;
-  }
+  // 2️⃣ คำนวณความกว้าง "ชุดแรก"
+  const width = track.scrollWidth / 2;
+
+  // 3️⃣ ส่งค่าไปใช้ใน CSS
+  track.style.setProperty('--scroll-width', width + 'px');
 
 });
