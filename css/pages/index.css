@@ -299,27 +299,38 @@
    ========================================================= */
 /* container */
 .sponsor-sub{
-  overflow: hidden; /* ซ่อนด้านซ้าย */
+  overflow: hidden;
+  width: 100%;
 }
 
-/* track */
-.sponsor-track{
+/* track หลัก */
+.track{
   display: flex;
-  align-items: center;
+  width: max-content;
+
+  animation: scroll 20s linear infinite;
+}
+
+/* แต่ละชุด */
+.track-content{
+  display: flex;
 }
 
 /* logo */
-.sponsor-track img{
+.track-content img{
   max-width: 110px;
-  margin-right: 40px; /* ใช้ margin แทน gap */
-  opacity: 0.8;
-  transition: 0.3s;
+  margin-right: 40px;
 }
 
-.sponsor-track img:hover{
-  transform: scale(1.05);
+/* 🔥 animation */
+@keyframes scroll{
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-50%);
+  }
 }
-
 
 
 

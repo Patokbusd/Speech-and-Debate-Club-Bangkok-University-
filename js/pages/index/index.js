@@ -256,39 +256,3 @@ const swiper = new Swiper(".mySwiper", { // เริ่มต้นตั้ง
 
 
 
-/* ================================
-   🔹 สปอนเซอร์ (ทำให้เลื่อนไม่ขาด)
-================================= */
-window.addEventListener("load", () => {
-
-  const track = document.getElementById("sponsorTrack");
-  if(!track) return;
-
-  let speed = 0.5; // ความเร็ว
-  let x = 0;
-
-  function animate(){
-
-    x += speed;
-
-    track.style.transform = `translateX(-${x}px)`;
-
-    // 🔥 ดึงรูปแรก
-    const first = track.children[0];
-
-    // 🔥 ถ้ารูปแรกหลุดออกจากจอแล้ว
-    if(first.getBoundingClientRect().right < 0){
-
-      // ลบออกจากหน้า
-      track.appendChild(first); // ย้ายไปท้าย
-
-      // รีเซ็ตตำแหน่ง x
-      x -= first.offsetWidth + 40; // 40 = margin
-    }
-
-    requestAnimationFrame(animate);
-  }
-
-  animate();
-
-});
