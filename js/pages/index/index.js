@@ -259,49 +259,34 @@ const swiper = new Swiper(".mySwiper", { // เริ่มต้นตั้ง
 /* ================================
    🔹 สปอน
 ================================== */
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
   const track = document.getElementById("sponsorTrack");
   if(!track) return;
 
-  // 🔥 STEP 1: เติมโลโก้ให้ "เต็มหน้าจอ + buffer"
-  const fillScreen = () => {
-    const logos = Array.from(track.children);
+  // ❗ กัน clone ซ้ำ (สำคัญมาก)
+  if(track.dataset.cloned === "true") return;
+  track.dataset.cloned = "true";
 
-    while(track.scrollWidth < window.innerWidth * 2){
-      logos.forEach(el => {
-        track.appendChild(el.cloneNode(true));
-      });
-    }
-  };
+  // clone 1 รอบ
+  track.innerHTML += track.innerHTML;
 
-  fillScreen();
-
+  // ===== ระบบเลื่อน =====
+  let speed = 0.3; // 🔥 ปรับตรงนี้ (ยิ่งน้อย = ช้า)
   let x = 0;
-  let speed = 0.2;
 
   function animate(){
+    x -= speed;
 
-    x += speed;
-
-    track.style.transform = `translateX(-${x}px)`;
-
-    const first = track.children[0];
-
-    // 🔥 ถ้าตัวแรกหลุดจอ → ย้ายไปท้ายทันที
-    if(first.getBoundingClientRect().right < 0){
-
-      track.appendChild(first);
-
-      const style = getComputedStyle(first);
-      const margin = parseInt(style.marginRight) || 0;
-
-      x -= first.offsetWidth + margin;
+    // รีเซตเมื่อเลื่อนครบครึ่ง
+    if(x <= -track.scrollWidth / 2){
+      x = 0;
     }
+
+    track.style.transform = `translateX(${x}px)`;
 
     requestAnimationFrame(animate);
   }
 
   animate();
-
 });
