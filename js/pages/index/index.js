@@ -133,16 +133,22 @@ document.addEventListener("DOMContentLoaded", () => { // รอโหลด DOM
 
     let x = 0; // เริ่มตำแหน่ง x ของ transform
 
-    function animate() { // ฟังก์ชัน animation
-      x -= speed; // เลื่อนไปทางซ้าย (+) หรือขวา (-)
+function animate() {
+  x -= speed; // speed บวก = ซ้าย, speed ลบ = ขวา
 
-      if (x <= -track.scrollWidth / 2) { // รีเซตเมื่อเลื่อนครบครึ่ง
-        x = 0; // เริ่มใหม่
-      }
-
-      track.style.transform = `translateX(${x}px)`; // apply transform
-      requestAnimationFrame(animate); // loop animation
+  if (speed > 0) { // เลื่อนซ้าย
+    if (x <= -track.scrollWidth / 2) { // ถ้าเลื่อนซ้ายครบครึ่ง
+      x = 0; // รีเซ็ต
     }
+  } else { // เลื่อนขวา
+    if (x >= 0) { // ถ้าเลื่อนไปขวาจนถึงจุดเริ่มต้น
+      x = -track.scrollWidth / 2; // รีเซ็ตไปด้านซ้ายเพื่อวนต่อเนื่อง
+    }
+  }
+
+  track.style.transform = `translateX(${x}px)`; // apply transform
+  requestAnimationFrame(animate); // loop
+}
 
     animate(); // เริ่ม animate
   }
