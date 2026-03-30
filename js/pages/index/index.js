@@ -256,22 +256,25 @@ const swiper = new Swiper(".mySwiper", { // เริ่มต้นตั้ง
 
 
 
-
 /* ================================
-   🔹 สปอนเซอร์
-================================== */
+   🔹 สปอนเซอร์ (ทำให้เลื่อนไม่ขาด)
+================================= */
+
 document.addEventListener("DOMContentLoaded", () => {
 
-  const track = document.getElementById("sponsorTrack");
-  if(!track) return;
+  const track = document.getElementById("sponsorTrack"); // ดึง track
+  if(!track) return; // ถ้าไม่มีให้หยุด
 
-  // 1️⃣ clone ให้มี 2 ชุด (เหมือนกันเป๊ะ)
+  // 1️⃣ clone โลโก้ "ทั้งชุด"
   track.innerHTML += track.innerHTML;
+  // ตอนนี้มี 2 ชุดต่อกัน
 
-  // 2️⃣ คำนวณความกว้าง "ชุดแรก"
+  // 2️⃣ หาความกว้างของ "ชุดแรก"
   const width = track.scrollWidth / 2;
 
-  // 3️⃣ ส่งค่าไปใช้ใน CSS
+  // 3️⃣ ส่งค่าไปให้ CSS animation ใช้
   track.style.setProperty('--scroll-width', width + 'px');
 
 });
+
+  
