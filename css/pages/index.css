@@ -73,7 +73,7 @@
   align-items: center; /* จัดกลางแนวตั้ง */
   text-align: center; /* ข้อความชิดกลาง */
   width: 100%; /* ความกว้างเต็มจอ */
-  padding: clamp(60px, 8vw, 120px) 20px; /* ปรับ padding ตามขนาดหน้าจอ */
+padding: clamp(40px, 5vw, 80px) 20px; /* แทนเดิม 60–120px */
 
   box-sizing: border-box;
 
@@ -94,7 +94,7 @@
 .hero-divider{
   width: 100%;
   max-width: 400px;
-  margin: 5px auto;
+  margin: 15px auto;
   border: none;
   height: 1px;
   background: white;
@@ -217,8 +217,8 @@
 .swiper {
   width: 100%; /* ความกว้าง 100% */
   max-width: 100%; /* ไม่เกิน 1300px */
-  margin-top: 180px; /* ระยะห่างจากด้านบน */
-  margin-bottom: 200px; /* ระยะห่างจากด้านล่าง */
+  margin-top: 100px; /* ระยะห่างจากด้านบน */
+  margin-bottom: 120px; /* ระยะห่างจากด้านล่าง */
   padding: 40px 0; /* ระยะห่างบนล่างด้านใน */
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); /* เพิ่ม effect fade ขอบซ้ายขวา */
 }
