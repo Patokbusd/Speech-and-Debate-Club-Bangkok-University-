@@ -112,6 +112,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* =========================================================
+   ❗️preview ภาพ❗️
+   ========================================================= */
+document.addEventListener("DOMContentLoaded", () => { // รอโหลด DOM
+
+  function initPreviewTrack(trackId, speed) { // ฟังก์ชันสร้างแถวเลื่อน
+    const track = document.getElementById(trackId); // ดึง track ตาม id
+    if (!track) return; // ถ้าไม่เจอ track → จบ
+
+    if (track.dataset.cloned === "true") return; // กัน clone ซ้ำ
+    track.dataset.cloned = "true"; // กำหนด flag ว่า clone แล้ว
+
+    const containerWidth = track.parentElement.offsetWidth; // วัดความกว้าง container
+
+    while (track.scrollWidth < containerWidth * 2) { // clone ทีละภาพจนยาวพอ
+      Array.from(track.children).forEach(img => { // วนทุก img
+        track.appendChild(img.cloneNode(true)); // clone และต่อท้าย
+      });
+    }
+
+    let x = 0; // เริ่มตำแหน่ง x ของ transform
+
+    function animate() { // ฟังก์ชัน animation
+      x -= speed; // เลื่อนไปทางซ้าย (+) หรือขวา (-)
+
+      if (x <= -track.scrollWidth / 2) { // รีเซตเมื่อเลื่อนครบครึ่ง
+        x = 0; // เริ่มใหม่
+      }
+
+      track.style.transform = `translateX(${x}px)`; // apply transform
+      requestAnimationFrame(animate); // loop animation
+    }
+
+    animate(); // เริ่ม animate
+  }
+
+  initPreviewTrack("previewTrackTop", 1.0); // แถวบน เลื่อนซ้าย
+  initPreviewTrack("previewTrackBottom", -1.0); // แถวล่าง เลื่อนขวา
+
+}); // จบ DOMContentLoaded
+
+
+
+
+/* =========================================================
    🔥 แสดง 3 ข่าวล่าสุดในหน้า Home
    ใช้โครงสร้างเดียวกับ news.js 100%
    ========================================================= */
