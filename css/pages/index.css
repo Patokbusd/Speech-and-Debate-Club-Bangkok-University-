@@ -176,7 +176,7 @@ padding: clamp(40px, 5vw, 80px) 20px; /* แทนเดิม 60–120px */
   display: flex; /* ใช้ flex layout */
   flex-direction: column; /* จัดเป็นแนวตั้ง (2 แถว) */
   gap: 0px; /* ระยะห่างระหว่างแถวบนและล่าง */
-  margin-bottom: 60px;   /* เพิ่มระยะห่างด้านล่างก่อนส่วนต่อไป */
+  margin-bottom: 100px;   /* เพิ่มระยะห่างด้านล่างก่อนส่วนต่อไป */
 }
 
 .preview-track { /* แต่ละแถว */
@@ -225,7 +225,7 @@ padding: clamp(40px, 5vw, 80px) 20px; /* แทนเดิม 60–120px */
 
 /* สไลด์แต่ละอัน */
 .swiper-slide {
-  width: 50%;              /* ใช้ % แทน px */
+  width: 60%;              /* ใช้ % แทน px */
   aspect-ratio: 16 / 9;    /* รักษาสัดส่วนวิดีโอ */
   border-radius: 6px; /* มุมโค้ง */
   overflow: hidden; /* ซ่อนส่วนเกิน */
