@@ -105,12 +105,13 @@
 
 /* ===== Responsive sponsor ===== */
 @media (max-width: 768px){
-  
+
     .sponsor-row{
         gap: 25px; /* ลดช่องว่างให้พอดีมือถือ */
     }
     .sponsor-main img{
-        max-width: 130px;
+        width: calc(50% - 15px); /* 2 ตัวต่อแถว */
+        max-width: 140px;
     }
 
     .sponsor-sub img{
@@ -121,8 +122,12 @@
         width: 80%;
     }
 
-}
+    .sponsor-main{
+        gap: 15px;
+    }
 
+
+}
 
 
 /* ===== Responsive quiz ===== */
