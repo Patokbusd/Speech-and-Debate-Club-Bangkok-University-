@@ -105,7 +105,10 @@
 
 /* ===== Responsive sponsor ===== */
 @media (max-width: 768px){
-
+  
+    .sponsor-row{
+        gap: 25px; /* ลดช่องว่างให้พอดีมือถือ */
+    }
     .sponsor-main img{
         max-width: 130px;
     }
