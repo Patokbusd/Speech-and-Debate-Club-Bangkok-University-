@@ -319,7 +319,7 @@ padding: clamp(40px, 5vw, 80px) 20px; /* แทนเดิม 60–120px */
 }
 
 .sponsor-main img{
-    width: calc(50% - 20px); /* มือถือเหลือ 2 โลโก้ต่อแถว */
+    width: 180px;
     max-width: 180px;
     height: auto;
 }
