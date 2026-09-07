@@ -324,6 +324,22 @@ padding: clamp(40px, 5vw, 80px) 20px; /* แทนเดิม 60–120px */
     height: auto;
 }
 
+/* ⭐ Effect ตอนเอาเมาส์วางบนโลโก้ */
+.sponsor-main a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sponsor-main img{
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.sponsor-main a:hover img{
+    transform: translateY(-10px) scale(1.05);
+    filter: drop-shadow(0 12px 12px rgba(0,0,0,0.15));
+}
+
 /* =========================================================
    ⭐ DIVIDER (เส้นแบ่ง)
    ========================================================= */
